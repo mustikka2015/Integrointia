@@ -21,4 +21,7 @@ Ohjelma on suunniteltu oppimisen avuksi opiskelijoille, jotka opiskelevat integr
 
 Mikäli toimintoja on liikaa yhteen harjoitustyökurssiin, niistä valitaan osa toteutettavaksi kurssin aikana.
 
+Määrittelyvaiheen luokkakaavio:
+![Luokkakaavio](/imkatka/Integrointia/dokumentaatio/Luokkakaavio.jpg)
+
 
