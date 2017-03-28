@@ -20,33 +20,31 @@ public class SinCos {
         this.integoitu = false;
 
     }
-    
+
     public double getKerroin() {
         return this.kerroin;
     }
-    
+
     public double getSisafunktionKerroin() {
         return this.sisaFunktionKerroin;
     }
-    
-    public String  getFunktio() {
+
+    public String getFunktio() {
         return this.funktio;
     }
-    
+
     public boolean getIntergroitu() {
         return this.integoitu;
     }
-    
+
     public void setKerroin(double luku) {
         this.kerroin = luku;
     }
-    
+
     public void setSisafunktionKerroin(double luku) {
         this.sisaFunktionKerroin = luku;
     }
-    
-    
-    
+
     public void derivoi() {
         if (this.funktio.equals("sin")) {
             this.kerroin = this.kerroin * this.sisaFunktionKerroin;
@@ -56,9 +54,9 @@ public class SinCos {
             this.funktio = "sin";
         }
         this.integoitu = false;
-        
+
     }
-    
+
     public void integroi() {
         if (this.funktio.equals("sin")) {
             this.kerroin = -1 * this.kerroin / this.sisaFunktionKerroin;
@@ -69,15 +67,15 @@ public class SinCos {
         }
         this.integoitu = true;
     }
-    
+
     public String toString() {
-        
-        String tulostus = Double.toString(this.kerroin) + " * "+ this.funktio + "(" + Double.toString(this.sisaFunktionKerroin) + "x)";
-        
+
+        String tulostus = Double.toString(this.kerroin) + " * " + this.funktio + "(" + Double.toString(this.sisaFunktionKerroin) + "x)";
+
         if (this.integoitu == true) {
             tulostus = tulostus + " + C";
         }
-        
+
         return tulostus;
     }
 }
