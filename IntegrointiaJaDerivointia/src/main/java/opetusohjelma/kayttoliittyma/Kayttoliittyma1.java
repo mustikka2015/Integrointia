@@ -35,8 +35,8 @@ public class Kayttoliittyma1 implements Runnable {
         container.setLayout(layout);
 
         JTextArea textArea = new JTextArea("\n Valitse funktion \n tai pyydä konetta \n arpomaan sen");
-        JButton arvoNappi = new JButton("Arvo");
-        JButton valitseNappi = new JButton("Valitse");
+        JButton arvoNappi = new JButton("Arpominen");
+        JButton valitseNappi = new JButton("Valitseminen");
 
         container.add(arvoNappi);
         container.add(textArea);
