@@ -10,6 +10,6 @@ Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. O
 
 ## Raportit
 
-[pit-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/javalabra/blob/master/documentation/pit-reports/index.html)
+[pit-raportti](https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/pit/201703301707)
 
-[checkstylegit s-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/javalabra/blob/master/documentation/pit-reports/index.html)
+[checkstyle-raportti](https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/checkstyle/site)
