@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 
 public class Kayttoliittyma2 {
     
+   //Tässä on käyttöliittymän toisen, CardLayout-version alku.
 
    private JFrame mainFrame;
    private JLabel headerLabel;
@@ -40,7 +41,7 @@ public class Kayttoliittyma2 {
       vaihtoehto2.showCardLayoutDemo();       
    }
    private void prepareGUI(){
-      mainFrame = new JFrame("Java SWING Examples");
+      mainFrame = new JFrame("Integration and derivation");
       mainFrame.setSize(400,400);
       mainFrame.setLayout(new GridLayout(3, 1));
       
@@ -62,10 +63,10 @@ public class Kayttoliittyma2 {
       mainFrame.setVisible(true);  
    }
    private void showCardLayoutDemo(){
-      headerLabel.setText("Layout in action: CardLayout");      
+      headerLabel.setText("Choose a function or draw lots to decide it");      
 
       final JPanel panel = new JPanel();
-      panel.setBackground(Color.CYAN);
+//      panel.setBackground(Color.CYAN);
       panel.setSize(300,300);
 
       CardLayout layout = new CardLayout();
@@ -74,24 +75,25 @@ public class Kayttoliittyma2 {
       panel.setLayout(layout);        
       
       JPanel buttonPanel = new JPanel(new FlowLayout());
-      buttonPanel.add(new JButton("OK"));
-      buttonPanel.add(new JButton("Cancel"));    
+      buttonPanel.add(new JButton("Polynom"));
+      buttonPanel.add(new JButton("Sine"));  
+      buttonPanel.add(new JButton("Cosine")); 
 
       JPanel textBoxPanel = new JPanel(new FlowLayout());
-      textBoxPanel.add(new JLabel("Name:"));
-      textBoxPanel.add(new JTextField(20));
+//      textBoxPanel.add(new JLabel("Name:"));
+//      textBoxPanel.add(new JTextField(20));
 
-      panel.add("Button", buttonPanel);
-      panel.add("Text", textBoxPanel);
+      panel.add("You choose", buttonPanel);
+      panel.add("Computer chooses", textBoxPanel);
       final DefaultComboBoxModel panelName = new DefaultComboBoxModel();
 
-      panelName.addElement("Button");
-      panelName.addElement("Text");
+      panelName.addElement("You choose");
+      panelName.addElement("Computer chooses");
       final JComboBox listCombo = new JComboBox(panelName);    
       
       listCombo.setSelectedIndex(0);
       JScrollPane listComboScrollPane = new JScrollPane(listCombo);    
-      JButton showButton = new JButton("Show");
+      JButton showButton = new JButton("Change");
 
       showButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) { 

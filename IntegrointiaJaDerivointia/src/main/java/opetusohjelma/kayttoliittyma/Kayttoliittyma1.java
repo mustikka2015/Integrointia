@@ -11,6 +11,8 @@ import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
 public class Kayttoliittyma1 implements Runnable {
+    
+    //Tässä on käyttöliittymän ensimmäinen versio.
 
     private JFrame frame;
 
