@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 2,
-             Errors: 96,
+      <title>File: 6,
+             Errors: 0,
              Warnings: 0,
              Infos: 0
       </title>
@@ -55,7 +55,49 @@ under the License.
                   0
                 </td>
                 <td>
-                  50
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.Kayttoliittyma2.java">opetusohjelma/kayttoliittyma/Kayttoliittyma2.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.Kayttoliittyma1.java">opetusohjelma/kayttoliittyma/Kayttoliittyma1.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.Valinnan1Kuuntelija.java">opetusohjelma/kayttoliittyma/Valinnan1Kuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -69,7 +111,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  46
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.Main.java">opetusohjelma/kayttoliittyma/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                       </tbody>
