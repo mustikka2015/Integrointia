@@ -12,21 +12,21 @@ public class Polynomi {
         this.kerroin = kerroin;
         this.luonnollinenLogaritmi = false;
         this.integroitu = 0;
-        
+
     }
-    
+
     public int getEksponentti() {
         return this.eksponentti;
     }
-    
+
     public double getKerroin() {
         return this.kerroin;
     }
-    
+
     public int getIntegroitu() {
         return this.integroitu;
     }
-    
+
     public boolean getLuonnollinenLogaritmi() {
         return this.luonnollinenLogaritmi;
     }
@@ -61,17 +61,16 @@ public class Polynomi {
         String tulostus = "";
         if (this.luonnollinenLogaritmi == false && this.integroitu == 0) {
             tulostus = this.kerroin + " * x^(" + this.eksponentti + ")";
-            
+
         } else if (this.luonnollinenLogaritmi == false && this.integroitu == 1) {  //En ole vielä päätänyt, voiko integroida monta kertaa peräkkäin.
-                                                                                   // Mikäli voi, täytyy tulostukset muokata sen mukaiseksi.
+            // Mikäli voi, täytyy tulostukset muokata sen mukaiseksi.
             tulostus = this.kerroin + " * x^(" + this.eksponentti + ") + C";
-            
+
         } else {
             tulostus = this.kerroin + " * ln|x| + C";
         }
-        
+
         return tulostus;
     }
 
-    
 }
