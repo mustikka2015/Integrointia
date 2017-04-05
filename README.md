@@ -1,4 +1,4 @@
-# Integrointia ja derivointia
+﻿# Integrointia ja derivointia
 
 Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. Ohjelma integroi että derivoi polynomifunktioita ja trigonometrisiä funktioita. Lisäksi se arpoo opiskelijalle tehtäviä integroitavaksi tai derivoitavaksi. Mahdollisesti ohjelman avulla voidaan myös piirtää kyseisiä funktioita, mieluiten niin, että integroitu tai derivoitu funktio näkyy alkuperäisen funktion kanssa yhtä aikaa.
 
@@ -10,6 +10,6 @@ Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. O
 
 ## Raportit
 
-[pit-raportti](https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/pit/201703301707)
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/pit/201703301707/index.html)
 
-[checkstyle-raportti](https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/checkstyle/site)
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/checkstyle/site/checkstyle.html)
