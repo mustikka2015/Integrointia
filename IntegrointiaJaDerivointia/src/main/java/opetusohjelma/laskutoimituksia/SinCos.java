@@ -1,5 +1,9 @@
 package opetusohjelma.laskutoimituksia;
 
+/**
+ * Luokka tarjoaa sini- ja cosinifunktioiden integrointiin ja derivointiin tarvittavia metodeja.
+ */
+
 public class SinCos {
 
     private double kerroin;

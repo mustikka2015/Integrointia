@@ -39,7 +39,7 @@ public class Kayttoliittyma1 implements Runnable {
         JTextArea textArea = new JTextArea("\n Choose a function \n or ask the computer \n to draw lots to decide it");
         JButton arvoNappi = new JButton("Computer \n chooses");
         JButton valitseNappi = new JButton("You choose");
-        Valinnan1Kuuntelija valitsija = new Valinnan1Kuuntelija();
+        ValinnanSelectKuuntelija valitsija = new ValinnanSelectKuuntelija();
         
         arvoNappi.addActionListener(valitsija);
         valitseNappi.addActionListener(valitsija);

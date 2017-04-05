@@ -66,7 +66,7 @@ public class Kayttoliittyma2 {
       headerLabel.setText("Choose a function or draw lots to decide it");      
 
       final JPanel panel = new JPanel();
-//      panel.setBackground(Color.CYAN);
+
       panel.setSize(300,300);
 
       CardLayout layout = new CardLayout();
@@ -79,12 +79,16 @@ public class Kayttoliittyma2 {
       buttonPanel.add(new JButton("Sine"));  
       buttonPanel.add(new JButton("Cosine")); 
 
-      JPanel textBoxPanel = new JPanel(new FlowLayout());
+      
+      JPanel selectPanel = new JPanel(new FlowLayout());
+      
+      selectPanel.add(new JButton("Select"));
+      
 //      textBoxPanel.add(new JLabel("Name:"));
 //      textBoxPanel.add(new JTextField(20));
 
       panel.add("You choose", buttonPanel);
-      panel.add("Computer chooses", textBoxPanel);
+      panel.add("Computer chooses", selectPanel);
       final DefaultComboBoxModel panelName = new DefaultComboBoxModel();
 
       panelName.addElement("You choose");

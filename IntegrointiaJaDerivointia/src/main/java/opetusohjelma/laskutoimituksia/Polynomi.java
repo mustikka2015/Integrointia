@@ -1,5 +1,9 @@
 package opetusohjelma.laskutoimituksia;
 
+/**
+ * Luokka tarjoaa polynomien integrointiin ja derivointiin tarvittavia metodeja.
+ */
+
 public class Polynomi {
 
     private int eksponentti;
