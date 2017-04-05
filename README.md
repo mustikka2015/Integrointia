@@ -10,6 +10,6 @@ Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. O
 
 ## Raportit
 
-[pit-raportti](https://htmlpreview.github.io/?Integrointia/dokumentaatio/pit/201703301707/index.html)
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/blob/master/dokumentaatio/pit/201703301707/index.html)
 
-[checkstyle-raportti](https://htmlpreview.github.io/?Integrointia/dokumentaatio/checkstyle/site/checkstyle.html )
+[checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/blob/master/dokumentaatio/checkstyle/site/checkstyle.html )
