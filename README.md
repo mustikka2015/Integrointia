@@ -12,4 +12,4 @@ Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. O
 
 [pit-raportti](http://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/pit/201703301707/index.html)
 
-[checkstyle-raportti](http://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/tree/master/dokumentaatio/checkstyle/site/checkstyle.html)
+[checkstyle-raportti](http://htmlpreview.github.io/?https://raw.githubusercontent.com/mustikka2015/Integrointia/tree/master/dokumentaatio/checkstyle/site/checkstyle.html)
