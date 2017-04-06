@@ -1,16 +1,30 @@
 package opetusohjelma.laskutoimituksia;
 
 /**
- * Luokka tarjoaa sini- ja cosinifunktioiden integrointiin ja derivointiin tarvittavia metodeja.
+ * Luokka tarjoaa sini- ja cosinifunktioiden integrointiin ja derivointiin
+ * tarvittavia metodeja.
  */
-
 public class SinCos {
 
     private double kerroin;
     private double sisaFunktionKerroin;
-    private String funktio;                 //Sini vai kosini
+    /**
+     * Merkkijono funktio kertoo, onko funktio sini vai kosini.
+     */
+    private String funktio;
+    /**
+     * Integroitu-muuttujan arvo on true, mikäli funktio on integroitu. Mikäli
+     * funktiota ei ole integroitu, muuttujan arvo on false.
+     */
     private boolean integoitu;
 
+    /**
+     * Konstruktorissa hyväksytään sinin ja kosinin kirjoittamien sekä isolla
+     * että pienellä alkukirjaimella. Huomioidaan myös kirjoitusvirheen mahdollisuus,
+     * jolloin funktio on tyhjä merkkijono.
+     * Konstruktorissa alustetaan käyttäjän syöttämän funktion kerroin ja sisäfunktion kerroin.
+     * Muuttuja "integroitu" alustetaan epätodeksi.
+     */
     public SinCos(double kerroin, double sisaFunktionKerroin, String funktio) {
         this.kerroin = kerroin;
         this.sisaFunktionKerroin = sisaFunktionKerroin;
@@ -48,7 +62,12 @@ public class SinCos {
     public void setSisafunktionKerroin(double luku) {
         this.sisaFunktionKerroin = luku;
     }
-
+    
+    /**
+     * Metodin avulla funktio derivoidaan. Derivointi suoritetaan
+     * muuttamalla kertoimen arvoa sekä sini kosiniksi tai kosini siniksi. 
+     * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
+     */
     public void derivoi() {
         if (this.funktio.equals("sin")) {
             this.kerroin = this.kerroin * this.sisaFunktionKerroin;
@@ -61,6 +80,11 @@ public class SinCos {
 
     }
 
+    /**
+     * Metodin avulla funktio integroidaan. Integrointi suoritetaan
+     * muuttamalla kertoimen arvoa sekä sini kosiniksi tai kosini siniksi. 
+     * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
+     */
     public void integroi() {
         if (this.funktio.equals("sin")) {
             this.kerroin = -1 * this.kerroin / this.sisaFunktionKerroin;
@@ -71,7 +95,12 @@ public class SinCos {
         }
         this.integoitu = true;
     }
-
+    
+    /**
+     * Metodin avulla tulostetaan funktio merkkijonona.
+     * 
+     * @return funktio merkkijonomuodossa.
+     */
     public String toString() {
 
         String tulostus = Double.toString(this.kerroin) + " * " + this.funktio + "(" + Double.toString(this.sisaFunktionKerroin) + "x)";

@@ -10,15 +10,22 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
-public class Kayttoliittyma1 implements Runnable {
-    
-    //Tässä on käyttöliittymän ensimmäinen versio.
+/**
+ * Tämän luokka sisältää ensimmäisen käyttöliittymäversion aloitussivusta.
+ * Ensimmäisellä sivulla valitaan, arpooko tietokone integroitavan tai
+ * derivoitavan funktion, vai valitseeko opiskelija itse funktion. Vaikka olen
+ * päättänyt valita toisen version, säilytän tätä vielä varmuuden vuoksi.
+ */
+public class HylattyVersioGUI implements Runnable {
 
     private JFrame frame;
 
-    public Kayttoliittyma1() {
+    public HylattyVersioGUI() {
     }
 
+    /**
+     * Metodi luo JFrame-olion ja alustaa sen halutunlaiseksi.
+     */
     @Override
     public void run() {
         frame = new JFrame("Integration and derivation");
@@ -32,6 +39,9 @@ public class Kayttoliittyma1 implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Metodissa alustetaan JFrame-olion layout ja luodaan komponentit, jotka lisätään layoutiin.
+     */
     private void luoKomponentit(Container container) {
         GridLayout layout = new GridLayout(1, 3);
         container.setLayout(layout);
@@ -40,10 +50,10 @@ public class Kayttoliittyma1 implements Runnable {
         JButton arvoNappi = new JButton("Computer \n chooses");
         JButton valitseNappi = new JButton("You choose");
         ValinnanSelectKuuntelija valitsija = new ValinnanSelectKuuntelija();
-        
+
         arvoNappi.addActionListener(valitsija);
         valitseNappi.addActionListener(valitsija);
-        
+
         container.add(arvoNappi);
         container.add(textArea);
         container.add(valitseNappi);

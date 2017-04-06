@@ -1,4 +1,4 @@
-### Tuntikirjanpito
+﻿### Tuntikirjanpito
 Päivä | Tunnit | Kuvaus
 --------------- | ----- | ------
 15.03.2017 | 1,0 h | Repositorion luominen ja aiheen valinta.
@@ -8,5 +8,5 @@ Päivä | Tunnit | Kuvaus
 28.03.2017 | 1,5 h | Virheiden korjaaminen ja kommunikaatioluokka, jonka poistin myöhemmin turhana.
 29.03.2017 | 2,0 h | Käyttöliittymän aloittaminen. Ensimmäisestä käyttöliittymästä ensimmäinen versio.
 30.03.2017 | 2,5 h | Käyttöliittymän jatkaminen. Ensimmäisestä käyttöliittymästä toinen, erilainen versio. Korjauksia & raportointia.
-
-
+5.4.2017   | 2,0 h | Raporttien saattaminen näkyviin oikealla tavalla ja arvonta-luokan aloitus. Javadoc-kommentoinnin aloitus.
+6.4.2017   | 4,5 h | Arvonta-luokka loppuun. Testit arvonta-luokalle. Javadoc loppuun. Käyttöliittymänäkymien suunnittelu paperilla ja muokkauksen aloitus.
