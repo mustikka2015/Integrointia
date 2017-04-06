@@ -64,7 +64,8 @@ public class AloitusGUI {
     }
 
     /**
-     * Metodi luo CardLayout-näkymät.
+     * Metodi luo CardLayout-näkymän ja sen paneelit painikkeineen sekä 
+     * valintatoiminnallisuuden kahden eri paneelin välillä.
      */
     public void showCardLayout() {
         headerLabel.setText("Choose a function or draw lots to decide it");
@@ -86,7 +87,8 @@ public class AloitusGUI {
         JPanel selectPanel = new JPanel(new FlowLayout());
 
         selectPanel.add(new JButton("Select"));
-
+        
+        
 //      textBoxPanel.add(new JLabel("Name:"));
 //      textBoxPanel.add(new JTextField(20));
         panel.add("You choose", buttonPanel);
