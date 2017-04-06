@@ -16,10 +16,9 @@ public class ValinnanSelectKuuntelija implements ActionListener {
     }
 
     /**
-     * Tämän metodin avulla on tarkoitus kuunnella select-näppäintä.
-     * Kuuntelun tuloksena tietokone näytäteeän uusi käyttöliittymänäkymä,
-     * johon tietokone on arponut funktion ja pyytää integroimaan tai
-     * derivoimaan funktion.
+     * Tämän metodin avulla on tarkoitus kuunnella select-näppäintä. Kuuntelun
+     * tuloksena tietokone näytäteeän uusi käyttöliittymänäkymä, johon tietokone
+     * on arponut funktion ja pyytää integroimaan tai derivoimaan funktion.
      * Toiminnallisuutta ei ole vielä lisätty.
      */
     @Override

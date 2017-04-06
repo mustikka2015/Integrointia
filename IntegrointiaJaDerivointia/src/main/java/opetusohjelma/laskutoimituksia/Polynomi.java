@@ -82,7 +82,8 @@ public class Polynomi {
      * Metodin avulla polynomifunktio integroidaan. Integrointi suoritetaan
      * muuttamalla kertoimen ja eksponentin arvoja. Integroitu-muuttujan arvo
      * muutetaan integroidessa 1:ksi. Mikäli eksponentin arvo ennen integrointia
-     * on -1, integroidessa asetetaan todeksi se, että funktio on luonnollinen logaritmi.
+     * on -1, integroidessa asetetaan todeksi se, että funktio on luonnollinen
+     * logaritmi.
      */
     public void integroi() {
         if (this.eksponentti != -1) {
@@ -98,7 +99,7 @@ public class Polynomi {
 
     /**
      * Metodin avulla tulostetaan polynomifunktio merkkijonona.
-     * 
+     *
      * @return funktio merkkijonomuodossa.
      */
     public String toString() {

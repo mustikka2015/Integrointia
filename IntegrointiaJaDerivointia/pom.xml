@@ -40,10 +40,12 @@
     <configuration>
         <targetClasses>
             <param>opetusohjelma.laskutoimituksia.*</param>
+            <param>opetusohjelma.kayttoliittyma.Arpoja</param>
             
         </targetClasses>
         <targetTests>
             <param>opetusohjelma.laskutoimituksia.*</param>
+            <param>opetusohjelma.kayttoliittyma.ArpojaTest</param>
             
         </targetTests>
     </configuration>

@@ -5,8 +5,8 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="Kayttoliittyma1.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="Kayttoliittyma2.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="HylattyVersioGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="AloitusGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="Valinnan1Kuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanSelectKuuntelija.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

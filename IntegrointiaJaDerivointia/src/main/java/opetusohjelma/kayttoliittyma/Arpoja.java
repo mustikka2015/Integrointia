@@ -60,11 +60,11 @@ public class Arpoja {
      */
     public double arvoKerroin() {
 
-        double arvottu = (double)(this.arpoja.nextInt(201)-100)/10;
+        double arvottu = (double) (this.arpoja.nextInt(201) - 100) / 10;
 
         return arvottu;
     }
-    
+
     /**
      * Metodi arpoo, integroidaanko vai derivoidaanko funktio.
      *
@@ -76,13 +76,12 @@ public class Arpoja {
 
         vaihtoehdot.add("Integroi");
         vaihtoehdot.add("Derivoi");
-        
+
         int arvottu = this.arpoja.nextInt(vaihtoehdot.size());
-        
+
         String toiminta = vaihtoehdot.get(arvottu);
-        
+
         return toiminta;
     }
-    
-    
+
 }

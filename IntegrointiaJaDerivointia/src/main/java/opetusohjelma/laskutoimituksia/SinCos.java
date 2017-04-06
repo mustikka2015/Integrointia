@@ -20,9 +20,9 @@ public class SinCos {
 
     /**
      * Konstruktorissa hyväksytään sinin ja kosinin kirjoittamien sekä isolla
-     * että pienellä alkukirjaimella. Huomioidaan myös kirjoitusvirheen mahdollisuus,
-     * jolloin funktio on tyhjä merkkijono.
-     * Konstruktorissa alustetaan käyttäjän syöttämän funktion kerroin ja sisäfunktion kerroin.
+     * että pienellä alkukirjaimella. Huomioidaan myös kirjoitusvirheen
+     * mahdollisuus, jolloin funktio on tyhjä merkkijono. Konstruktorissa
+     * alustetaan käyttäjän syöttämän funktion kerroin ja sisäfunktion kerroin.
      * Muuttuja "integroitu" alustetaan epätodeksi.
      */
     public SinCos(double kerroin, double sisaFunktionKerroin, String funktio) {
@@ -62,10 +62,10 @@ public class SinCos {
     public void setSisafunktionKerroin(double luku) {
         this.sisaFunktionKerroin = luku;
     }
-    
+
     /**
-     * Metodin avulla funktio derivoidaan. Derivointi suoritetaan
-     * muuttamalla kertoimen arvoa sekä sini kosiniksi tai kosini siniksi. 
+     * Metodin avulla funktio derivoidaan. Derivointi suoritetaan muuttamalla
+     * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
      * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
      */
     public void derivoi() {
@@ -81,8 +81,8 @@ public class SinCos {
     }
 
     /**
-     * Metodin avulla funktio integroidaan. Integrointi suoritetaan
-     * muuttamalla kertoimen arvoa sekä sini kosiniksi tai kosini siniksi. 
+     * Metodin avulla funktio integroidaan. Integrointi suoritetaan muuttamalla
+     * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
      * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
      */
     public void integroi() {
@@ -95,10 +95,10 @@ public class SinCos {
         }
         this.integoitu = true;
     }
-    
+
     /**
      * Metodin avulla tulostetaan funktio merkkijonona.
-     * 
+     *
      * @return funktio merkkijonomuodossa.
      */
     public String toString() {

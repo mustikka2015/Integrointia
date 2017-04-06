@@ -73,34 +73,34 @@ public class PolynomiTest {
         String kerroin = Double.toString(ker);
         assertEquals("1.0", kerroin);
     }
-    
+
     @Test
     public void integroituMuuttujaOikeinTest2() {
         Polynomi pol = new Polynomi(4, 5.0);
         pol.integroi();
         int onko = pol.getIntegroitu();
-        
+
         assertEquals(1, onko);
     }
-    
+
     @Test
     public void onkoLuonnollinenLogaritmiOikeinTest1() {
         Polynomi pol = new Polynomi(-1, 5.0);
         pol.integroi();
         boolean onko = pol.getLuonnollinenLogaritmi();
-        
+
         assertEquals(onko, true);
     }
-    
+
     @Test
     public void onkoLuonnollinenLogaritmiOikeinTest2() {
         Polynomi pol = new Polynomi(-2, 5.0);
         pol.integroi();
         boolean onko = pol.getLuonnollinenLogaritmi();
-        
+
         assertEquals(onko, false);
     }
-    
+
     @Test
     public void derivoituEksponenttiOikeinTest() {
         Polynomi pol = new Polynomi(4, 5.0);
@@ -117,24 +117,24 @@ public class PolynomiTest {
         String kerroin = Double.toString(ker);
         assertEquals("20.0", kerroin);
     }
-    
+
     @Test
     public void integroituMuuttujaOikeinTest3() {
         Polynomi pol = new Polynomi(4, 5.0);
         pol.derivoi();
         int onko = pol.getIntegroitu();
-        
+
         assertEquals(0, onko);
     }
-    
+
     @Test
     public void tulostusOikeinTest() {
         Polynomi pol = new Polynomi(4, 5.0);
-       
+
         String tulostus = pol.toString();
         assertEquals("5.0 * x^(4)", tulostus);
     }
-    
+
     @Test
     public void tulostusOikeinIntegroidessaTest1() {
         Polynomi pol = new Polynomi(4, 5.0);
@@ -142,7 +142,7 @@ public class PolynomiTest {
         String tulostus = pol.toString();
         assertEquals("1.0 * x^(5) + C", tulostus);
     }
-    
+
     @Test
     public void tulostusOikeinIntegroidessaTest2() {
         Polynomi pol = new Polynomi(-1, 5.0);
@@ -150,7 +150,7 @@ public class PolynomiTest {
         String tulostus = pol.toString();
         assertEquals("5.0 * ln|x| + C", tulostus);
     }
-    
+
     @Test
     public void tulostusOikeinDerivoidessaTest1() {
         Polynomi pol = new Polynomi(4, 5.0);
@@ -158,7 +158,7 @@ public class PolynomiTest {
         String tulostus = pol.toString();
         assertEquals("20.0 * x^(3)", tulostus);
     }
-    
+
     @Test
     public void tulostusOikeinDerivoidessaTest2() {
         Polynomi pol = new Polynomi(4, 5.0);
@@ -167,6 +167,5 @@ public class PolynomiTest {
         String tulostus = pol.toString();
         assertEquals("5.0 * x^(4)", tulostus);
     }
-    
-    
+
 }
