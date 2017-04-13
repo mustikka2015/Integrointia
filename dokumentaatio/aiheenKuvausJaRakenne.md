@@ -12,14 +12,11 @@ Ohjelma on suunniteltu oppimisen avuksi opiskelijoille, jotka opiskelevat integr
   * Käyrän derivoiminen tapahtuu "Derivoi" -näppäimellä.
   * Opiskelija voi valita alussa käyrään haluamansa parametrit.
 * Ohjelman avulla opiskelijat voivat nähdä käyrän kulun visuaalisesti.
-  * Sekä alkuperäisen käyrän että integroidun tai derivoidun käyrän voi piirtää.
-  * Etukäteen niin päättäen, intergoitu käyrä ja alkuperäinen käyrä on mahdollista nähdä kuvassa yhtä aikaa.
-  * Etukäteen niin päättäen, derivoitu käyrä ja alkuperäinen käyrä on mahdollista nähdä kuvassa yhtä aikaa.
+  * Integroidun tai derivoidun käyrän voi piirtää.
 * Opiskelija voi treenata itse integroimista ja derivoimista ohjelman avulla.
   * Ohjelmaa voi pyytää arpomaan funktion sekä sen, integroidaanko funktio vai derivoidaanko.
   * Opiskelija voi tarkistaa tehtävän oikean vastauksen ohjelman avulla.
 
-Mikäli toimintoja on liikaa yhteen harjoitustyökurssiin, niistä valitaan osa toteutettavaksi kurssin aikana.
 
 Määrittelyvaiheen luokkakaavio:
 ![Luokkakaavio](Luokkakaavio.jpg)
