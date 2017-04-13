@@ -74,8 +74,8 @@ public class Arpoja {
 
         ArrayList<String> vaihtoehdot = new ArrayList<String>();
 
-        vaihtoehdot.add("Integroi");
-        vaihtoehdot.add("Derivoi");
+        vaihtoehdot.add("Integrate");
+        vaihtoehdot.add("Derivate");
 
         int arvottu = this.arpoja.nextInt(vaihtoehdot.size());
 

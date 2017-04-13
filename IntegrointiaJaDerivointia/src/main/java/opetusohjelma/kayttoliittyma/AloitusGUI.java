@@ -5,25 +5,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
 /**
- * Käyttöliittymän aloitussivuston kakkosversio. Tästä todennäköisesti jatkan
- * kehitystyötä pääsiäislomalla.
+ * Käyttöliittymän aloitussivusto.
  */
 public class AloitusGUI {
 
@@ -31,7 +15,6 @@ public class AloitusGUI {
     private JLabel headerLabel;
     private JLabel statusLabel;
     private JPanel controlPanel;
-    private JLabel msglabel;
 
     public AloitusGUI() {
         prepareGUI();
@@ -64,13 +47,12 @@ public class AloitusGUI {
     }
 
     /**
-     * Metodi luo CardLayout-näkymän ja sen paneelit painikkeineen sekä 
-     * valintatoiminnallisuuden kahden eri paneelin välillä.
+     * Metodi luo CardLayout-näkymän ja sen paneelit painikkeineen.
      */
     public void showCardLayout() {
         headerLabel.setText("Choose a function or draw lots to decide it");
 
-        final JPanel panel = new JPanel();
+        JPanel panel = new JPanel();
 
         panel.setSize(300, 300);
 
@@ -80,43 +62,40 @@ public class AloitusGUI {
         panel.setLayout(layout);
 
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        buttonPanel.add(new JButton("Polynom"));
+        JButton polynom = new JButton("Polynom");
+        ValinnanPolynomKuuntelija polynomKuulija = new ValinnanPolynomKuuntelija();
+        polynom.addActionListener(polynomKuulija);
+        buttonPanel.add(polynom);
+        
         buttonPanel.add(new JButton("Sine"));
         buttonPanel.add(new JButton("Cosine"));
 
         JPanel selectPanel = new JPanel(new FlowLayout());
+        
+        JButton nappi = new JButton("Select");
 
-        selectPanel.add(new JButton("Select"));
-        
-        
-//      textBoxPanel.add(new JLabel("Name:"));
-//      textBoxPanel.add(new JTextField(20));
+        nappi.addActionListener(new ValinnanSelectKuuntelija());
+        selectPanel.add(nappi);
+      
         panel.add("You choose", buttonPanel);
         panel.add("Computer chooses", selectPanel);
-        final DefaultComboBoxModel panelName = new DefaultComboBoxModel();
+        DefaultComboBoxModel panelName = new DefaultComboBoxModel();
 
         panelName.addElement("You choose");
         panelName.addElement("Computer chooses");
-        final JComboBox listCombo = new JComboBox(panelName);
+        JComboBox listCombo = new JComboBox(panelName);
 
         listCombo.setSelectedIndex(0);
         JScrollPane listComboScrollPane = new JScrollPane(listCombo);
         JButton showButton = new JButton("Change");
+        
+        ValinnanChangeKuuntelija changeKuulija = new ValinnanChangeKuuntelija(listCombo, panel,statusLabel);
+        showButton.addActionListener(changeKuulija);
 
-        showButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String data = "";
-                if (listCombo.getSelectedIndex() != -1) {
-                    CardLayout cardLayout = (CardLayout) (panel.getLayout());
-                    cardLayout.show(panel,
-                            (String) listCombo.getItemAt(listCombo.getSelectedIndex()));
-                }
-                statusLabel.setText(data);
-            }
-        });
         controlPanel.add(listComboScrollPane);
         controlPanel.add(showButton);
         controlPanel.add(panel);
+        
         mainFrame.setVisible(true);
     }
 

@@ -1,29 +1,32 @@
 package opetusohjelma.kayttoliittyma;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 
 /**
- * Tämän luokan avulla on tarkoitus kuunnella select-näppäintä.
- * Toiminnallisuutta ei ole vielä lisätty.
+ * Tämän luokan avulla kuunnellaan select-näppäintä.
  */
 public class ValinnanSelectKuuntelija implements ActionListener {
 
-    private String valinta;
+    
 
     public ValinnanSelectKuuntelija() {
 
     }
 
     /**
-     * Tämän metodin avulla on tarkoitus kuunnella select-näppäintä. Kuuntelun
-     * tuloksena tietokone näytäteeän uusi käyttöliittymänäkymä, johon tietokone
+     * Tämän metodin avulla kuunnellaan select-näppäintä. Kuuntelun
+     * tuloksena tietokone näyttää uuden käyttöliittymänäkymän, johon tietokone
      * on arponut funktion ja pyytää integroimaan tai derivoimaan funktion.
-     * Toiminnallisuutta ei ole vielä lisätty.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        KoneValitseeGUI konevalinta = new KoneValitseeGUI();
+        SwingUtilities.invokeLater((Runnable) konevalinta);
 
+        
     }
 
 }
