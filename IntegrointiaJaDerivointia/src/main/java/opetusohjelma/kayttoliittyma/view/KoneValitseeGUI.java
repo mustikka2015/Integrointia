@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package opetusohjelma.kayttoliittyma;
+package opetusohjelma.kayttoliittyma.view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -11,6 +11,8 @@ import javax.swing.*;
 
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import opetusohjelma.kayttoliittyma.controller.Arpoja;
+import opetusohjelma.kayttoliittyma.controller.ValinnanShowSolutionKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
 
@@ -24,6 +26,7 @@ public class KoneValitseeGUI implements Runnable {
 
     private JFrame mainFrame;
     private JLabel headerLabel;
+    private JLabel answerIsLabel;
     private JPanel checkPanel;
     private JPanel controlPanel;
     private JPanel drawPanel;
@@ -38,7 +41,7 @@ public class KoneValitseeGUI implements Runnable {
     public void prepareGUI() {
         mainFrame = new JFrame("Integration and derivation");
         mainFrame.setSize(400, 400);
-        mainFrame.setLayout(new GridLayout(4, 1));
+        mainFrame.setLayout(new GridLayout(5, 1));
 
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {
@@ -56,17 +59,21 @@ public class KoneValitseeGUI implements Runnable {
     public void run() {
 
         String toiminto = arvoToiminto();
-        
+
         ArrayList<String> funktioJaVastaus = arvoFunktio();
-    
+
         tehtavanantorivinAsetus(toiminto, funktioJaVastaus);
-        
+
         JTextField vastaus = new JTextField();
 
+        vastaus.setHorizontalAlignment(JTextField.CENTER);
+
         showSolutionNapinAsetus(vastaus, funktioJaVastaus, toiminto);
-        
+
+        answerIsRivinAsetus();
+
         vastausrivinAsetus(vastaus);
-        
+
         piirtonapinAsetus();
 
     }
@@ -84,36 +91,61 @@ public class KoneValitseeGUI implements Runnable {
         ArrayList<String> funktioJaVast = new ArrayList<String>();
         String funktio = arpoja.arvoFunktio();
         if (funktio.equals("sin") || funktio.equals("cos")) {
-            SinCos sincos = new SinCos(arpoja.arvoKerroin(), arpoja.arvoKerroin(), funktio);
-            funktio = sincos.toString();
-            funktioJaVast.add(funktio);
-            SinCos derivoitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-            SinCos integroitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-            derivoitu.derivoi();
-            integroitu.integroi();
-            funktioJaVast.add(derivoitu.toString());
-            funktioJaVast.add(integroitu.toString());
+            funktioJaVast = sinCosFunktionArpominen(funktioJaVast, funktio, arpoja);
 
         } else {
-            Polynomi polynomi = new Polynomi(arpoja.arvoPolynominEksponentti(), arpoja.arvoKerroin());
-            funktio = polynomi.toString();
-            funktioJaVast.add(funktio);
-            Polynomi derivoitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-            Polynomi integroitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-            derivoitu.derivoi();
-            integroitu.integroi();
-            funktioJaVast.add(derivoitu.toString());
-            funktioJaVast.add(integroitu.toString());
-
+            funktioJaVast = polynomifunktionArpominen(funktioJaVast, funktio, arpoja);
         }
 
         return funktioJaVast;
     }
 
     /**
+     * Metodi arpoo sini- tai kosinifunktion kertoimet. Se palauttaa
+     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
+     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
+     *
+     * @return ArrayList<String>, joka sisältää sekä funktion että sen
+     * derivaatan ja integraalin.
+     */
+    public ArrayList<String> sinCosFunktionArpominen(ArrayList<String> funktioJaVast, String funktio, Arpoja arpoja) {
+        SinCos sincos = new SinCos(arpoja.arvoKerroin(), arpoja.arvoKerroin(), funktio);
+        funktio = sincos.toString();
+        funktioJaVast.add(funktio);
+        SinCos derivoitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
+        SinCos integroitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
+        derivoitu.derivoi();
+        integroitu.integroi();
+        funktioJaVast.add(derivoitu.toString());
+        funktioJaVast.add(integroitu.toString());
+        return funktioJaVast;
+    }
+
+    /**
+     * Metodi arpoo polynomifunktion kertoimen ja eksponentin. Se palauttaa
+     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
+     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
+     *
+     * @return ArrayList<String>, joka sisältää sekä funktion että sen
+     * derivaatan ja integraalin.
+     */
+    public ArrayList<String> polynomifunktionArpominen(ArrayList<String> funktioJaVast, String funktio, Arpoja arpoja) {
+        Polynomi polynomi = new Polynomi(arpoja.arvoPolynominEksponentti(), arpoja.arvoKerroin());
+        funktio = polynomi.toString();
+        funktioJaVast.add(funktio);
+        Polynomi derivoitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
+        Polynomi integroitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
+        derivoitu.derivoi();
+        integroitu.integroi();
+        funktioJaVast.add(derivoitu.toString());
+        funktioJaVast.add(integroitu.toString());
+        return funktioJaVast;
+    }
+
+    /**
      * Metodi arpoo, integroidaanko vai derivoidaanko funktio.
      *
-     * @return String: "Integroi" tai "Derivoi"
+     * @return String: "Integrate" tai "Derivate"
      */
     public String arvoToiminto() {
         Arpoja arpoja = new Arpoja();
@@ -161,21 +193,27 @@ public class KoneValitseeGUI implements Runnable {
 
         controlPanel.add(taskPanel);
     }
-    
+
+    /**
+     * Metodi luo vastausrivin.
+     */
+    public void answerIsRivinAsetus() {
+        answerIsLabel = new JLabel("", JLabel.CENTER);
+        mainFrame.add(answerIsLabel);
+        answerIsLabel.setText("Answer is:");
+    }
+
     /**
      * Metodi luo vastausrivin.
      */
     public void vastausrivinAsetus(JTextField vastaus) {
         checkPanel = new JPanel();
-        GridLayout layout1 = new GridLayout(1, 2);
+        GridLayout layout1 = new GridLayout();
         checkPanel.setLayout(layout1);
-        JLabel teksti = new JLabel("", JLabel.CENTER);
-        teksti.setText("Answer is:");
-        checkPanel.add(teksti);
         checkPanel.add(vastaus);
         mainFrame.add(checkPanel);
     }
-    
+
     /**
      * Metodi luo "Draw the solution" -napin.
      */

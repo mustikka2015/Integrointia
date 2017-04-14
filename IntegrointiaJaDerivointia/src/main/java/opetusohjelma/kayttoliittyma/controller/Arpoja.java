@@ -1,20 +1,23 @@
-package opetusohjelma.kayttoliittyma;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package opetusohjelma.kayttoliittyma.controller;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Tämän luokan avulla luodaan olioita, jotka arpovat sekä itse funktion, että
- * sen kertoimet.
+ * Luokka tarjoaa funktion, eksponentin ja kertoimen arpomiseen tarvittavia
+ * metodeja.
+ *
+ * @author Iisa
  */
 public class Arpoja {
 
     private Random arpoja;
 
-    /**
-     * Luokka tarjoaa funktion, eksponentin ja kertoimen arpomiseen tarvittavia
-     * metodeja.
-     */
     public Arpoja() {
         this.arpoja = new Random();
     }
@@ -23,7 +26,7 @@ public class Arpoja {
      * Metodi arpoo funktion, jonka opiskelijan tulee integroida tai derivoida.
      * Funktiovaihtoehdot ovat polynomi-, sini- ja kosinifunktio.
      *
-     * @return arvottu funktio String-muodossa
+     * @return String: "polynom", "sin" tai "cos".
      */
     public String arvoFunktio() {
         ArrayList<String> funktiot = new ArrayList<String>();
@@ -68,7 +71,7 @@ public class Arpoja {
     /**
      * Metodi arpoo, integroidaanko vai derivoidaanko funktio.
      *
-     * @return String: "Integroi" tai "Derivoi"
+     * @return String: "Integrate" tai "Derivate".
      */
     public String arvoToiminto() {
 

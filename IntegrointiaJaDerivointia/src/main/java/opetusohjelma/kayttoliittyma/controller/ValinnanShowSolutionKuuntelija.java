@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package opetusohjelma.kayttoliittyma;
+package opetusohjelma.kayttoliittyma.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,15 +12,15 @@ import javax.swing.JTextField;
 
 /**
  * Tämä luokka toteuttaa "Show solution"-näppäimen kuuntelun.
- * 
+ *
  * @author Iisa
  */
 public class ValinnanShowSolutionKuuntelija implements ActionListener {
-    
+
     private JTextField vastaus;
     private ArrayList<String> funktioJaVastaus;
     private String komento;
-    
+
     public ValinnanShowSolutionKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
         this.vastaus = vastaus;
         this.funktioJaVastaus = funktioJaVastaus;
@@ -28,10 +28,10 @@ public class ValinnanShowSolutionKuuntelija implements ActionListener {
     }
 
     /**
-     * Metodi asettaa vastauksen tekstikenttään "vastaus".
-     * Mikäli kone on arponut komennon "Derivate",
-     * poimitaan ArrayList:stä funktioJaVastaus arvotun funktion derivoitu muoto.
-     * Mikäli kone on arponut komennon "Integrate", poimitaan integroitu muoto.
+     * Metodi asettaa vastauksen tekstikenttään "vastaus". Mikäli kone on
+     * arponut komennon "Derivate", poimitaan ArrayList:stä funktioJaVastaus
+     * arvotun funktion derivoitu muoto. Mikäli kone on arponut komennon
+     * "Integrate", poimitaan integroitu muoto.
      *
      */
     @Override
@@ -43,5 +43,5 @@ public class ValinnanShowSolutionKuuntelija implements ActionListener {
             this.vastaus.setText(this.funktioJaVastaus.get(2));
         }
     }
-    
+
 }
