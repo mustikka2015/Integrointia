@@ -21,4 +21,10 @@ Ohjelma on suunniteltu oppimisen avuksi opiskelijoille, jotka opiskelevat integr
 Määrittelyvaiheen luokkakaavio:
 ![Luokkakaavio](Luokkakaavio.jpg)
 
+Sekvenssikaavio1:
+![Sekvenssikaavio1](Sekvenssikaavio1.jpg)
+
+Sekvenssikaavio2:
+![Sekvenssikaavio2](Sekvenssikaavio2.jpg)
+
 

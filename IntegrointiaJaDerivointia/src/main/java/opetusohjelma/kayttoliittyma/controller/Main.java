@@ -12,8 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        AloitusGUI vaihtoehto2 = new AloitusGUI();
-        vaihtoehto2.showCardLayout();
+        AloitusGUI testi = new AloitusGUI();
+        testi.showCardLayout();
 
     }
 }
