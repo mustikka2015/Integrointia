@@ -18,6 +18,9 @@ public class Arpoja {
 
     private Random arpoja;
 
+    /**
+     * Metodi alustaa Random-tyyppisen Arpoja-olion. 
+     */
     public Arpoja() {
         this.arpoja = new Random();
     }

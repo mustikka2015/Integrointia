@@ -10,3 +10,7 @@ Päivä | Tunnit | Kuvaus
 30.03.2017 | 2,5 h | Käyttöliittymän jatkaminen. Ensimmäisestä käyttöliittymästä toinen, erilainen versio. Korjauksia & raportointia.
 5.4.2017   | 2,0 h | Raporttien saattaminen näkyviin oikealla tavalla ja arvonta-luokan aloitus. Javadoc-kommentoinnin aloitus.
 6.4.2017   | 4,5 h | Arvonta-luokka loppuun. Testit arvonta-luokalle. Javadoc loppuun. Käyttöliittymänäkymien suunnittelu paperilla ja muokkauksen aloitus.
+17.4.2017  | 2,0 h | Käyttöliittymän tekemistä. Koodin refaktorointia.
+18.4.2017  | 5,0 h | Käyttöliittymän tekemistä ja koodin refaktorointia.
+19.4.2017  | 7,0 h | Käyttöliittymän tekemistä ja koodin refaktorointia.
+20.4.2017  | 2,0 h | Testien tekeminen ja sekvenssikaavion piirtäminen. Rajapintaluokan tekeminen.

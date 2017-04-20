@@ -3,13 +3,21 @@ package opetusohjelma.laskutoimituksia;
 /**
  * Luokka tarjoaa polynomien integrointiin ja derivointiin tarvittavia metodeja.
  */
-public class Polynomi {
+public class Polynomi implements Funktio {
 
     private int eksponentti;
     private double kerroin;
     private boolean luonnollinenLogaritmi;
     private int integroitu;
 
+    /**
+     * Konstruktori luokalle Polynomi. Muuttujat "eksponentti" ja "kerroin" alustetaan
+     * parametrien avulla. Polynomi ei ole aluksi luonnollinen logaritmi, eikä sitä ole 
+     * vielä integroitu, joten "integroitu"-muuttujan arvo on  aluksi 0.
+     * 
+     * @param eksponentti int-muodossa
+     * @param kerroin double-muodossa
+     */
     public Polynomi(int eksponentti, double kerroin) {
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
@@ -51,8 +59,8 @@ public class Polynomi {
 
     /**
      * Metodin avulla asetetaan polynomifunktion eksponentti.
-     *
-     * @param eksponentti
+     * 
+     * @param eksponentti int-muodossa.
      */
     public void setEksponentti(int eksponentti) {
         this.eksponentti = eksponentti;
@@ -60,8 +68,8 @@ public class Polynomi {
 
     /**
      * Metodin avulla asetetaan polynomifunktion kerroin.
-     *
-     * @param kerroin
+     * 
+     * @param kerroin double-muodossa.
      */
     public void setKerroin(double kerroin) {
         this.kerroin = kerroin;
@@ -102,6 +110,7 @@ public class Polynomi {
      *
      * @return funktio merkkijonomuodossa.
      */
+    @Override
     public String toString() {
         String tulostus = "";
         if (this.luonnollinenLogaritmi == false && this.integroitu == 0) {

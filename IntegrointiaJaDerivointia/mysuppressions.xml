@@ -5,8 +5,17 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="HylattyVersioGUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="AloitusGUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanChangeKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanCosKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanPolynomKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ValinnanSelectKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanShowSolutionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanSinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="AloitusGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="KoneValitseeGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="OpiskelijaValitseeCosGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="OpiskelijaValitseePolynomGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="OpiskelijaValitseeSinGUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

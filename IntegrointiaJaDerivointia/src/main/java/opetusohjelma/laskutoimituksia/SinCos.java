@@ -4,7 +4,7 @@ package opetusohjelma.laskutoimituksia;
  * Luokka tarjoaa sini- ja cosinifunktioiden integrointiin ja derivointiin
  * tarvittavia metodeja.
  */
-public class SinCos {
+public class SinCos implements Funktio {
 
     private double kerroin;
     private double sisaFunktionKerroin;
@@ -24,6 +24,10 @@ public class SinCos {
      * mahdollisuus, jolloin funktio on tyhjä merkkijono. Konstruktorissa
      * alustetaan käyttäjän syöttämän funktion kerroin ja sisäfunktion kerroin.
      * Muuttuja "integroitu" alustetaan epätodeksi.
+     * 
+     * @param kerroin double-muodossa
+     * @param sisaFunktionKerroin double-muodossa
+     * @param funktio String-muodossa
      */
     public SinCos(double kerroin, double sisaFunktionKerroin, String funktio) {
         this.kerroin = kerroin;
@@ -101,6 +105,7 @@ public class SinCos {
      *
      * @return funktio merkkijonomuodossa.
      */
+    @Override
     public String toString() {
 
         String tulostus = Double.toString(this.kerroin) + " * " + this.funktio + "(" + Double.toString(this.sisaFunktionKerroin) + "x)";

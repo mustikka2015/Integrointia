@@ -10,21 +10,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-/**
- * Tämän luokan avulla testataan luokkaa Arpoja, jonka oliot arpovat sekä itse
- * funktion, että sen kertoimet.
- *
- * @author Iisa
- */
 public class ArpojaTest {
 
     public ArpojaTest() {
 
     }
 
-    /**
-     * Metodin avulla testataan, että arvottu eksponentti on väliltä [-10,10].
-     */
     @Test
     public void eksponenttiArvottuOikeinTest1() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
@@ -32,20 +23,12 @@ public class ArpojaTest {
         assertTrue(-10 <= eksp && eksp <= 10);
     }
 
-    /**
-     * Metodin avulla testataan, että arvottu eksponentti on väliltä [-10,10].
-     */
-    @Test
     public void eksponenttiArvottuOikeinTest2() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
         int eksp = arpoja.arvoPolynominEksponentti();
         assertFalse(eksp > 10 || eksp < -10);
     }
 
-    /**
-     * Metodin avulla testataan, että arvottu funktio on joko "polynom", "sin"
-     * tai "cos".
-     */
     @Test
     public void funktioArvottuOikeinTest() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
@@ -53,10 +36,6 @@ public class ArpojaTest {
         assertTrue(funktio.equals("polynom") || funktio.equals("sin") || funktio.equals("cos"));
     }
 
-    /**
-     * Metodin avulla testataan, että arvottu toiminto on joko "Integrate" tai
-     * "Derivate".
-     */
     @Test
     public void toimintoArvottuOikeinTest() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
@@ -64,9 +43,6 @@ public class ArpojaTest {
         assertTrue(toiminto.equals("Integrate") || toiminto.equals("Derivate"));
     }
 
-    /**
-     * Metodin avulla testataan, että arvottu kerroin on väliltä [-10.0,10.0].
-     */
     @Test
     public void kerroinArvottuOikeinTest1() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
@@ -74,9 +50,6 @@ public class ArpojaTest {
         assertTrue(-10.0 <= kerroin && kerroin <= 10.0);
     }
 
-    /**
-     * Metodin avulla testataan, että arvottu kerroin on väliltä [-10.0,10.0].
-     */
     @Test
     public void kerroinArvottuOikeinTest2() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();

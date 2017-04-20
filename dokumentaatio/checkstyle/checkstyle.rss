@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 7,
+      <title>File: 17,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,6 +46,132 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanSelectKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanSelectKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeCosGUI.java">opetusohjelma/kayttoliittyma/view/OpiskelijaValitseeCosGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.Main.java">opetusohjelma/kayttoliittyma/controller/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeSinGUI.java">opetusohjelma/kayttoliittyma/view/OpiskelijaValitseeSinGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.OpiskelijaValitseePolynomGUI.java">opetusohjelma/kayttoliittyma/view/OpiskelijaValitseePolynomGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanCosKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanCosKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanShowSolutionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanShowSolutionKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.Arpoja.java">opetusohjelma/kayttoliittyma/controller/Arpoja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.laskutoimituksia.Funktio.java">opetusohjelma/laskutoimituksia/Funktio.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#opetusohjelma.laskutoimituksia.SinCos.java">opetusohjelma/laskutoimituksia/SinCos.java</a>
                 </td>
                 <td>
@@ -60,7 +186,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.HylattyVersioGUI.java">opetusohjelma/kayttoliittyma/HylattyVersioGUI.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.KoneValitseeGUI.java">opetusohjelma/kayttoliittyma/view/KoneValitseeGUI.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +200,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.ValinnanSelectKuuntelija.java">opetusohjelma/kayttoliittyma/ValinnanSelectKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanChangeKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanChangeKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanPolynomKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanPolynomKuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanShowTheFunctionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanShowTheFunctionKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +256,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.Main.java">opetusohjelma/kayttoliittyma/Main.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanSinKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanSinKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -116,21 +270,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.AloitusGUI.java">opetusohjelma/kayttoliittyma/AloitusGUI.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.Arpoja.java">opetusohjelma/kayttoliittyma/Arpoja.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.AloitusGUI.java">opetusohjelma/kayttoliittyma/view/AloitusGUI.java</a>
                 </td>
                 <td>
                   0
