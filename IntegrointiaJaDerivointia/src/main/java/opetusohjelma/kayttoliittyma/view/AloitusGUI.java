@@ -35,7 +35,7 @@ public class AloitusGUI {
      */
     public void prepareGUI() {
         mainFrame = new JFrame("Integration and derivation");
-        mainFrame.setSize(400, 400);
+        mainFrame.setSize(400, 500);
         mainFrame.setLayout(new GridLayout(3, 1));
 
         headerLabel = new JLabel("", JLabel.CENTER);
@@ -105,6 +105,9 @@ public class AloitusGUI {
         mainFrame.setVisible(true);
     }
 
+    /**
+     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan..
+     */
     public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
 
         button.addActionListener(listener);

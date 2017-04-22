@@ -6,12 +6,9 @@
 package opetusohjelma.kayttoliittyma.controller;
 
 /**
- * Tämän luokan avulla kuunnellaan "Show the function"-näppäintä.
- * 
+ *
  * @author Iisa
  */
-public class ValinnanShowTheFunctionKuuntelija {
-    
-    
-    
+public class TehtavanArpojaTest {
+    //Not supported yet.
 }

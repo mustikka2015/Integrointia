@@ -60,13 +60,22 @@ public class Arpoja {
 
     /**
      * Metodi arpoo double-tyyppisen kertoimen. Kerroin voi saada arvoja
-     * -10.0:stä 10.0:een.
+     * -10.0:stä 10.0:een. Kerroin ei saa olla 0.
      *
      * @return arvottu kerroin double-muodossa.
      */
     public double arvoKerroin() {
+        
+        int arvottu1 = this.arpoja.nextInt(201);
+        
+        while (arvottu1 == 100) {
+            arvottu1 = this.arpoja.nextInt(201);
+        }
 
         double arvottu = (double) (this.arpoja.nextInt(201) - 100) / 10;
+        
+        
+
 
         return arvottu;
     }
@@ -74,14 +83,14 @@ public class Arpoja {
     /**
      * Metodi arpoo, integroidaanko vai derivoidaanko funktio.
      *
-     * @return String: "Integrate" tai "Derivate".
+     * @return String: "Integrate" tai "Differentiate".
      */
     public String arvoToiminto() {
 
         ArrayList<String> vaihtoehdot = new ArrayList<String>();
 
         vaihtoehdot.add("Integrate");
-        vaihtoehdot.add("Derivate");
+        vaihtoehdot.add("Differentiate");
 
         int arvottu = this.arpoja.nextInt(vaihtoehdot.size());
 

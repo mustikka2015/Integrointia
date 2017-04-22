@@ -8,12 +8,18 @@ package opetusohjelma.kayttoliittyma.view;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.ValinnanSinCosShowTheFunctionKuuntelija;
+import opetusohjelma.laskutoimituksia.Polynomi;
+import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
  * Tämä luokka toteuttaa näkymän, kun opiskelija valitsee "Cosine".
@@ -32,6 +38,12 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
     private JLabel answerIsLabel;
     private JPanel answerPanel;
     private JPanel drawPanel;
+    private JTextField funktio;
+    private JTextField vastaus;
+    private JTextField vastaus1;
+    private JTextField vastaus2;
+    private SinCos cos;
+
 
     public OpiskelijaValitseeCosGUI() {
         prepareGUI();
@@ -41,8 +53,8 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
      * Pääkehys alustetaan.
      */
     public void prepareGUI() {
-        mainFrame = new JFrame("Integration and derivation");
-        mainFrame.setSize(400, 400);
+        mainFrame = new JFrame("Integration and differentiation");
+        mainFrame.setSize(500, 500);
         mainFrame.setLayout(new GridLayout(8, 1));
 
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -56,17 +68,19 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
 
     @Override
     public void run() {
-
+        this.cos = new SinCos(1.0, 1.0, "cos");
         valitseKerroin();
         valitseSisafunktionKerroin();
-        lisaaNaytaFunktioNappi();
-        JTextField funktio = new JTextField();
+        this.funktio = new JTextField();
+        funktio.setHorizontalAlignment(JTextField.CENTER);
         funktiorivinAsetus(funktio);
-        integrateDerivateButtons();
+        this.vastaus = new JTextField();
+        vastaus.setHorizontalAlignment(JTextField.CENTER);
+        lisaaNaytaFunktioNappi();
         answerIsRivinAsetus();
-        JTextField vastaus = new JTextField();
         vastausrivinAsetus(vastaus);
-        piirtonapinAsetus();
+        integrateDerivateButtons();
+        piirtoYmsNapinAsetus();
 
         mainFrame.setVisible(true);
     }
@@ -84,10 +98,10 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
 
         coeffPanel.setLayout(new GridLayout(1, 2));
 
-        JTextField vastaus = new JTextField();
+        vastaus1 = new JTextField();
 
         coeffPanel.add(textPanel);
-        coeffPanel.add(vastaus);
+        coeffPanel.add(vastaus1);
 
         mainFrame.add(coeffPanel);
     }
@@ -105,10 +119,10 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
 
         incePanel.setLayout(new GridLayout(1, 2));
 
-        JTextField vastaus = new JTextField();
+        vastaus2 = new JTextField();
 
         incePanel.add(textPanel);
-        incePanel.add(vastaus);
+        incePanel.add(vastaus2);
 
         mainFrame.add(incePanel);
     }
@@ -119,7 +133,10 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
     public void lisaaNaytaFunktioNappi() {
         showPanel = new JPanel();
         mainFrame.add(showPanel);
-        showPanel.add(new JButton("Show the function"));
+        JButton nappi1 = new JButton("Show the function");
+        ValinnanSinCosShowTheFunctionKuuntelija kuulija = new ValinnanSinCosShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, cos);
+        nappi1.addActionListener(kuulija);
+        showPanel.add(nappi1);
     }
 
     /**
@@ -133,13 +150,20 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Integrate"- ja "Derivate"-näppäinrivin.
+     * Metodi luo "Integrate"- ja "Differentiate"-näppäinrivin.
      */
     public void integrateDerivateButtons() {
         intderPanel = new JPanel();
         intderPanel.setLayout(new GridLayout(1, 2));
-        intderPanel.add(new JButton("Integrate"));
-        intderPanel.add(new JButton("Derivate"));
+
+        JButton integButton = new JButton("Integrate");
+        ValinnanIntegrateKuuntelijaSinCos intKuulija = new ValinnanIntegrateKuuntelijaSinCos(cos, vastaus);
+        integButton.addActionListener(intKuulija);
+        intderPanel.add(integButton);
+        JButton diffButton = new JButton("Differentiate");
+        ValinnanDifferentiateKuuntelijaSinCos diffKuulija = new ValinnanDifferentiateKuuntelijaSinCos(cos, vastaus);
+        diffButton.addActionListener(diffKuulija);
+        intderPanel.add(diffButton);
         mainFrame.add(intderPanel);
     }
 
@@ -163,11 +187,12 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Draw the solution" -napin.
+     * Metodi luo "Back"- ja "Draw the solution" -napit.
      */
-    public void piirtonapinAsetus() {
+    public void piirtoYmsNapinAsetus() {
         drawPanel = new JPanel();
         mainFrame.add(drawPanel);
+        drawPanel.add(new JButton("Back"));
         drawPanel.add(new JButton("Draw the solution"));
     }
 

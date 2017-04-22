@@ -19,5 +19,8 @@ public interface Funktio {
      * @return String
      */
     String toString();
+    void integroi();
+    void derivoi();
+    String getFunktio();
 
 }

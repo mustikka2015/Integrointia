@@ -7,7 +7,12 @@ package opetusohjelma.kayttoliittyma.view;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
+import opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaPolynomille;
+import opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaPolynomille;
+import opetusohjelma.kayttoliittyma.controller.ValinnanPolynomShowTheFunctionKuuntelija;
+import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
  * Tämä luokka toteuttaa näkymän, kun opiskelija valitsee "Polynom".
@@ -17,6 +22,10 @@ import javax.swing.*;
 public class OpiskelijaValitseePolynomGUI implements Runnable {
 
     private JFrame mainFrame;
+    private JTextField funktio;
+    private JTextField vastaus1;
+    private JTextField vastaus2;
+    private JTextField vastaus;
     private JPanel expPanel;
     private JPanel coeffPanel;
     private JPanel showPanel;
@@ -26,6 +35,7 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
     private JLabel answerIsLabel;
     private JPanel answerPanel;
     private JPanel drawPanel;
+    private Polynomi polynomi;
 
     public OpiskelijaValitseePolynomGUI() {
         prepareGUI();
@@ -35,8 +45,8 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
      * Pääkehys alustetaan.
      */
     public void prepareGUI() {
-        mainFrame = new JFrame("Integration and derivation");
-        mainFrame.setSize(400, 400);
+        mainFrame = new JFrame("Integration and differentiation");
+        mainFrame.setSize(500, 500);
         mainFrame.setLayout(new GridLayout(8, 1));
 
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -50,16 +60,19 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
 
     @Override
     public void run() {
+        this.polynomi = new Polynomi(1,1);
         valitseEksponentti();
         valitseKerroin();
-        lisaaNaytaFunktioNappi();
-        JTextField funktio = new JTextField();
+        this.funktio = new JTextField();
+        funktio.setHorizontalAlignment(JTextField.CENTER);
         funktiorivinAsetus(funktio);
-        integrateDerivateButtons();
+        this.vastaus = new JTextField();
+        vastaus.setHorizontalAlignment(JTextField.CENTER);
+        lisaaNaytaFunktioNappi();
         answerIsRivinAsetus();
-        JTextField vastaus = new JTextField();
         vastausrivinAsetus(vastaus);
-        piirtonapinAsetus();
+        integrateDerivateButtons();
+        piirtoYmsNapinAsetus();
 
         mainFrame.setVisible(true);
     }
@@ -73,9 +86,9 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
         expPanel.setLayout(layout1);
         JLabel teksti = new JLabel("", JLabel.CENTER);
         teksti.setText("Choose the exponent (integer):");
-        JTextField vastaus = new JTextField("", JLabel.CENTER);
+        this.vastaus1 = new JTextField("", JLabel.CENTER);
         expPanel.add(teksti);
-        expPanel.add(vastaus);
+        expPanel.add(vastaus1);
 
         mainFrame.add(expPanel);
     }
@@ -93,10 +106,10 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
 
         coeffPanel.setLayout(new GridLayout(1, 2));
 
-        JTextField vastaus = new JTextField();
+        this.vastaus2 = new JTextField();
 
         coeffPanel.add(textPanel);
-        coeffPanel.add(vastaus);
+        coeffPanel.add(vastaus2);
 
         mainFrame.add(coeffPanel);
     }
@@ -107,7 +120,10 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
     public void lisaaNaytaFunktioNappi() {
         showPanel = new JPanel();
         mainFrame.add(showPanel);
-        showPanel.add(new JButton("Show the function"));
+        JButton nappi1 = new JButton("Show the function");
+        ValinnanPolynomShowTheFunctionKuuntelija kuulija = new ValinnanPolynomShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, polynomi);
+        nappi1.addActionListener(kuulija);
+        showPanel.add(nappi1);
     }
 
     /**
@@ -121,13 +137,20 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Integrate"- ja "Derivate"-näppäinrivin.
+     * Metodi luo "Integrate"- ja "Differenriate"-näppäinrivin.
      */
     public void integrateDerivateButtons() {
         intderPanel = new JPanel();
         intderPanel.setLayout(new GridLayout(1, 2));
-        intderPanel.add(new JButton("Integrate"));
-        intderPanel.add(new JButton("Derivate"));
+        JButton integButton = new JButton("Integrate");
+        ValinnanIntegrateKuuntelijaPolynomille intKuulija = new ValinnanIntegrateKuuntelijaPolynomille(polynomi, vastaus);
+        integButton.addActionListener(intKuulija);
+        intderPanel.add(integButton);
+        JButton diffButton = new JButton("Differentiate");
+        ValinnanDifferentiateKuuntelijaPolynomille diffKuulija = new ValinnanDifferentiateKuuntelijaPolynomille(polynomi, vastaus);
+        diffButton.addActionListener(diffKuulija);
+        intderPanel.add(integButton);
+        intderPanel.add(diffButton);
         mainFrame.add(intderPanel);
     }
 
@@ -151,11 +174,12 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Draw the solution" -napin.
+     * Metodi luo "Back"- ja "Draw the solution" -napit
      */
-    public void piirtonapinAsetus() {
+    public void piirtoYmsNapinAsetus() {
         drawPanel = new JPanel();
         mainFrame.add(drawPanel);
+        drawPanel.add(new JButton("Back"));
         drawPanel.add(new JButton("Draw the solution"));
     }
 

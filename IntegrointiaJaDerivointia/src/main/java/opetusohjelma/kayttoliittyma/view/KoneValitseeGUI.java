@@ -12,6 +12,8 @@ import javax.swing.*;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import opetusohjelma.kayttoliittyma.controller.Arpoja;
+import opetusohjelma.kayttoliittyma.controller.TehtavanArpoja;
+import opetusohjelma.kayttoliittyma.controller.ValinnanNewAssignmentKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanShowSolutionKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
@@ -31,6 +33,9 @@ public class KoneValitseeGUI implements Runnable {
     private JPanel controlPanel;
     private JPanel drawPanel;
 
+    private ArrayList<String> funktioJaVastaus;
+    private ValinnanShowSolutionKuuntelija vastauskuulija;
+
     public KoneValitseeGUI() {
         prepareGUI();
     }
@@ -39,8 +44,8 @@ public class KoneValitseeGUI implements Runnable {
      * Pääkehys alustetaan.
      */
     public void prepareGUI() {
-        mainFrame = new JFrame("Integration and derivation");
-        mainFrame.setSize(400, 400);
+        mainFrame = new JFrame("Integration and differentiation");
+        mainFrame.setSize(500, 500);
         mainFrame.setLayout(new GridLayout(5, 1));
 
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -58,136 +63,53 @@ public class KoneValitseeGUI implements Runnable {
     @Override
     public void run() {
 
-        String toiminto = arvoToiminto();
+        TehtavanArpoja tehtArpoja = new TehtavanArpoja();
 
-        ArrayList<String> funktioJaVastaus = arvoFunktio();
+        String toiminto = tehtArpoja.arvoToiminto();
 
-        tehtavanantorivinAsetus(toiminto, funktioJaVastaus);
+        this.funktioJaVastaus = tehtArpoja.arvoFunktio();
+
+        tehtavanantorivinAsetus(toiminto, tehtArpoja);
 
         JTextField vastaus = new JTextField();
 
         vastaus.setHorizontalAlignment(JTextField.CENTER);
 
-        showSolutionNapinAsetus(vastaus, funktioJaVastaus, toiminto);
+        showSolutionNapinAsetus(vastaus, toiminto);
 
         answerIsRivinAsetus();
 
         vastausrivinAsetus(vastaus);
 
-        piirtonapinAsetus();
+        piirtoYmsNapinAsetus();
 
     }
 
-    /**
-     * Metodi arpoo funktion. Se palauttaa ArrayList-olion, joka sisältää itse
-     * funktion String-muodossa, funktion derivoituna String-muodossa sekä
-     * funktion integroituna String-muodossa.
-     *
-     * @return ArrayList<String>, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin.
-     */
-    public ArrayList<String> arvoFunktio() {
-        Arpoja arpoja = new Arpoja();
-        ArrayList<String> funktioJaVast = new ArrayList<String>();
-        String funktio = arpoja.arvoFunktio();
-        if (funktio.equals("sin") || funktio.equals("cos")) {
-            funktioJaVast = sinCosFunktionArpominen(funktioJaVast, funktio, arpoja);
-
-        } else {
-            funktioJaVast = polynomifunktionArpominen(funktioJaVast, funktio, arpoja);
-        }
-
-        return funktioJaVast;
-    }
-
-    /**
-     * Metodi arpoo sini- tai kosinifunktion kertoimet. Se palauttaa
-     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
-     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
-     *
-     * @return ArrayList<String>, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin.
-     */
-    public ArrayList<String> sinCosFunktionArpominen(ArrayList<String> funktioJaVast, String funktio, Arpoja arpoja) {
-        SinCos sincos = new SinCos(arpoja.arvoKerroin(), arpoja.arvoKerroin(), funktio);
-        funktio = sincos.toString();
-        funktioJaVast.add(funktio);
-        SinCos derivoitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-        SinCos integroitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-        derivoitu.derivoi();
-        integroitu.integroi();
-        funktioJaVast.add(derivoitu.toString());
-        funktioJaVast.add(integroitu.toString());
-        return funktioJaVast;
-    }
-
-    /**
-     * Metodi arpoo polynomifunktion kertoimen ja eksponentin. Se palauttaa
-     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
-     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
-     *
-     * @return ArrayList<String>, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin.
-     */
-    public ArrayList<String> polynomifunktionArpominen(ArrayList<String> funktioJaVast, String funktio, Arpoja arpoja) {
-        Polynomi polynomi = new Polynomi(arpoja.arvoPolynominEksponentti(), arpoja.arvoKerroin());
-        funktio = polynomi.toString();
-        funktioJaVast.add(funktio);
-        Polynomi derivoitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-        Polynomi integroitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-        derivoitu.derivoi();
-        integroitu.integroi();
-        funktioJaVast.add(derivoitu.toString());
-        funktioJaVast.add(integroitu.toString());
-        return funktioJaVast;
-    }
-
-    /**
-     * Metodi arpoo, integroidaanko vai derivoidaanko funktio.
-     *
-     * @return String: "Integrate" tai "Derivate"
-     */
-    public String arvoToiminto() {
-        Arpoja arpoja = new Arpoja();
-        String toiminto = arpoja.arvoToiminto();
-        return toiminto;
-    }
-
-    /**
-     * Metodi kertoo tehtävänannon String-muodossa, kun sille on syötetty jo
-     * aikaisemmin arvotut toiminto ja funktio.
-     *
-     * @return String: tehtävänanto
-     */
-    public String arvoTehtava(String toiminto, String funktio) {
-
-        String tehtava = toiminto;
-        tehtava = tehtava + " function y = " + funktio;
-        tehtava = tehtava + ". Click to check.";
-        return tehtava;
+    public ArrayList<String> getFunktioJaVastaus() {
+        return this.funktioJaVastaus;
     }
 
     /**
      * Metodi luo tehtävänantorivin näkymään.
      */
-    public void tehtavanantorivinAsetus(String toiminto, ArrayList<String> funktioJaVastaus) {
+    public void tehtavanantorivinAsetus(String toiminto, TehtavanArpoja tehtArpoja) {
         headerLabel = new JLabel("", JLabel.CENTER);
         mainFrame.add(headerLabel);
         String funktio = funktioJaVastaus.get(0);
-        String tehtava = arvoTehtava(toiminto, funktio);
+        String tehtava = tehtArpoja.arvoTehtava(toiminto, funktio);
         headerLabel.setText(tehtava);
     }
 
     /**
      * Metodi luo "Show the solution" -napin.
      */
-    public void showSolutionNapinAsetus(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
+    public void showSolutionNapinAsetus(JTextField vastaus, String komento) {
         controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
         mainFrame.add(controlPanel);
         JPanel taskPanel = new JPanel(new FlowLayout());
         JButton vastausnappi = new JButton("Show the solution");
-        ValinnanShowSolutionKuuntelija vastauskuulija = new ValinnanShowSolutionKuuntelija(vastaus, funktioJaVastaus, komento);
+        this.vastauskuulija = new ValinnanShowSolutionKuuntelija(vastaus, funktioJaVastaus, komento);
         vastausnappi.addActionListener(vastauskuulija);
         taskPanel.add(vastausnappi);
 
@@ -215,12 +137,27 @@ public class KoneValitseeGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Draw the solution" -napin.
+     * Metodi luo "Back", "Draw the solution" ja "New assignment"-napit.
      */
-    public void piirtonapinAsetus() {
-        drawPanel = new JPanel();
+    public void piirtoYmsNapinAsetus() {
+        drawPanel = new JPanel(new GridLayout(1, 3));
         mainFrame.add(drawPanel);
-        drawPanel.add(new JButton("Draw the solution"));
+        drawPanel.add(new JButton("Back"));
+
+        JButton drawbutton = new JButton();
+        GridLayout layout = new GridLayout(2, 1);
+        drawbutton.setLayout(layout);
+        drawbutton.add(new JLabel("Draw", JLabel.CENTER));
+        drawbutton.add(new JLabel("the solution", JLabel.CENTER));
+        drawPanel.add(drawbutton);
+
+        JButton newbutton = new JButton();
+        newbutton.setLayout(layout);
+        newbutton.add(new JLabel("New", JLabel.CENTER));
+        newbutton.add(new JLabel("assignment", JLabel.CENTER));
+        ValinnanNewAssignmentKuuntelija kuuntelija = new ValinnanNewAssignmentKuuntelija(this.headerLabel, this.funktioJaVastaus, this.vastauskuulija);
+        newbutton.addActionListener(kuuntelija);
+        drawPanel.add(newbutton);
     }
 
 }

@@ -40,14 +40,14 @@ public class ArpojaTest {
     public void toimintoArvottuOikeinTest() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
         String toiminto = arpoja.arvoToiminto();
-        assertTrue(toiminto.equals("Integrate") || toiminto.equals("Derivate"));
+        assertTrue(toiminto.equals("Integrate") || toiminto.equals("Differentiate"));
     }
 
     @Test
     public void kerroinArvottuOikeinTest1() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
         double kerroin = arpoja.arvoKerroin();
-        assertTrue(-10.0 <= kerroin && kerroin <= 10.0);
+        assertTrue(-10.00 <= kerroin && kerroin <= 10.00);
     }
 
     @Test
@@ -55,6 +55,13 @@ public class ArpojaTest {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
         double kerroin = arpoja.arvoKerroin();
         assertFalse(kerroin < -10.0 || kerroin > 10.0);
+    }
+    
+    @Test
+    public void kerroinEiNollaTest() {
+        opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();
+        double kerroin = arpoja.arvoKerroin();
+        assertFalse(kerroin == 0.0);
     }
 
 }

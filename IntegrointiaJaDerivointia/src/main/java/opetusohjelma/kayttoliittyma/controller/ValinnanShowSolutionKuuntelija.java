@@ -36,12 +36,21 @@ public class ValinnanShowSolutionKuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (this.komento.equals("Derivate")) {
+
+        if (this.komento.equals("Differentiate")) {
             this.vastaus.setText(this.funktioJaVastaus.get(1));
         }
         if (this.komento.equals("Integrate")) {
             this.vastaus.setText(this.funktioJaVastaus.get(2));
         }
+    }
+
+    public void setFunktioJaVastaus(ArrayList<String> funktioJaVastaus) {
+        this.funktioJaVastaus = funktioJaVastaus;
+    }
+    
+    public void setToiminto(String toiminto) {
+        this.komento = toiminto;
     }
 
 }

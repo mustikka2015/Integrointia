@@ -1,5 +1,7 @@
 package opetusohjelma.laskutoimituksia;
 
+import java.text.DecimalFormat;
+
 /**
  * Luokka tarjoaa sini- ja cosinifunktioiden integrointiin ja derivointiin
  * tarvittavia metodeja.
@@ -24,7 +26,7 @@ public class SinCos implements Funktio {
      * mahdollisuus, jolloin funktio on tyhjä merkkijono. Konstruktorissa
      * alustetaan käyttäjän syöttämän funktion kerroin ja sisäfunktion kerroin.
      * Muuttuja "integroitu" alustetaan epätodeksi.
-     * 
+     *
      * @param kerroin double-muodossa
      * @param sisaFunktionKerroin double-muodossa
      * @param funktio String-muodossa
@@ -51,6 +53,7 @@ public class SinCos implements Funktio {
         return this.sisaFunktionKerroin;
     }
 
+    @Override
     public String getFunktio() {
         return this.funktio;
     }
@@ -59,10 +62,20 @@ public class SinCos implements Funktio {
         return this.integoitu;
     }
 
+    /**
+     * Metodin avulla asetetaan funktion kerroin.
+     *
+     * @param kerroin double-muodossa.
+     */
     public void setKerroin(double luku) {
         this.kerroin = luku;
     }
-
+    
+    /**
+     * Metodin avulla asetetaan sisäfunktion kerroin.
+     * 
+     * @param kerroin double-muodossa.
+     */
     public void setSisafunktionKerroin(double luku) {
         this.sisaFunktionKerroin = luku;
     }
@@ -72,6 +85,7 @@ public class SinCos implements Funktio {
      * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
      * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
      */
+    @Override
     public void derivoi() {
         if (this.funktio.equals("sin")) {
             this.kerroin = this.kerroin * this.sisaFunktionKerroin;
@@ -80,6 +94,7 @@ public class SinCos implements Funktio {
             this.kerroin = -1 * this.kerroin * this.sisaFunktionKerroin;
             this.funktio = "sin";
         }
+
         this.integoitu = false;
 
     }
@@ -89,6 +104,7 @@ public class SinCos implements Funktio {
      * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
      * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
      */
+    @Override
     public void integroi() {
         if (this.funktio.equals("sin")) {
             this.kerroin = -1 * this.kerroin / this.sisaFunktionKerroin;
@@ -97,6 +113,7 @@ public class SinCos implements Funktio {
             this.kerroin = this.kerroin / this.sisaFunktionKerroin;
             this.funktio = "sin";
         }
+
         this.integoitu = true;
     }
 
