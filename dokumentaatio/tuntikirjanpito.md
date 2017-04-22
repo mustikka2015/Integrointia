@@ -14,3 +14,4 @@ Päivä | Tunnit | Kuvaus
 18.4.2017  | 5,0 h | Käyttöliittymän tekemistä ja koodin refaktorointia.
 19.4.2017  | 7,0 h | Käyttöliittymän tekemistä ja koodin refaktorointia.
 20.4.2017  | 3,0 h | Testien tekeminen ja sekvenssikaavion piirtäminen. Rajapintaluokan tekeminen.
+22.4.2017  | 8,0 h | Toiminnallisuuden lisäämistä tapahtumankuuntelijoiden luomisen avulla. Koodin refaktorointia.

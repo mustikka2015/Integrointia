@@ -26,7 +26,6 @@ public class ValinnanPolynomShowTheFunctionKuuntelija implements ActionListener 
     private JTextField kerroin;
     private Polynomi polynomi;
 
-
     public ValinnanPolynomShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField eksponentti, JTextField kerroin, Polynomi polynomi) {
         this.funktiokentta = funktiokentta;
         this.eksponentti = eksponentti;
@@ -35,7 +34,7 @@ public class ValinnanPolynomShowTheFunctionKuuntelija implements ActionListener 
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent ae) {
 
         String eksp = "";
         eksp = eksponentti.getText();
@@ -44,17 +43,18 @@ public class ValinnanPolynomShowTheFunctionKuuntelija implements ActionListener 
         int ekspInt = 1;
         double kerDouble = 1.0;
 
-        if (!eksp.isEmpty()) {
+        try {
             ekspInt = Integer.parseInt(eksp);
-        }
-
-        if (!ker.isEmpty()) {
+            polynomi.setEksponentti(ekspInt);
             kerDouble = Double.parseDouble(ker);
+            polynomi.setKerroin(kerDouble);
+            String eka = polynomi.toString();
+            this.funktiokentta.setText(eka);
+
+        } catch (Exception e) {
+            this.funktiokentta.setText("Exponent is an integer. Coefficient is a decimal number. (For example 3.5)");
+
         }
-        polynomi.setEksponentti(ekspInt);
-        polynomi.setKerroin(kerDouble);
-        String eka = polynomi.toString();
-        this.funktiokentta.setText(eka);
 
     }
 

@@ -29,7 +29,7 @@ private JTextField funktiokentta;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent ae) {
 
         String ker ="";
         ker = kerroin.getText();
@@ -38,18 +38,18 @@ private JTextField funktiokentta;
         
         double kerDouble = 1.0;
         double kerDoubleSisa = 1.0;
-
-        if (!ker.isEmpty()) {
+        
+        try {
             kerDouble = Double.parseDouble(ker);
-        }
-
-        if (!sisker.isEmpty()) {
+            this.sincos.setKerroin(kerDouble);
             kerDoubleSisa = Double.parseDouble(sisker);
+            this.sincos.setSisafunktionKerroin(kerDoubleSisa);
+            String eka = sincos.toString();
+            this.funktiokentta.setText(eka);
+
+        } catch (Exception e) {
+            this.funktiokentta.setText("Coefficients are decimal numbers. (For example 2.7)");
         }
-        this.sincos.setKerroin(kerDouble);
-        this.sincos.setSisafunktionKerroin(kerDoubleSisa);
-        String eka = sincos.toString();
-        this.funktiokentta.setText(eka);
 
     }
 
