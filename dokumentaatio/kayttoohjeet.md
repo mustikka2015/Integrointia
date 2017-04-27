@@ -7,4 +7,4 @@ Ohjelman tarkoitus on auttaa funktioiden integroimisen ja derivoimisen oppimises
 * Käyttäjä voi myös itse valita funktioksi polynomifunktion, sini- tai kosinifunktion. Tällöin hän valitsee itse funktion kertoimet ja polynomifunktion eksponentin.
 * Käyttäjä voi valita, integroiko vai derivoiko hän valitsemansa funktion.
 * Käyttäjä voi halutessaan myös piirtää vastausfunktion valitsemalla "Draw the solution".
-* Valintanäkymään pääsee takaisin "Back"-valinnan avulla.
+* Ensimmäisen lehden valintanäkymään pääsee takaisin "Back"-valinnan avulla.
