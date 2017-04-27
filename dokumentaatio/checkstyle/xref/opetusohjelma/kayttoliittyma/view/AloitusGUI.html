@@ -43,7 +43,7 @@
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> prepareGUI() {
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>          mainFrame = <strong class="jxr_keyword">new</strong> JFrame(<span class="jxr_string">"Integration and derivation"</span>);
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>          mainFrame.setSize(400, 400);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          mainFrame.setSize(400, 500);
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>          mainFrame.setLayout(<strong class="jxr_keyword">new</strong> GridLayout(3, 1));
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>          headerLabel = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">""</span>, JLabel.CENTER);
@@ -113,14 +113,17 @@
 <a class="jxr_linenumber" name="L105" href="#L105">105</a>         mainFrame.setVisible(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a>     }
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
-<a class="jxr_linenumber" name="L108" href="#L108">108</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
-<a class="jxr_linenumber" name="L109" href="#L109">109</a> 
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>         button.addActionListener(listener);
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>         panel.add(button);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_javadoccomment">     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan..</em>
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 
-<a class="jxr_linenumber" name="L113" href="#L113">113</a>     }
-<a class="jxr_linenumber" name="L114" href="#L114">114</a> 
-<a class="jxr_linenumber" name="L115" href="#L115">115</a> }
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         button.addActionListener(listener);
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         panel.add(button);
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>     }
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

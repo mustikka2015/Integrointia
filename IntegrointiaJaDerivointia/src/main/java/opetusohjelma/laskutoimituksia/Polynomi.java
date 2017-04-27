@@ -14,10 +14,11 @@ public class Polynomi implements Funktio {
     private String funktio;
 
     /**
-     * Konstruktori luokalle Polynomi. Muuttujat "eksponentti" ja "kerroin" alustetaan
-     * parametrien avulla. Polynomi ei ole aluksi luonnollinen logaritmi, eikä sitä ole 
-     * vielä integroitu, joten "integroitu"-muuttujan arvo on  aluksi 0.
-     * 
+     * Konstruktori luokalle Polynomi. Muuttujat "eksponentti" ja "kerroin"
+     * alustetaan parametrien avulla. Polynomi ei ole aluksi luonnollinen
+     * logaritmi, eikä sitä ole vielä integroitu, joten "integroitu"-muuttujan
+     * arvo on aluksi 0.
+     *
      * @param eksponentti int-muodossa
      * @param kerroin double-muodossa
      */
@@ -60,14 +61,20 @@ public class Polynomi implements Funktio {
     public boolean getLuonnollinenLogaritmi() {
         return this.luonnollinenLogaritmi;
     }
+    
+    /**
+     * Metodi palauttaa funktion.
+     * 
+     * @return String funktio
+     */
     @Override
-    public String getFunktio(){
+    public String getFunktio() {
         return this.funktio;
     }
 
     /**
      * Metodin avulla asetetaan polynomifunktion eksponentti.
-     * 
+     *
      * @param eksponentti int-muodossa.
      */
     public void setEksponentti(int eksponentti) {
@@ -76,7 +83,7 @@ public class Polynomi implements Funktio {
 
     /**
      * Metodin avulla asetetaan polynomifunktion kerroin.
-     * 
+     *
      * @param kerroin double-muodossa.
      */
     public void setKerroin(double kerroin) {
@@ -90,7 +97,7 @@ public class Polynomi implements Funktio {
      */
     @Override
     public void derivoi() {
-        this.kerroin = this.kerroin * this.eksponentti;           
+        this.kerroin = this.kerroin * this.eksponentti;
         this.eksponentti = this.eksponentti - 1;
         this.integroitu = 0;
     }
@@ -107,7 +114,7 @@ public class Polynomi implements Funktio {
         if (this.eksponentti != -1) {
             this.eksponentti = this.eksponentti + 1;
             this.kerroin = this.kerroin / this.eksponentti;
- 
+
             this.integroitu = 1;
         } else {
             this.luonnollinenLogaritmi = true;
@@ -137,7 +144,5 @@ public class Polynomi implements Funktio {
 
         return tulostus;
     }
-
-   
 
 }

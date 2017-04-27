@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import opetusohjelma.kayttoliittyma.controller.Arpoja;
+import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.TehtavanArpoja;
 import opetusohjelma.kayttoliittyma.controller.ValinnanNewAssignmentKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanShowSolutionKuuntelija;
@@ -142,7 +143,10 @@ public class KoneValitseeGUI implements Runnable {
     public void piirtoYmsNapinAsetus() {
         drawPanel = new JPanel(new GridLayout(1, 3));
         mainFrame.add(drawPanel);
-        drawPanel.add(new JButton("Back"));
+        JButton back = new JButton("Back");
+        BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
+        back.addActionListener(kuulija);
+        drawPanel.add(back);
 
         JButton drawbutton = new JButton();
         GridLayout layout = new GridLayout(2, 1);

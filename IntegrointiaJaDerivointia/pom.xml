@@ -41,11 +41,13 @@
         <targetClasses>
             <param>opetusohjelma.laskutoimituksia.*</param>
             <param>opetusohjelma.kayttoliittyma.controller.Arpoja</param>
+            <param>opetusohjelma.kayttoliittyma.controller.TehtavanArpoja</param>
             
         </targetClasses>
         <targetTests>
             <param>opetusohjelma.laskutoimituksia.*</param>
             <param>opetusohjelma.kayttoliittyma.controller.ArpojaTest</param>
+            <param>opetusohjelma.kayttoliittyma.controller.TehtavanArpojaTest</param>
             
         </targetTests>
     </configuration>

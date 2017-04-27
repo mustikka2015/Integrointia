@@ -17,6 +17,13 @@ Ohjelma on suunniteltu oppimisen avuksi opiskelijoille, jotka opiskelevat integr
   * Ohjelmaa voi pyytää arpomaan funktion sekä sen, integroidaanko funktio vai derivoidaanko.
   * Opiskelija voi tarkistaa tehtävän oikean vastauksen ohjelman avulla.
 
+**Ohjelman rakennekuvaus:**
+* Käyttäjät käyttävät ohjelmaa käyttöliittymänäkymien avulla. 
+Käyttöliittymänäkymien painikkeet on toteutettu tapahtumankuuntelijoiden avulla. 
+Kun kone arpoo tehtävän, arpomisessa käytetään Arpoja-olioita. Piirtämiseen tullaan käyttämään erikseen kaikille yhteistä Piirtaja-luokkaa.
+* Eri Funktio-rajapinnan toteuttavia olioita on tähän valittu Polynomi ja sinin ja kosinin yhdistävä SinCos,
+mutta niiden määrä voisi lisätä opetusohjelman päämäärän mukaan. Funktio-oliot voidaan 
+integroida, derivoida ja tulostaa haluttuun muotoon. Rajapinnan käytön lisääminen tulee parantamaan ohjelman laajennettavuutta.
 
 Määrittelyvaiheen luokkakaavio:
 ![Luokkakaavio](Luokkakaavio.jpg)

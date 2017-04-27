@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaSinCos;
 import opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaSinCos;
 import opetusohjelma.kayttoliittyma.controller.ValinnanSinCosShowTheFunctionKuuntelija;
@@ -192,7 +193,10 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
     public void piirtoYmsNapinAsetus() {
         drawPanel = new JPanel();
         mainFrame.add(drawPanel);
-        drawPanel.add(new JButton("Back"));
+        JButton back = new JButton("Back");
+        BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
+        back.addActionListener(kuulija);
+        drawPanel.add(back);
         drawPanel.add(new JButton("Draw the solution"));
     }
 

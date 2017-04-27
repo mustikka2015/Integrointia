@@ -15,12 +15,26 @@ public interface Funktio {
 
     /**
      * Metodi tulostaa funktion merkkijonona.
-     * 
+     *
      * @return String
      */
     String toString();
+
+    /**
+     * Metodi tulostaa integroi funktion.
+     */
     void integroi();
+
+    /**
+     * Metodi tulostaa derivoi funktion.
+     */
     void derivoi();
+
+    /**
+     * Metodi tulostaa palauttaa funktion.
+     *
+     * @return String funktio
+     */
     String getFunktio();
 
 }

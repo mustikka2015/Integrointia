@@ -65,16 +65,16 @@ public class SinCos implements Funktio {
     /**
      * Metodin avulla asetetaan funktion kerroin.
      *
-     * @param kerroin double-muodossa.
+     * @param luku double-muodossa
      */
     public void setKerroin(double luku) {
         this.kerroin = luku;
     }
-    
+
     /**
      * Metodin avulla asetetaan sisäfunktion kerroin.
-     * 
-     * @param kerroin double-muodossa.
+     *
+     * @param luku double-muodossa
      */
     public void setSisafunktionKerroin(double luku) {
         this.sisaFunktionKerroin = luku;

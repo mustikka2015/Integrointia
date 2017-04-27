@@ -14,4 +14,6 @@ Päivä | Tunnit | Kuvaus
 18.4.2017  | 5,0 h | Käyttöliittymän tekemistä ja koodin refaktorointia.
 19.4.2017  | 7,0 h | Käyttöliittymän tekemistä ja koodin refaktorointia.
 20.4.2017  | 3,0 h | Testien tekeminen ja sekvenssikaavion piirtäminen. Rajapintaluokan tekeminen.
-22.4.2017  | 8,0 h | Toiminnallisuuden lisäämistä tapahtumankuuntelijoiden luomisen avulla. Koodin refaktorointia.
+22.4.2017  | 8,0 h | Toiminnallisuuden lisäämistä tapahtumankuuntelijoiden luomisen avulla. Koodin refaktorointia. 
+26.4.2017  | 0,45 h| Back-napin toiminnallisuus ja jar-tiedoston luomisen aloitus.
+27.4.2017  | 3,0 h | Unit-testejä TehtavanArpoja-luokalle, Checkstyle- ja Pit-raportit ja niiden mukaisten korjausten tekeminen. Rakennekuvaus, käyttöohjeet ja jar-tiedosto.

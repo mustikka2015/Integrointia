@@ -10,17 +10,21 @@ import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
+ * Luokka toteuttaa tehtävän arpomiseen liittyviä toiminnallisuuksia.
  *
  * @author Iisa
  */
 public class TehtavanArpoja {
-    
-    private ArrayList<String>funktioJaVast;
-    
+
+    private ArrayList<String> funktioJaVast;
+
+    /**
+     * Konstruktori luokalle TehtavanArpoja.
+     */
     public TehtavanArpoja() {
-        
-    } 
-    
+
+    }
+
     /**
      * Metodi arpoo funktion. Se palauttaa ArrayList-olion, joka sisältää itse
      * funktion String-muodossa, funktion derivoituna String-muodossa sekä
@@ -37,7 +41,7 @@ public class TehtavanArpoja {
             funktioJaVast = sinCosFunktionArpominen(funktioJaVast, funktio, arpoja);
 
         } else {
-            funktioJaVast = polynomifunktionArpominen(funktioJaVast, funktio, arpoja);
+            funktioJaVast = polynomifunktionArpominen(funktioJaVast, arpoja);
         }
 
         return funktioJaVast;
@@ -47,6 +51,10 @@ public class TehtavanArpoja {
      * Metodi arpoo sini- tai kosinifunktion kertoimet. Se palauttaa
      * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
      * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
+     *
+     * @param funktioJaVast ArrayList<String>-muodossa
+     * @param funktio String-muodossa
+     * @param arpoja Arpoja-muodossa
      *
      * @return ArrayList<String>, joka sisältää sekä funktion että sen
      * derivaatan ja integraalin.
@@ -71,14 +79,17 @@ public class TehtavanArpoja {
      * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
      * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
      *
+     * @param funktioJaVast ArrayList<String>-muodossa
+     * @param arpoja Arpoja-muodossa
+     *
      * @return ArrayList<String>, joka sisältää sekä funktion että sen
      * derivaatan ja integraalin.
      */
-    public ArrayList<String> polynomifunktionArpominen(ArrayList<String> funktioJaVast, String funktio, Arpoja arpoja) {
+    public ArrayList<String> polynomifunktionArpominen(ArrayList<String> funktioJaVast, Arpoja arpoja) {
         double kerroin = arpoja.arvoKerroin();
         int eks = arpoja.arvoPolynominEksponentti();
         Polynomi polynomi = new Polynomi(eks, kerroin);
-        funktio = polynomi.toString();
+        String funktio = polynomi.toString();
         funktioJaVast.add(funktio);
         Polynomi derivoitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
         Polynomi integroitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
@@ -103,6 +114,9 @@ public class TehtavanArpoja {
     /**
      * Metodi kertoo tehtävänannon String-muodossa, kun sille on syötetty jo
      * aikaisemmin arvotut toiminto ja funktio.
+     *
+     * @param toiminto String-muodossa
+     * @param funktio String-muodossa
      *
      * @return String: tehtävänanto
      */

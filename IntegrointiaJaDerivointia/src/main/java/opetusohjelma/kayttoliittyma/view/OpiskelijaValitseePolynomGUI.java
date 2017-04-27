@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaPolynomille;
 import opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaPolynomille;
 import opetusohjelma.kayttoliittyma.controller.ValinnanPolynomShowTheFunctionKuuntelija;
@@ -179,7 +180,10 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
     public void piirtoYmsNapinAsetus() {
         drawPanel = new JPanel();
         mainFrame.add(drawPanel);
-        drawPanel.add(new JButton("Back"));
+        JButton back = new JButton("Back");
+        BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
+        back.addActionListener(kuulija);
+        drawPanel.add(back);
         drawPanel.add(new JButton("Draw the solution"));
     }
 
