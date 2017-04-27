@@ -8,6 +8,8 @@ Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. O
 
 [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
+[käyttöohjeet](dokumentaatio/kayttoohjeet.md)
+
 ## Raportit
 
 [pit-raportti](https://htmlpreview.github.io/?https://github.com/mustikka2015/Integrointia/blob/master/dokumentaatio/pit/index.html)
