@@ -46,13 +46,18 @@ public class ValinnanPolynomShowTheFunctionKuuntelija implements ActionListener 
         try {
             ekspInt = Integer.parseInt(eksp);
             polynomi.setEksponentti(ekspInt);
-            kerDouble = Double.parseDouble(ker);
-            polynomi.setKerroin(kerDouble);
-            String eka = polynomi.toString();
-            this.funktiokentta.setText(eka);
+
+            try {
+                kerDouble = Double.parseDouble(ker);
+                polynomi.setKerroin(kerDouble);
+                String eka = polynomi.toString();
+                this.funktiokentta.setText(eka);
+            } catch (Exception e) {
+                this.funktiokentta.setText("Coefficient is a decimal number. (For example 3.5)");
+            }
 
         } catch (Exception e) {
-            this.funktiokentta.setText("Exponent is an integer. Coefficient is a decimal number. (For example 3.5)");
+            this.funktiokentta.setText("Exponent is an integer. (For example 2)");
 
         }
 

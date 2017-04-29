@@ -19,20 +19,73 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  */
 public class ValinnanIntegrateKuuntelijaPolynomille implements ActionListener {
 
+    private JTextField eksponentti;
+    private JTextField kerroin;
     private JTextField vastaus;
     private Polynomi polynomi;
 
-    public ValinnanIntegrateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus) {
-        this.polynomi= polynomi;
+    public ValinnanIntegrateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
+        this.eksponentti = eksponentti;
+        this.kerroin = kerroin;
+        this.polynomi = polynomi;
         this.vastaus = vastaus;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        Polynomi integroitava = new Polynomi(this.polynomi.getEksponentti(), this.polynomi.getKerroin());
-        integroitava.integroi();
-        this.vastaus.setText(integroitava.toString());
+    public void actionPerformed(ActionEvent ae) {
+
+        String eksp = "";
+        eksp = eksponentti.getText();
+        String ker = "";
+        ker = kerroin.getText();
+        int ekspInt = 1;
+        double kerDouble = 1.0;
+        try {
+            ekspInt = Integer.parseInt(eksp);
+            polynomi.setEksponentti(ekspInt);
+            try {
+                kerDouble = Double.parseDouble(ker);
+                polynomi.setKerroin(kerDouble);
+                Polynomi integroitava = new Polynomi(this.polynomi.getEksponentti(), this.polynomi.getKerroin());
+                integroitava.integroi();
+                String eka = integroitava.toString();
+                this.vastaus.setText(eka);
+
+            } catch (Exception e) {
+                this.vastaus.setText("Coefficient is a decimal number. (For example 3.5)");
+
+            }
+
+        } catch (Exception e) {
+            this.vastaus.setText("Exponent is an integer. (For example 2)");
+        }
 
     }
 
+//    @Override
+//    public void actionPerformed(ActionEvent ae) {
+//
+//        String eksp = "";
+//        eksp = eksponentti.getText();
+//        String ker = "";
+//        ker = kerroin.getText();
+//        int ekspInt = 1;
+//        double kerDouble = 1.0;
+//
+//        try {
+//            ekspInt = Integer.parseInt(eksp);
+//            polynomi.setEksponentti(ekspInt);
+//            kerDouble = Double.parseDouble(ker);
+//            polynomi.setKerroin(kerDouble);
+//            Polynomi integroitava = new Polynomi(this.polynomi.getEksponentti(), this.polynomi.getKerroin());
+//            integroitava.integroi();
+//            String eka = integroitava.toString();
+//            this.vastaus.setText(eka);
+//
+//        } catch (Exception e) {
+//            this.vastaus.setText("Exponent is an integer. Coefficient is a decimal number. (For example 3.5)");
+//
+//        }
+//
+//    }
 }

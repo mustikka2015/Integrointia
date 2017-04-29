@@ -149,11 +149,11 @@ public class OpiskelijaValitseeSinGUI implements Runnable {
         intderPanel = new JPanel();
         intderPanel.setLayout(new GridLayout(1, 2));
         JButton integButton = new JButton("Integrate");
-        ValinnanIntegrateKuuntelijaSinCos intKuulija = new ValinnanIntegrateKuuntelijaSinCos(sin, vastaus);
+        ValinnanIntegrateKuuntelijaSinCos intKuulija = new ValinnanIntegrateKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
         intderPanel.add(integButton);
         JButton diffButton = new JButton("Differentiate");
-        ValinnanDifferentiateKuuntelijaSinCos diffKuulija = new ValinnanDifferentiateKuuntelijaSinCos(sin, vastaus);
+        ValinnanDifferentiateKuuntelijaSinCos diffKuulija = new ValinnanDifferentiateKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
         diffButton.addActionListener(diffKuulija);
         intderPanel.add(diffButton);
         mainFrame.add(intderPanel);

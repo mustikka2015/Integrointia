@@ -144,11 +144,11 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
         intderPanel = new JPanel();
         intderPanel.setLayout(new GridLayout(1, 2));
         JButton integButton = new JButton("Integrate");
-        ValinnanIntegrateKuuntelijaPolynomille intKuulija = new ValinnanIntegrateKuuntelijaPolynomille(polynomi, vastaus);
+        ValinnanIntegrateKuuntelijaPolynomille intKuulija = new ValinnanIntegrateKuuntelijaPolynomille(polynomi, vastaus,vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
         intderPanel.add(integButton);
         JButton diffButton = new JButton("Differentiate");
-        ValinnanDifferentiateKuuntelijaPolynomille diffKuulija = new ValinnanDifferentiateKuuntelijaPolynomille(polynomi, vastaus);
+        ValinnanDifferentiateKuuntelijaPolynomille diffKuulija = new ValinnanDifferentiateKuuntelijaPolynomille(polynomi, vastaus,vastaus1, vastaus2);
         diffButton.addActionListener(diffKuulija);
         intderPanel.add(integButton);
         intderPanel.add(diffButton);

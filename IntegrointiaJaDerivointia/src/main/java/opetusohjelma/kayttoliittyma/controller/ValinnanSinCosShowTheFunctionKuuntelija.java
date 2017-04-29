@@ -15,7 +15,7 @@ import opetusohjelma.laskutoimituksia.SinCos;
  * @author Iisa
  */
 public class ValinnanSinCosShowTheFunctionKuuntelija implements ActionListener {
-private JTextField funktiokentta;
+    private JTextField funktiokentta;
     private JTextField kerroin;
     private JTextField sisafunktionKerroin;
     private SinCos sincos;
