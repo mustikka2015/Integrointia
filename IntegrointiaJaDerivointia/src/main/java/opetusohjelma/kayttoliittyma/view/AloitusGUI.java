@@ -13,7 +13,7 @@ import java.awt.CardLayout;
 import opetusohjelma.kayttoliittyma.controller.ValinnanChangeKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanCosKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanPolynomKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.ValinnanSelectKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.ValinnanStartKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanSinKuuntelija;
 
 /**
@@ -82,7 +82,7 @@ public class AloitusGUI {
 
         JPanel selectPanel = new JPanel(new FlowLayout());
 
-        lisaaNappi(selectPanel, new JButton("Select"), new ValinnanSelectKuuntelija());
+        lisaaNappi(selectPanel, new JButton("Start"), new ValinnanStartKuuntelija());
 
         panel.add("You choose", buttonPanel);
         panel.add("Computer chooses", selectPanel);

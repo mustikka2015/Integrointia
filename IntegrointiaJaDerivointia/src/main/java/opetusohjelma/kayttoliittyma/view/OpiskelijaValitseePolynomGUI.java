@@ -120,7 +120,7 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
      */
     public void lisaaNaytaFunktioNappi() {
         showPanel = new JPanel();
-        showPanel.setLayout(new GridLayout());
+//        showPanel.setLayout(new GridLayout());
         mainFrame.add(showPanel);
         JButton nappi1 = new JButton("Show the function");
         ValinnanPolynomShowTheFunctionKuuntelija kuulija = new ValinnanPolynomShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, polynomi);
@@ -143,7 +143,7 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
      */
     public void integrateDerivateButtons() {
         intderPanel = new JPanel();
-        intderPanel.setLayout(new GridLayout(1, 2));
+//        intderPanel.setLayout(new GridLayout(1, 2));
         JButton integButton = new JButton("Integrate");
         ValinnanIntegrateKuuntelijaPolynomille intKuulija = new ValinnanIntegrateKuuntelijaPolynomille(polynomi, vastaus,vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
@@ -180,7 +180,7 @@ public class OpiskelijaValitseePolynomGUI implements Runnable {
      */
     public void piirtoYmsNapinAsetus() {
         drawPanel = new JPanel();
-        drawPanel.setLayout(new GridLayout(1, 2));
+//        drawPanel.setLayout(new GridLayout(1, 2));
         mainFrame.add(drawPanel);
         JButton back = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);

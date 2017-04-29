@@ -138,7 +138,7 @@ public class KoneValitseeGUI implements Runnable {
      * Metodi luo "Back", "Draw the solution" ja "New assignment"-napit.
      */
     public void piirtoYmsNapinAsetus() {
-        drawPanel = new JPanel(new GridLayout(1, 3));
+        drawPanel = new JPanel(new GridLayout(1,3));
         mainFrame.add(drawPanel);
         JButton back = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
