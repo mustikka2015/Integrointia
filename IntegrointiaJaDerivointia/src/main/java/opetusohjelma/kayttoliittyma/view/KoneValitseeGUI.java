@@ -108,13 +108,10 @@ public class KoneValitseeGUI implements Runnable {
         controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
         mainFrame.add(controlPanel);
-        JPanel taskPanel = new JPanel(new FlowLayout());
         JButton vastausnappi = new JButton("Show the solution");
         this.vastauskuulija = new ValinnanShowSolutionKuuntelija(vastaus, funktioJaVastaus, komento);
         vastausnappi.addActionListener(vastauskuulija);
-        taskPanel.add(vastausnappi);
-
-        controlPanel.add(taskPanel);
+        controlPanel.add(vastausnappi);
     }
 
     /**

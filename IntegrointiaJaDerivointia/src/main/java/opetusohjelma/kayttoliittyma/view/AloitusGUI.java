@@ -34,7 +34,7 @@ public class AloitusGUI {
      * Metodi luo JFrame-olion ja alustaa sen halutunlaiseksi.
      */
     public void prepareGUI() {
-        mainFrame = new JFrame("Integration and derivation");
+        mainFrame = new JFrame("Integration and differentiation");
         mainFrame.setSize(400, 500);
         mainFrame.setLayout(new GridLayout(3, 1));
 
