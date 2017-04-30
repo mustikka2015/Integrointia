@@ -99,9 +99,8 @@ public class Polynomi implements Funktio {
      */
     @Override
     public void derivoi() {
-//        double vastaus = this.kerroin * this.eksponentti;
-//        this.kerroin = kertoimenPyoristys(this.kerroin,vastaus);
-        this.kerroin = pyoristetynKertoimenLaskeminenDerivaattaan();
+        double vastaus = this.kerroin * this.eksponentti;
+        this.kerroin = kertoimenPyoristys(this.kerroin,vastaus);
         this.eksponentti = this.eksponentti - 1;
         this.integroitu = 0;
     }
@@ -158,43 +157,43 @@ public class Polynomi implements Funktio {
 
     }
 
-    /**
-     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
-     * derivoituun polynomifunktioon.
-     *
-     * @return desimaaliluku sopivasti pyöristettynä.
-     */
-    public double pyoristetynKertoimenLaskeminenDerivaattaan() {
-
-        int kertoimenPituus = Double.toString(kerroin).length();
-        int eksponentinPituus = Integer.toString(this.eksponentti).length();
-        double pyoristettyKerroin = this.kerroin * this.eksponentti;
-        if (kertoimenPituus < eksponentinPituus) {
-            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
-        } else {
-            pyoristettyKerroin = kertoimenPyoristys((double) (eksponentti / 10), pyoristettyKerroin);
-        }
-        return pyoristettyKerroin;
-    }
-    
-     /**
-     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
-     * integroituun polynomifunktioon.
-     *
-     * @return desimaaliluku sopivasti pyöristettynä.
-     */
-    public double pyoristetynKertoimenLaskeminenIntegraaliin() {
-
-        int kertoimenPituus = Double.toString(kerroin).length();
-        int eksponentinPituus = Integer.toString(this.eksponentti).length();
-        double pyoristettyKerroin = this.kerroin / this.eksponentti;
-        if (kertoimenPituus < eksponentinPituus) {
-            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
-        } else {
-            pyoristettyKerroin = kertoimenPyoristys((double) (eksponentti / 10), pyoristettyKerroin);
-        }
-        return pyoristettyKerroin;
-    }
+//    /**
+//     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
+//     * derivoituun polynomifunktioon.
+//     *
+//     * @return desimaaliluku sopivasti pyöristettynä.
+//     */
+//    public double pyoristetynKertoimenLaskeminenDerivaattaan() {
+//
+//        int kertoimenPituus = Double.toString(kerroin).length();
+//        int eksponentinPituus = Integer.toString(this.eksponentti).length();
+//        double pyoristettyKerroin = this.kerroin * this.eksponentti;
+//        if (kertoimenPituus < eksponentinPituus) {
+//            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
+//        } else {
+//            pyoristettyKerroin = kertoimenPyoristys((double) (eksponentti / 10), pyoristettyKerroin);
+//        }
+//        return pyoristettyKerroin;
+//    }
+//    
+//     /**
+//     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
+//     * integroituun polynomifunktioon.
+//     *
+//     * @return desimaaliluku sopivasti pyöristettynä.
+//     */
+//    public double pyoristetynKertoimenLaskeminenIntegraaliin() {
+//
+//        int kertoimenPituus = Double.toString(kerroin).length();
+//        int eksponentinPituus = Integer.toString(this.eksponentti).length();
+//        double pyoristettyKerroin = this.kerroin / this.eksponentti;
+//        if (kertoimenPituus < eksponentinPituus) {
+//            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
+//        } else {
+//            pyoristettyKerroin = kertoimenPyoristys((double) (eksponentti / 10), pyoristettyKerroin);
+//        }
+//        return pyoristettyKerroin;
+//    }
 
     /**
      * Metodin avulla tulostetaan polynomifunktio merkkijonona.
