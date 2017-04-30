@@ -13,7 +13,6 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import opetusohjelma.kayttoliittyma.controller.Arpoja;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.TehtavanArpoja;
 import opetusohjelma.kayttoliittyma.controller.ValinnanNewAssignmentKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ValinnanShowSolutionKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
@@ -63,14 +62,14 @@ public class KoneValitseeGUI implements Runnable {
      */
     @Override
     public void run() {
+        
+        Arpoja arpoja = new Arpoja();
 
-        TehtavanArpoja tehtArpoja = new TehtavanArpoja();
+        String toiminto = arpoja.arvoToiminto();
 
-        String toiminto = tehtArpoja.arvoToiminto();
+        this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset();
 
-        this.funktioJaVastaus = tehtArpoja.arvoFunktio();
-
-        tehtavanantorivinAsetus(toiminto, tehtArpoja);
+        tehtavanantorivinAsetus(toiminto, arpoja);
 
         JTextField vastaus = new JTextField();
 
@@ -93,11 +92,11 @@ public class KoneValitseeGUI implements Runnable {
     /**
      * Metodi luo tehtävänantorivin näkymään.
      */
-    public void tehtavanantorivinAsetus(String toiminto, TehtavanArpoja tehtArpoja) {
+    public void tehtavanantorivinAsetus(String toiminto, Arpoja arpoja) {
         headerLabel = new JLabel("", JLabel.CENTER);
         mainFrame.add(headerLabel);
         String funktio = funktioJaVastaus.get(0);
-        String tehtava = tehtArpoja.arvoTehtava(toiminto, funktio);
+        String tehtava = arpoja.arvoTehtava(toiminto, funktio);
         headerLabel.setText(tehtava);
     }
 

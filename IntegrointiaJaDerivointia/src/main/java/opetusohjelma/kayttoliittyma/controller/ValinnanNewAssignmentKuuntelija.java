@@ -42,11 +42,11 @@ public class ValinnanNewAssignmentKuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        TehtavanArpoja tehtArpoja = new TehtavanArpoja();
-        String toiminto = tehtArpoja.arvoToiminto();
-        this.funktioJaVastaus = tehtArpoja.arvoFunktio();
+        Arpoja arpoja = new Arpoja();
+        String toiminto = arpoja.arvoToiminto();
+        this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset();
         String funktio = funktioJaVastaus.get(0);
-        String tehtava = tehtArpoja.arvoTehtava(toiminto, funktio);
+        String tehtava = arpoja.arvoTehtava(toiminto, funktio);
         headerLabel.setText(tehtava);
 
         skuuntelija.setFunktioJaVastaus(funktioJaVastaus);
