@@ -11,12 +11,20 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
+
 public class ArpojaTest {
 
     public ArpojaTest() {
 
     }
-
+    
+    @Test
+    public void eksponenttiEiNolla() {
+        Arpoja arpoja = new Arpoja();
+        int eksp = arpoja.arvoPolynominEksponentti();
+        assertFalse(eksp == 0);
+    }
+           
     @Test
     public void eksponenttiArvottuOikeinTest1() {
         opetusohjelma.kayttoliittyma.controller.Arpoja arpoja = new opetusohjelma.kayttoliittyma.controller.Arpoja();

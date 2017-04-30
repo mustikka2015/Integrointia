@@ -147,15 +147,10 @@ public class Polynomi implements Funktio {
 
         Double mitta2 = (Double) tuloste;
         String[] jakaja2 = mitta2.toString().split("\\.");
-        int tulosteenDesimaalit = syotteenPituus - jakaja2[0].length();
+        int tulosteenDesimaalit = Math.max(syotteenPituus - jakaja2[0].length(), 1);
         if (jakaja2[0].equals("0")) {
             tulosteenDesimaalit = syotteenPituus;
         }
-
-        if (tulosteenDesimaalit <= 0) {
-            return new BigDecimal(tuloste).setScale(0, RoundingMode.HALF_UP).doubleValue();
-        }
-
         return new BigDecimal(tuloste).setScale(tulosteenDesimaalit, RoundingMode.HALF_UP).doubleValue();
 
     }

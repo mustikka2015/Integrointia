@@ -10,6 +10,13 @@ public class PolynomiTest {
     }
 
     @Test
+    public void funktioOikeinTest() {
+        Polynomi pol = new Polynomi(4, 5.0);
+        String funktio = pol.getFunktio();
+        assertEquals("polynom", funktio);
+    }
+
+    @Test
     public void eksponenttiOikeinTest() {
         Polynomi pol = new Polynomi(4, 5.0);
         int eksp = pol.getEksponentti();
@@ -119,6 +126,23 @@ public class PolynomiTest {
     }
 
     @Test
+    public void kerroinOikeinTest2() {
+        Polynomi pol = new Polynomi(3, 3.7);
+        pol.integroi();
+        double ker = pol.getKerroin();
+        String kerroin = Double.toString(ker);
+        assertEquals("0.93", kerroin);
+    }
+
+    @Test
+    public void kerroinOikeinTest3() {
+        Polynomi pol = new Polynomi(3, 1.234567);
+        double ker = pol.kertoimenPyoristys(0.267, pol.getKerroin());
+        String kerroin = Double.toString(ker);
+        assertEquals("1.23", kerroin);
+    }
+
+    @Test
     public void integroituMuuttujaOikeinTest3() {
         Polynomi pol = new Polynomi(4, 5.0);
         pol.derivoi();
@@ -167,8 +191,8 @@ public class PolynomiTest {
         String tulostus = pol.toString();
         assertEquals("5.0 * x^(4)", tulostus);
     }
-    
-     @Test
+
+    @Test
     public void kertoimenPyoristysOikeinTest() {
         Polynomi pol = new Polynomi(2, 4.0);
         pol.integroi();

@@ -101,12 +101,9 @@ public class SinCos implements Funktio {
         }
         Double mitta2 = (Double) tuloste;
         String[] jakaja2 = mitta2.toString().split("\\.");
-        int tulosteenDesimaalit = syotteenPituus - jakaja2[0].length();
+        int tulosteenDesimaalit = Math.max(syotteenPituus - jakaja2[0].length(), 1);
         if (jakaja2[0].equals("0")) {
             tulosteenDesimaalit = syotteenPituus;
-        }
-        if (tulosteenDesimaalit <= 0) {
-            return new BigDecimal(tuloste).setScale(0, RoundingMode.HALF_UP).doubleValue();
         }
         return new BigDecimal(tuloste).setScale(tulosteenDesimaalit, RoundingMode.HALF_UP).doubleValue();
 
@@ -116,13 +113,15 @@ public class SinCos implements Funktio {
      * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
      * derivoituun sini- tai kosini-funktioon.
      *
+     * @param kerroin double
+     * @param sisaFunktionKerroin double
      * @return desimaaliluku sopivasti pyöristettynä.
      */
-    public double pyoristetynKertoimenLaskeminenDerivaattaan() {
+    public double pyoristetynKertoimenLaskeminenDerivaattaan(double kerroin, double sisaFunktionKerroin) {
 
         int kertoimenPituus = Double.toString(kerroin).length();
         int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
-        double pyoristettyKerroin = this.kerroin * this.sisaFunktionKerroin;
+        double pyoristettyKerroin = kerroin * sisaFunktionKerroin;
         if (kertoimenPituus < sisakertoimenPituus) {
             pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
         } else {
@@ -139,10 +138,10 @@ public class SinCos implements Funktio {
 
         if (this.funktio.equals("sin")) {
 
-            this.kerroin = pyoristetynKertoimenLaskeminenDerivaattaan();
+            this.kerroin = pyoristetynKertoimenLaskeminenDerivaattaan(this.kerroin, this.sisaFunktionKerroin);
             this.funktio = "cos";
         } else if (this.funktio.equals("cos")) {
-            this.kerroin = -1 * pyoristetynKertoimenLaskeminenDerivaattaan();
+            this.kerroin = -1 * pyoristetynKertoimenLaskeminenDerivaattaan(this.kerroin, this.sisaFunktionKerroin);
             this.funktio = "sin";
         }
         this.integoitu = false;
@@ -153,13 +152,15 @@ public class SinCos implements Funktio {
      * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
      * derivoituun sini- tai kosini-funktioon.
      *
+     * @param kerroin double
+     * @param sisaFunktionKerroin double
      * @return desimaaliluku sopivasti pyöristettynä.
      */
-    public double pyoristetynKertoimenLaskeminenIntegraaliin() {
+    public double pyoristetynKertoimenLaskeminenIntegraaliin(double kerroin, double sisaFunktionKerroin) {
 
         int kertoimenPituus = Double.toString(kerroin).length();
         int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
-        double pyoristettyKerroin = this.kerroin / this.sisaFunktionKerroin;
+        double pyoristettyKerroin = kerroin / sisaFunktionKerroin;
         if (kertoimenPituus < sisakertoimenPituus) {
             pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
         } else {
@@ -174,10 +175,10 @@ public class SinCos implements Funktio {
     @Override
     public void integroi() {
         if (this.funktio.equals("sin")) {
-            this.kerroin = -1 * pyoristetynKertoimenLaskeminenIntegraaliin();
+            this.kerroin = -1 * pyoristetynKertoimenLaskeminenIntegraaliin(this.kerroin, this.sisaFunktionKerroin);
             this.funktio = "cos";
         } else if (this.funktio.equals("cos")) {
-            this.kerroin = pyoristetynKertoimenLaskeminenIntegraaliin();
+            this.kerroin = pyoristetynKertoimenLaskeminenIntegraaliin(this.kerroin, this.sisaFunktionKerroin);
             this.funktio = "sin";
         }
         this.integoitu = true;

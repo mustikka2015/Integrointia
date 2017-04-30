@@ -152,6 +152,26 @@ public class SinCosTest {
         assertEquals("3.0", kerroin);
 
     }
+    
+    @Test
+    public void integroinninJalkeenKerroinOikeinTest3() {
+        SinCos kosini = new SinCos(1.7, 3.45, "cos");
+        kosini.integroi();
+        double ker = kosini.getKerroin();
+        String kerroin = Double.toString(ker);
+        assertEquals("0.49", kerroin);
+
+    }
+    
+    @Test
+    public void integroinninJalkeenKerroinOikeinTest4() {
+        SinCos kosini = new SinCos(1.798, 6.7, "cos");
+        kosini.integroi();
+        double ker = kosini.getKerroin();
+        String kerroin = Double.toString(ker);
+        assertEquals("0.27", kerroin);
+
+    }
 
     @Test
     public void integroinninJalkeenFunktioOikeinTest1() {
@@ -205,5 +225,53 @@ public class SinCosTest {
         sin.integroi();
         String kerroin = Double.toString(sin.getKerroin());
         assertEquals(kerroin, "-0.35");
+    }
+    
+    @Test
+    public void kertoimenPyoristysOikeinTest2() {
+        SinCos sin = new SinCos(9.876543, 1.234567, "sin");
+        double ker = sin.kertoimenPyoristys(0.56,1.234567);
+        String kerroin = Double.toString(ker);
+        assertEquals("1.2", kerroin);
+    }
+    
+    @Test
+    public void kertoimenPyoristysOikeinTest3() {
+        SinCos sin = new SinCos(0.743, 1.234567, "sin");
+        double ker = sin.kertoimenPyoristys(0.743,1234.58765);
+        String kerroin = Double.toString(ker);
+        assertEquals("1234.6", kerroin);
+    }
+    
+    @Test
+    public void kertoimenPyoristysOikeinTest4() {
+        SinCos sin = new SinCos(7.896, 1.234567, "sin");
+        double ker = sin.pyoristetynKertoimenLaskeminenIntegraaliin(7.896,1.234567);
+        String kerroin = Double.toString(ker);
+        assertEquals("6.396", kerroin);
+    }
+    
+    @Test
+    public void kertoimenPyoristysOikeinTest5() {
+        SinCos sin = new SinCos(7.896, 1.2, "sin");
+        double ker = sin.pyoristetynKertoimenLaskeminenIntegraaliin(7.896,1.2);
+        String kerroin = Double.toString(ker);
+        assertEquals("6.6", kerroin);
+    }
+    
+    @Test
+    public void kertoimenPyoristysOikeinTest6() {
+        SinCos sin = new SinCos(7.896, 1.2, "sin");
+        double ker = sin.pyoristetynKertoimenLaskeminenDerivaattaan(7.896,1.2);
+        String kerroin = Double.toString(ker);
+        assertEquals("9.5", kerroin);
+    }
+    
+    @Test
+    public void kertoimenPyoristysOikeinTest7() {
+        SinCos sin = new SinCos(2.3, 7.896, "sin");
+        double ker = sin.pyoristetynKertoimenLaskeminenDerivaattaan(2.3, 7.896);
+        String kerroin = Double.toString(ker);
+        assertEquals("18.2", kerroin);
     }
 }
