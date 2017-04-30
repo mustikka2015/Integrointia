@@ -15,7 +15,7 @@
     <suppress files="ValinnanNewAssignmentKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ValinnanPolynomKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ValinnanPolynomShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanSelectKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ValinnanStartKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ValinnanShowSolutionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ValinnanSinCosShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="ValinnanSinKuuntelija.java" checks="[a-zA-Z0-9]*"/>

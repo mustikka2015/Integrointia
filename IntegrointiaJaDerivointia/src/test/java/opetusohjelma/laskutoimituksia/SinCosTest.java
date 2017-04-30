@@ -199,8 +199,11 @@ public class SinCosTest {
         assertEquals("0.4 * sin(5.0x) + C", tulostus);
     }
 
-    //En vielä ehtinyt tehdä kaikkia testejä tähän luokkaan.
-    //Ne tehdään kuitenkin samalla tavalla kuin Polynomi-luokkaan.
-    //Koska vaatimuksena oli 10 testiä, katson 
-    //tekemieni testien riittävän tavoitteen saavuttamiseksi.
+     @Test
+    public void kertoimenPyoristysOikeinTest() {
+        SinCos sin = new SinCos(2.34, 6.7, "sin");
+        sin.integroi();
+        String kerroin = Double.toString(sin.getKerroin());
+        assertEquals(kerroin, "-0.35");
+    }
 }

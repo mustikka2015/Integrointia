@@ -44,7 +44,6 @@ public class SinCos implements Funktio {
             this.funktio = "";
         }
         this.integoitu = false;
-
     }
 
     public double getKerroin() {
@@ -87,6 +86,9 @@ public class SinCos implements Funktio {
      * määrän desimaaleja. Kyseessä ei ole kuitenkaan pyöristys sisältämään
      * saman määrän desimaaleja kuin merkitsevissä numeroissa on.
      *
+     * @param mitta double-muodossa. Mitta toimii mittana kertoimen
+     * pyöristyksessä.
+     * @param tuloste double-muodossa
      * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double kertoimenPyoristys(double mitta, double tuloste) {
@@ -97,20 +99,17 @@ public class SinCos implements Funktio {
         if (jakaja1[0].equals("0")) {
             syotteenPituus = jakaja1[1].length();
         }
-
         Double mitta2 = (Double) tuloste;
         String[] jakaja2 = mitta2.toString().split("\\.");
         int tulosteenDesimaalit = syotteenPituus - jakaja2[0].length();
         if (jakaja2[0].equals("0")) {
             tulosteenDesimaalit = syotteenPituus;
         }
-        
-        if (tulosteenDesimaalit<= 0) {
+        if (tulosteenDesimaalit <= 0) {
             return new BigDecimal(tuloste).setScale(0, RoundingMode.HALF_UP).doubleValue();
         }
-
         return new BigDecimal(tuloste).setScale(tulosteenDesimaalit, RoundingMode.HALF_UP).doubleValue();
-       
+
     }
 
     /**
@@ -133,9 +132,7 @@ public class SinCos implements Funktio {
     }
 
     /**
-     * Metodin avulla funktio derivoidaan. Derivointi suoritetaan muuttamalla
-     * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
-     * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
+     * Metodin avulla funktio derivoidaan.
      */
     @Override
     public void derivoi() {
@@ -148,7 +145,6 @@ public class SinCos implements Funktio {
             this.kerroin = -1 * pyoristetynKertoimenLaskeminenDerivaattaan();
             this.funktio = "sin";
         }
-
         this.integoitu = false;
 
     }
@@ -173,9 +169,7 @@ public class SinCos implements Funktio {
     }
 
     /**
-     * Metodin avulla funktio integroidaan. Integrointi suoritetaan muuttamalla
-     * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
-     * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
+     * Metodin avulla funktio integroidaan.
      */
     @Override
     public void integroi() {
@@ -186,7 +180,6 @@ public class SinCos implements Funktio {
             this.kerroin = pyoristetynKertoimenLaskeminenIntegraaliin();
             this.funktio = "sin";
         }
-
         this.integoitu = true;
     }
 
@@ -197,13 +190,10 @@ public class SinCos implements Funktio {
      */
     @Override
     public String toString() {
-
         String tulostus = Double.toString(this.kerroin) + " * " + this.funktio + "(" + Double.toString(this.sisaFunktionKerroin) + "x)";
-
         if (this.integoitu == true) {
             tulostus = tulostus + " + C";
         }
-
         return tulostus;
     }
 }

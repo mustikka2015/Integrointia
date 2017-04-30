@@ -167,5 +167,13 @@ public class PolynomiTest {
         String tulostus = pol.toString();
         assertEquals("5.0 * x^(4)", tulostus);
     }
+    
+     @Test
+    public void kertoimenPyoristysOikeinTest() {
+        Polynomi pol = new Polynomi(2, 4.0);
+        pol.integroi();
+        String kerroin = Double.toString(pol.getKerroin());
+        assertEquals(kerroin, "1.3");
+    }
 
 }
