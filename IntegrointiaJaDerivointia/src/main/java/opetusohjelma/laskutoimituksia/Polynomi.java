@@ -1,5 +1,7 @@
 package opetusohjelma.laskutoimituksia;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 /**
@@ -61,10 +63,10 @@ public class Polynomi implements Funktio {
     public boolean getLuonnollinenLogaritmi() {
         return this.luonnollinenLogaritmi;
     }
-    
+
     /**
      * Metodi palauttaa funktion.
-     * 
+     *
      * @return String funktio
      */
     @Override
@@ -97,7 +99,9 @@ public class Polynomi implements Funktio {
      */
     @Override
     public void derivoi() {
-        this.kerroin = this.kerroin * this.eksponentti;
+//        double vastaus = this.kerroin * this.eksponentti;
+//        this.kerroin = kertoimenPyoristys(this.kerroin,vastaus);
+        this.kerroin = pyoristetynKertoimenLaskeminenDerivaattaan();
         this.eksponentti = this.eksponentti - 1;
         this.integroitu = 0;
     }
@@ -113,14 +117,83 @@ public class Polynomi implements Funktio {
     public void integroi() {
         if (this.eksponentti != -1) {
             this.eksponentti = this.eksponentti + 1;
-            this.kerroin = this.kerroin / this.eksponentti;
+            double vastaus = this.kerroin / this.eksponentti;
+            this.kerroin = kertoimenPyoristys(this.kerroin, vastaus);
 
             this.integroitu = 1;
         } else {
             this.luonnollinenLogaritmi = true;
             this.integroitu = 1;
         }
+    }
 
+    /**
+     * Metodin avulla pyöristetään double-tyyppinen luku sisältämään sopivan
+     * määrän desimaaleja. Kyseessä ei ole kuitenkaan pyöristys sisältämään
+     * saman määrän desimaaleja kuin merkitsevissä numeroissa on.
+     *
+     * @return desimaaliluku sopivasti pyöristettynä.
+     */
+    public double kertoimenPyoristys(double mitta, double tuloste) {
+        Double mitta1 = (Double) mitta;
+        String[] jakaja1 = mitta1.toString().split("\\.");
+
+        int syotteenPituus = jakaja1[0].length() + jakaja1[1].length();
+        if (jakaja1[0].equals("0")) {
+            syotteenPituus = jakaja1[1].length();
+        }
+
+        Double mitta2 = (Double) tuloste;
+        String[] jakaja2 = mitta2.toString().split("\\.");
+        int tulosteenDesimaalit = syotteenPituus - jakaja2[0].length();
+        if (jakaja2[0].equals("0")) {
+            tulosteenDesimaalit = syotteenPituus;
+        }
+
+        if (tulosteenDesimaalit <= 0) {
+            return new BigDecimal(tuloste).setScale(0, RoundingMode.HALF_UP).doubleValue();
+        }
+
+        return new BigDecimal(tuloste).setScale(tulosteenDesimaalit, RoundingMode.HALF_UP).doubleValue();
+
+    }
+
+    /**
+     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * derivoituun polynomifunktioon.
+     *
+     * @return desimaaliluku oikein pyöristettynä.
+     */
+    public double pyoristetynKertoimenLaskeminenDerivaattaan() {
+
+        int kertoimenPituus = Double.toString(kerroin).length();
+        int eksponentinPituus = Integer.toString(this.eksponentti).length();
+        double pyoristettyKerroin = this.kerroin * this.eksponentti;
+        if (kertoimenPituus < eksponentinPituus) {
+            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
+        } else {
+            pyoristettyKerroin = kertoimenPyoristys((double) (eksponentti / 10), pyoristettyKerroin);
+        }
+        return pyoristettyKerroin;
+    }
+    
+     /**
+     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * derivoituun polynomifunktioon.
+     *
+     * @return desimaaliluku oikein pyöristettynä.
+     */
+    public double pyoristetynKertoimenLaskeminenIntegraaliin() {
+
+        int kertoimenPituus = Double.toString(kerroin).length();
+        int eksponentinPituus = Integer.toString(this.eksponentti).length();
+        double pyoristettyKerroin = this.kerroin / this.eksponentti;
+        if (kertoimenPituus < eksponentinPituus) {
+            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
+        } else {
+            pyoristettyKerroin = kertoimenPyoristys((double) (eksponentti / 10), pyoristettyKerroin);
+        }
+        return pyoristettyKerroin;
     }
 
     /**

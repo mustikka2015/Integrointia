@@ -1,5 +1,7 @@
 package opetusohjelma.laskutoimituksia;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 /**
@@ -81,22 +83,93 @@ public class SinCos implements Funktio {
     }
 
     /**
+     * Metodin avulla pyöristetään double-tyyppinen luku sisältämään sopivan
+     * määrän desimaaleja. Kyseessä ei ole kuitenkaan pyöristys sisältämään
+     * saman määrän desimaaleja kuin merkitsevissä numeroissa on.
+     *
+     * @return desimaaliluku sopivasti pyöristettynä.
+     */
+    public double kertoimenPyoristys(double mitta, double tuloste) {
+        Double mitta1 = (Double) mitta;
+        String[] jakaja1 = mitta1.toString().split("\\.");
+
+        int syotteenPituus = jakaja1[0].length() + jakaja1[1].length();
+        if (jakaja1[0].equals("0")) {
+            syotteenPituus = jakaja1[1].length();
+        }
+
+        Double mitta2 = (Double) tuloste;
+        String[] jakaja2 = mitta2.toString().split("\\.");
+        int tulosteenDesimaalit = syotteenPituus - jakaja2[0].length();
+        if (jakaja2[0].equals("0")) {
+            tulosteenDesimaalit = syotteenPituus;
+        }
+        
+        if (tulosteenDesimaalit<= 0) {
+            return new BigDecimal(tuloste).setScale(0, RoundingMode.HALF_UP).doubleValue();
+        }
+
+        return new BigDecimal(tuloste).setScale(tulosteenDesimaalit, RoundingMode.HALF_UP).doubleValue();
+       
+    }
+
+    /**
+     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * derivoituun sini- tai kosini-funktioon.
+     *
+     * @return desimaaliluku oikein pyöristettynä.
+     */
+    public double pyoristetynKertoimenLaskeminenDerivaattaan() {
+
+        int kertoimenPituus = Double.toString(kerroin).length();
+        int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
+        double pyoristettyKerroin = this.kerroin * this.sisaFunktionKerroin;
+        if (kertoimenPituus < sisakertoimenPituus) {
+            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
+        } else {
+            pyoristettyKerroin = kertoimenPyoristys(sisaFunktionKerroin, pyoristettyKerroin);
+        }
+        return pyoristettyKerroin;
+    }
+
+    /**
      * Metodin avulla funktio derivoidaan. Derivointi suoritetaan muuttamalla
      * kertoimen arvoa sekä sini kosiniksi tai kosini siniksi.
      * Integroitu-muuttujan arvo muutetaan derivoidessa true:ksi.
      */
     @Override
     public void derivoi() {
+
         if (this.funktio.equals("sin")) {
-            this.kerroin = this.kerroin * this.sisaFunktionKerroin;
+
+            this.kerroin = pyoristetynKertoimenLaskeminenDerivaattaan();
             this.funktio = "cos";
         } else if (this.funktio.equals("cos")) {
-            this.kerroin = -1 * this.kerroin * this.sisaFunktionKerroin;
+            this.kerroin = -1 * pyoristetynKertoimenLaskeminenDerivaattaan();
             this.funktio = "sin";
         }
 
         this.integoitu = false;
 
+    }
+
+    /**
+     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * derivoituun sini- tai kosini-funktioon.
+     *
+     * @return desimaaliluku oikein pyöristettynä.
+     */
+    public double pyoristetynKertoimenLaskeminenIntegraaliin() {
+
+        int kertoimenPituus = Double.toString(kerroin).length();
+        int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
+        double pyoristettyKerroin = this.kerroin / this.sisaFunktionKerroin;
+        if (kertoimenPituus < sisakertoimenPituus) {
+            pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
+        } else {
+            pyoristettyKerroin = kertoimenPyoristys(sisaFunktionKerroin, pyoristettyKerroin);
+        }
+        return pyoristettyKerroin;
     }
 
     /**
@@ -107,10 +180,10 @@ public class SinCos implements Funktio {
     @Override
     public void integroi() {
         if (this.funktio.equals("sin")) {
-            this.kerroin = -1 * this.kerroin / this.sisaFunktionKerroin;
+            this.kerroin = -1 * pyoristetynKertoimenLaskeminenIntegraaliin();
             this.funktio = "cos";
         } else if (this.funktio.equals("cos")) {
-            this.kerroin = this.kerroin / this.sisaFunktionKerroin;
+            this.kerroin = pyoristetynKertoimenLaskeminenIntegraaliin();
             this.funktio = "sin";
         }
 
