@@ -114,10 +114,10 @@ public class SinCos implements Funktio {
     }
 
     /**
-     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
      * derivoituun sini- tai kosini-funktioon.
      *
-     * @return desimaaliluku oikein pyöristettynä.
+     * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double pyoristetynKertoimenLaskeminenDerivaattaan() {
 
@@ -154,10 +154,10 @@ public class SinCos implements Funktio {
     }
 
     /**
-     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
      * derivoituun sini- tai kosini-funktioon.
      *
-     * @return desimaaliluku oikein pyöristettynä.
+     * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double pyoristetynKertoimenLaskeminenIntegraaliin() {
 

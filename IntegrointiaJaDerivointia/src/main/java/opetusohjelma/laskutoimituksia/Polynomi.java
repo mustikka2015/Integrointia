@@ -130,7 +130,7 @@ public class Polynomi implements Funktio {
     /**
      * Metodin avulla pyöristetään double-tyyppinen luku sisältämään sopivan
      * määrän desimaaleja. Kyseessä ei ole kuitenkaan pyöristys sisältämään
-     * saman määrän desimaaleja kuin merkitsevissä numeroissa on.
+     * täysin saman määrän desimaaleja kuin merkitsevissä numeroissa on.
      *
      * @return desimaaliluku sopivasti pyöristettynä.
      */
@@ -159,10 +159,10 @@ public class Polynomi implements Funktio {
     }
 
     /**
-     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
+     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
      * derivoituun polynomifunktioon.
      *
-     * @return desimaaliluku oikein pyöristettynä.
+     * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double pyoristetynKertoimenLaskeminenDerivaattaan() {
 
@@ -178,10 +178,10 @@ public class Polynomi implements Funktio {
     }
     
      /**
-     * Metodin avulla lasketaan double-tyyppinen oikein pyöristetty kerroin
-     * derivoituun polynomifunktioon.
+     * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
+     * integroituun polynomifunktioon.
      *
-     * @return desimaaliluku oikein pyöristettynä.
+     * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double pyoristetynKertoimenLaskeminenIntegraaliin() {
 
