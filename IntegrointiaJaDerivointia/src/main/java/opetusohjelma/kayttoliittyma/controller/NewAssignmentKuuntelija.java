@@ -17,18 +17,18 @@ import javax.swing.JTextField;
  *
  * @author Iisa
  */
-public class ValinnanNewAssignmentKuuntelija implements ActionListener {
+public class NewAssignmentKuuntelija implements ActionListener {
 
     private JLabel headerLabel;
     private ArrayList<String> funktioJaVastaus;
-    private ValinnanShowSolutionKuuntelija skuuntelija;
+    private ShowSolutionKuuntelija skuuntelija;
 
     /**
      * Tämä on konstruktori, jossa asetetaan private-muuttujat headerLabel,
      * funktiojaVastaus ja skuuntelija ympäristöstä, josta
      * ValinnanNewAssignmentKuuntelijaa kutsutaan.
      */
-    public ValinnanNewAssignmentKuuntelija(JLabel headerLabel, ArrayList<String> funktioJaVastaus, ValinnanShowSolutionKuuntelija skuuntelija) {
+    public NewAssignmentKuuntelija(JLabel headerLabel, ArrayList<String> funktioJaVastaus, ShowSolutionKuuntelija skuuntelija) {
         this.headerLabel = headerLabel;
         this.funktioJaVastaus = funktioJaVastaus;
         this.skuuntelija = skuuntelija;

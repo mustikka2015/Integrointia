@@ -6,19 +6,19 @@
 
 <suppressions>
     <suppress files="BackNapinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanChangeKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanCosKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanDifferentiateKuuntelijaPolynomille.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanDifferentiateKuuntelijaSinCos.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanIntegrateKuuntelijaPolynomille.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanIntegrateKuuntelijaSinCos.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanNewAssignmentKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanPolynomKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanPolynomShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanStartKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanShowSolutionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanSinCosShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ValinnanSinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ChangeKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="CosKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DifferentiateKuuntelijaPolynomille.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="DifferentiateKuuntelijaSinCos.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="IntegrateKuuntelijaPolynomille.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="IntegrateKuuntelijaSinCos.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="NewAssignmentKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="PolynomKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="PolynomShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="StartKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="ShowSolutionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="SinCosShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="SinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="AloitusGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="KoneValitseeGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="OpiskelijaValitseeCosGUI.java" checks="[a-zA-Z0-9]*"/>

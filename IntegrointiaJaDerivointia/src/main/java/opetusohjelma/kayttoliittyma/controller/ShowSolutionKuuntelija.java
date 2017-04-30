@@ -15,13 +15,13 @@ import javax.swing.JTextField;
  *
  * @author Iisa
  */
-public class ValinnanShowSolutionKuuntelija implements ActionListener {
+public class ShowSolutionKuuntelija implements ActionListener {
 
     private JTextField vastaus;
     private ArrayList<String> funktioJaVastaus;
     private String komento;
 
-    public ValinnanShowSolutionKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
+    public ShowSolutionKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
         this.vastaus = vastaus;
         this.funktioJaVastaus = funktioJaVastaus;
         this.komento = komento;

@@ -14,14 +14,21 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  *
  * @author Iisa
  */
-public class ValinnanDifferentiateKuuntelijaPolynomille implements ActionListener {
+public class DifferentiateKuuntelijaPolynomille implements ActionListener {
 
     private JTextField eksponentti;
     private JTextField kerroin;
     private JTextField vastaus;
     private Polynomi polynomi;
 
-    public ValinnanDifferentiateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
+    /**
+     * Konstrunktori DifferentiateKuuntelijaPolynomille.
+     * @param polynomi Polynomi
+     * @param vastaus JTextField
+     * @param eksponentti JTextField
+     * @param kerroin JTextField
+     */
+    public DifferentiateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
         this.polynomi = polynomi;

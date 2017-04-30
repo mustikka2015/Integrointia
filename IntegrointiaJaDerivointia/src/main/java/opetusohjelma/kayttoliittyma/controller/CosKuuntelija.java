@@ -15,7 +15,7 @@ import opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeCosGUI;
  *
  * @author Iisa
  */
-public class ValinnanCosKuuntelija implements ActionListener {
+public class CosKuuntelija implements ActionListener {
 
     /**
      * Tämän metodin avulla kuunnellaan Cosine-näppäintä. Kuuntelun tuloksena

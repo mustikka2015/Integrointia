@@ -8,25 +8,25 @@ package opetusohjelma.kayttoliittyma.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
-import opetusohjelma.kayttoliittyma.view.OpiskelijaValitseePolynomGUI;
+import opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeSinGUI;
 
 /**
- * Tämän luokan avulla kuunnellaan "Polynom"-näppäintä.
+ * Tämän luokan avulla kuunnellaan "Sine"-näppäintä.
  *
  * @author Iisa
  */
-public class ValinnanPolynomKuuntelija implements ActionListener {
+public class SinKuuntelija implements ActionListener {
     
-    /**
-     * Tämän metodin avulla kuunnellaan Polynom-näppäintä. Kuuntelun tuloksena
+     /**
+     * Tämän metodin avulla kuunnellaan Sine-näppäintä. Kuuntelun tuloksena
      * tietokone näyttää uuden käyttöliittymänäkymän, johon opiskelija syöttää 
-     * polynomin eksponentin ja kertoimen ja valitsee, integroidaanko vai 
-     * derivoidaanko polynomi.
+     * funktion kertoimen ja sen sisäfunktion kertoimen ja valitsee, integroidaanko vai 
+     * derivoidaanko funktio.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        OpiskelijaValitseePolynomGUI polynomGUI = new OpiskelijaValitseePolynomGUI();
-        SwingUtilities.invokeLater((Runnable) polynomGUI);
+        OpiskelijaValitseeSinGUI sinGUI = new OpiskelijaValitseeSinGUI();
+        SwingUtilities.invokeLater((Runnable) sinGUI);
     }
 
 }

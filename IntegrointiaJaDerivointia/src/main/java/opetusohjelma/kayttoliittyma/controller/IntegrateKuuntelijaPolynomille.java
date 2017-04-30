@@ -17,14 +17,14 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  *
  * @author Iisa
  */
-public class ValinnanIntegrateKuuntelijaPolynomille implements ActionListener {
+public class IntegrateKuuntelijaPolynomille implements ActionListener {
 
     private JTextField eksponentti;
     private JTextField kerroin;
     private JTextField vastaus;
     private Polynomi polynomi;
 
-    public ValinnanIntegrateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
+    public IntegrateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
         this.polynomi = polynomi;
@@ -62,30 +62,4 @@ public class ValinnanIntegrateKuuntelijaPolynomille implements ActionListener {
 
     }
 
-//    @Override
-//    public void actionPerformed(ActionEvent ae) {
-//
-//        String eksp = "";
-//        eksp = eksponentti.getText();
-//        String ker = "";
-//        ker = kerroin.getText();
-//        int ekspInt = 1;
-//        double kerDouble = 1.0;
-//
-//        try {
-//            ekspInt = Integer.parseInt(eksp);
-//            polynomi.setEksponentti(ekspInt);
-//            kerDouble = Double.parseDouble(ker);
-//            polynomi.setKerroin(kerDouble);
-//            Polynomi integroitava = new Polynomi(this.polynomi.getEksponentti(), this.polynomi.getKerroin());
-//            integroitava.integroi();
-//            String eka = integroitava.toString();
-//            this.vastaus.setText(eka);
-//
-//        } catch (Exception e) {
-//            this.vastaus.setText("Exponent is an integer. Coefficient is a decimal number. (For example 3.5)");
-//
-//        }
-//
-//    }
 }

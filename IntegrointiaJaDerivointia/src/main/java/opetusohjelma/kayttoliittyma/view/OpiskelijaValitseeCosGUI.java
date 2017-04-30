@@ -5,6 +5,7 @@
  */
 package opetusohjelma.kayttoliittyma.view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -16,9 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.ValinnanSinCosShowTheFunctionKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.SinCosShowTheFunctionKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
 
@@ -136,7 +137,7 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
 //        showPanel.setLayout(new GridLayout());
         mainFrame.add(showPanel);
         JButton nappi1 = new JButton("Show the function");
-        ValinnanSinCosShowTheFunctionKuuntelija kuulija = new ValinnanSinCosShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, cos);
+        SinCosShowTheFunctionKuuntelija kuulija = new SinCosShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, cos);
         nappi1.addActionListener(kuulija);
         showPanel.add(nappi1);
     }
@@ -158,11 +159,13 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
         intderPanel = new JPanel();
 //        intderPanel.setLayout(new GridLayout(1, 2));
         JButton integButton = new JButton("Integrate");
-        ValinnanIntegrateKuuntelijaSinCos intKuulija = new ValinnanIntegrateKuuntelijaSinCos(cos, vastaus, vastaus1, vastaus2);
+        integButton.setBackground(Color.cyan);
+        IntegrateKuuntelijaSinCos intKuulija = new IntegrateKuuntelijaSinCos(cos, vastaus, vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
         intderPanel.add(integButton);
         JButton diffButton = new JButton("Differentiate");
-        ValinnanDifferentiateKuuntelijaSinCos diffKuulija = new ValinnanDifferentiateKuuntelijaSinCos(cos, vastaus, vastaus1, vastaus2);
+        diffButton.setBackground(Color.cyan);
+        DifferentiateKuuntelijaSinCos diffKuulija = new DifferentiateKuuntelijaSinCos(cos, vastaus, vastaus1, vastaus2);
         diffButton.addActionListener(diffKuulija);
         intderPanel.add(diffButton);
         mainFrame.add(intderPanel);

@@ -14,43 +14,44 @@ import opetusohjelma.laskutoimituksia.SinCos;
  *
  * @author Iisa
  */
-public class ValinnanDifferentiateKuuntelijaSinCos implements ActionListener {
-
+public class SinCosShowTheFunctionKuuntelija implements ActionListener {
+    private JTextField funktiokentta;
     private JTextField kerroin;
     private JTextField sisafunktionKerroin;
-    private JTextField vastaus;
     private SinCos sincos;
 
-    public ValinnanDifferentiateKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
-        this.sincos = sincos;
-        this.vastaus = vastaus;
+
+    public SinCosShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField kerroin, JTextField sisafunktionKerroin, SinCos sincos) {
+        this.funktiokentta = funktiokentta;
         this.kerroin = kerroin;
         this.sisafunktionKerroin = sisafunktionKerroin;
+        this.sincos = sincos;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        String ker = "";
-        ker = kerroin.getText();
-        String sisker = "";
-        sisker = sisafunktionKerroin.getText();
 
+        String ker ="";
+        ker = kerroin.getText();
+        String sisker ="";
+        sisker = sisafunktionKerroin.getText();
+        
         double kerDouble = 1.0;
         double kerDoubleSisa = 1.0;
-
+        
         try {
             kerDouble = Double.parseDouble(ker);
             this.sincos.setKerroin(kerDouble);
             kerDoubleSisa = Double.parseDouble(sisker);
             this.sincos.setSisafunktionKerroin(kerDoubleSisa);
-            SinCos derivoitava = new SinCos(this.sincos.getKerroin(), this.sincos.getSisafunktionKerroin(), this.sincos.getFunktio());
-            derivoitava.derivoi();
-            this.vastaus.setText(derivoitava.toString());
+            String eka = sincos.toString();
+            this.funktiokentta.setText(eka);
 
         } catch (Exception e) {
-            this.vastaus.setText("Coefficients are decimal numbers. (For example 2.7)");
+            this.funktiokentta.setText("Coefficients are decimal numbers. (For example 2.7)");
         }
 
     }
 
+    
 }

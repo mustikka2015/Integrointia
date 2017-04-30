@@ -14,9 +14,9 @@ import opetusohjelma.kayttoliittyma.view.KoneValitseeGUI;
 /**
  * Tämän luokan avulla kuunnellaan "Select"-näppäintä.
  */
-public class ValinnanStartKuuntelija implements ActionListener {
+public class StartKuuntelija implements ActionListener {
 
-    public ValinnanStartKuuntelija() {
+    public StartKuuntelija() {
 
     }
 

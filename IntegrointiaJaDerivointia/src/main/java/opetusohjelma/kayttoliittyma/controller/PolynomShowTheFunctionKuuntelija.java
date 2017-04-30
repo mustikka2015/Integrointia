@@ -19,14 +19,14 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  *
  * @author Iisa
  */
-public class ValinnanPolynomShowTheFunctionKuuntelija implements ActionListener {
+public class PolynomShowTheFunctionKuuntelija implements ActionListener {
 
     private JTextField funktiokentta;
     private JTextField eksponentti;
     private JTextField kerroin;
     private Polynomi polynomi;
 
-    public ValinnanPolynomShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField eksponentti, JTextField kerroin, Polynomi polynomi) {
+    public PolynomShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField eksponentti, JTextField kerroin, Polynomi polynomi) {
         this.funktiokentta = funktiokentta;
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;

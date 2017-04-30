@@ -14,14 +14,14 @@ import opetusohjelma.laskutoimituksia.SinCos;
  *
  * @author Iisa
  */
-public class ValinnanIntegrateKuuntelijaSinCos implements ActionListener {
+public class IntegrateKuuntelijaSinCos implements ActionListener {
 
     private JTextField kerroin;
     private JTextField sisafunktionKerroin;
     private JTextField vastaus;
     private SinCos sincos;
 
-    public ValinnanIntegrateKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
+    public IntegrateKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
         this.kerroin = kerroin;
         this.sisafunktionKerroin = sisafunktionKerroin;
         this.sincos = sincos;

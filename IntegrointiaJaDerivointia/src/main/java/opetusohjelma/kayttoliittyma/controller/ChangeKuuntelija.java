@@ -17,22 +17,28 @@ import javax.swing.JPanel;
  *
  * @author Iisa
  */
-public class ValinnanChangeKuuntelija implements ActionListener {
+public class ChangeKuuntelija implements ActionListener {
 
     private JComboBox listCombo;
     private JPanel panel;
     private JLabel statusLabel;
 
-    public ValinnanChangeKuuntelija(JComboBox listCombo, JPanel panel, JLabel statusLabel) {
+    /**
+     * Konstrunktori ChangeKuuntelijalle.
+     * @param listCombo JComboBox
+     * @param panel JPanel
+     * @param statusLabel JLabel
+     */
+    public ChangeKuuntelija(JComboBox listCombo, JPanel panel, JLabel statusLabel) {
         this.listCombo = listCombo;
         this.panel = panel;
         this.statusLabel = statusLabel;
     }
-    
-     /**
+
+    /**
      * Tämän metodin avulla kuunnellaan Change-näppäintä. Kuuntelun tuloksena
-     * näkymä vaihtuu opiskelijan valitsemana joko "You choose" tai 
-     * "Compute chooses"-valinnan mukaiseksi.
+     * näkymä vaihtuu opiskelijan valitsemana joko "You choose" tai "Compute
+     * chooses"-valinnan mukaiseksi.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
