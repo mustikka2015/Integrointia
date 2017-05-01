@@ -19,3 +19,4 @@ Päivä | Tunnit | Kuvaus
 27.4.2017  | 3,0 h | Unit-testejä TehtavanArpoja-luokalle, Checkstyle- ja Pit-raportit ja niiden mukaisten korjausten tekeminen. Rakennekuvaus, käyttöohjeet ja jar-tiedosto.
 29.4.2017  | 4,0 h | Virheilmoitusten yksilöllistäminen ja parantaminen. Layoutin muuttamista. Lukujen pyöristyksen alustava miettiminen. Koodin refaktorointi.
 30.4.2017  | 6,0 h | Lukujen pyöristyksen toteuttaminen. Testauskattavuuden lisääminen. Koodin refaktorointia.
+1.5.2017   | 8,0 h | Piirtämistoiminnon lisääminen ja koodin siistimistä.
