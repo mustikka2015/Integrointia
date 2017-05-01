@@ -12,7 +12,8 @@ import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
- *
+ * Polynomifunktion, sen derivaatan ja integraalin piirtäminen.
+ * 
  * @author Iisa
  */
 public class PiirtoalustaPolynomille extends JPanel {
