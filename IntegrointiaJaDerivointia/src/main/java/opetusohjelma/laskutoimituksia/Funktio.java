@@ -37,6 +37,6 @@ public interface Funktio {
      */
     String getFunktio();
     
-    int getY(int x);
+    double getY(double x);
 
 }

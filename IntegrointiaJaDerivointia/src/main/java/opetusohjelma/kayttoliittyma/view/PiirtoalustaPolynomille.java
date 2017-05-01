@@ -30,9 +30,12 @@ public class PiirtoalustaPolynomille extends JPanel {
 
 
         for (int i = 0; i < 25; i++) {
-            int j = this.funktio.getY(i);
-            int k = this.funktio.getY(i + 1);
-            graphics.drawLine(i*20, (450 - j), (i + 1)*20, (450 - k));
+            
+            int y1 = new Double(this.funktio.getY(i)).intValue();
+            int y2 = new Double(this.funktio.getY(i+1)).intValue();
+            int x1 = new Double(i).intValue();
+            int x2 = new Double(i+1).intValue();
+            graphics.drawLine(x1, y1, x2, y2);
         }
     }
 
