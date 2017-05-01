@@ -12,6 +12,7 @@ import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
+ * Sini- ja kosinifunktioiden piirtoalusta.
  *
  * @author Iisa
  */
@@ -19,6 +20,11 @@ public class PiirtoalustaSinCos extends JPanel {
 
     private Funktio funktio;
 
+    /**
+     * Konstruktori PiirtoalustaSinCos:lle.
+     *
+     * @param funktio Funktio
+     */
     public PiirtoalustaSinCos(Funktio funktio) {
         super.setBackground(Color.WHITE);
         this.funktio = funktio;
@@ -39,12 +45,20 @@ public class PiirtoalustaSinCos extends JPanel {
         SinCos sincos3 = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
         sincos3.integroi();
         piirtaminen(graphics, sincos3, alkuperainen, Color.RED);
-        
+
         graphics.setColor(Color.BLACK);
         graphics.drawLine(0, 350, 800, 350);
 
     }
 
+    /**
+     * Funktio piirtää annetun sini- tai kosinifunktion.
+     *
+     * @param graphics Graphics
+     * @param sincos SinCos
+     * @param alkuperainen SinCos
+     * @param color Color
+     */
     public void piirtaminen(Graphics graphics, SinCos sincos, SinCos alkuperainen, Color color) {
         double sisafunktionKerroin = alkuperainen.getSisafunktionKerroin();
         double kerroin = alkuperainen.getKerroin();

@@ -199,5 +199,12 @@ public class PolynomiTest {
         String kerroin = Double.toString(pol.getKerroin());
         assertEquals(kerroin, "1.3");
     }
+    
+    @Test
+    public void getYOikeinTest() {
+        Polynomi pol = new Polynomi(2, 4.0);
+        String kerroin = Double.toString(pol.getY(3));
+        assertEquals(kerroin, "36.0");
+    }
 
 }

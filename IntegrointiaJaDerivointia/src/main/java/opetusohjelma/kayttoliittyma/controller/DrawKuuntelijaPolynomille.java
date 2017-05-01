@@ -30,9 +30,10 @@ public class DrawKuuntelijaPolynomille implements ActionListener {
     /**
      * Konstruktori DrawKuuntelijalle.
      *
-     * @param funktio Funktio
+     * @param polynomi Polynomi
      * @param eksponentti JTextField
      * @param kerroin JTextField
+     * @param vastaus JTextField
      */
     public DrawKuuntelijaPolynomille(Polynomi polynomi, JTextField eksponentti, JTextField kerroin, JTextField vastaus) {
         this.polynomi = polynomi;

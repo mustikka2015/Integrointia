@@ -13,36 +13,44 @@ import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
+ * Käyttöliittymä toimii käyttöliittymänä piirretyille funktioille.
  *
  * @author Iisa
  */
 public class Piirtokayttoliittyma implements Runnable {
 
-    
-    
     private JFrame frame;
     private PiirtoalustaPolynomille piirtoalusta1;
     private PiirtoalustaSinCos piirtoalusta2;
     private Funktio funktio;
-    
+
+    /**
+     * Konstruktori Piirtokayttoliittymalle.
+     *
+     * @param funktio Funktio
+     */
     public Piirtokayttoliittyma(Funktio funktio) {
         this.funktio = funktio;
     }
-    
- 
+
     @Override
     public void run() {
-       
+
         frame = new JFrame("Green is original, blue differentiated and red integrated if constant C = 0.");
         frame.setPreferredSize(new Dimension(700, 800));
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
- 
+
         luoKomponentit(frame.getContentPane());
- 
+
         frame.pack();
         frame.setVisible(true);
     }
- 
+
+    /**
+     * Container-olioon lisätään funktion mukainen Piirtoalusta-olio.
+     *
+     * @param container Container
+     */
     private void luoKomponentit(Container container) {
         if (this.funktio.getFunktio().equals("polynom")) {
             piirtoalusta1 = new PiirtoalustaPolynomille(this.funktio);
@@ -52,10 +60,9 @@ public class Piirtokayttoliittyma implements Runnable {
             container.add(piirtoalusta2);
         }
     }
- 
+
     public JFrame getFrame() {
         return frame;
     }
 
-    
 }

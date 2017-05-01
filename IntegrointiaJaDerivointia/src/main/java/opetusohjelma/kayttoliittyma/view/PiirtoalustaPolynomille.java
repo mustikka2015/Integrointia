@@ -13,13 +13,18 @@ import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
  * Polynomifunktion, sen derivaatan ja integraalin piirtäminen.
- * 
+ *
  * @author Iisa
  */
 public class PiirtoalustaPolynomille extends JPanel {
 
     private Funktio funktio;
 
+    /**
+     * Konstruktori PiirtoalustaPolynomille.
+     *
+     * @param funktio Funktio
+     */
     public PiirtoalustaPolynomille(Funktio funktio) {
         super.setBackground(Color.WHITE);
         this.funktio = funktio;
@@ -40,17 +45,25 @@ public class PiirtoalustaPolynomille extends JPanel {
         Polynomi polynomi3 = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
         polynomi3.integroi();
         piirtaminen(graphics, polynomi3, alkuperainen, Color.RED);
-        
+
         graphics.setColor(Color.BLACK);
         graphics.drawLine(0, 400, 800, 400);
         graphics.drawLine(400, 0, 400, 800);
     }
 
+    /**
+     * Funktio piirtää annetun sini- tai kosinifunktion.
+     *
+     * @param graphics Graphics
+     * @param polynomi Polynomi
+     * @param alkuperainen Polynomi
+     * @param color Color
+     */
     public void piirtaminen(Graphics graphics, Polynomi polynomi, Polynomi alkuperainen, Color color) {
         double kerroin = alkuperainen.getKerroin();
 
         for (double i = 0; i < 800; i++) {
-            double j = i-400;
+            double j = i - 400;
             Double dj = new Double(polynomi.getY(j / 10)) * 100 / (kerroin);
             int y1 = dj.intValue();
             int y2 = new Double(polynomi.getY((j + 1) / 10) * 100 / (kerroin)).intValue();
@@ -58,7 +71,6 @@ public class PiirtoalustaPolynomille extends JPanel {
             int x2 = new Double((j + 1)).intValue() * 20 + 400;
             graphics.setColor(color);
             graphics.drawLine(x1, (400 - y1), x2, (400 - y2));
-
         }
     }
 

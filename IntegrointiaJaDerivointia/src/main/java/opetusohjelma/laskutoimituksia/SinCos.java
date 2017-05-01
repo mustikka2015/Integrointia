@@ -12,14 +12,7 @@ public class SinCos implements Funktio {
 
     private double kerroin;
     private double sisaFunktionKerroin;
-    /**
-     * Merkkijono funktio kertoo, onko funktio sini vai kosini.
-     */
     private String funktio;
-    /**
-     * Integroitu-muuttujan arvo on true, mikäli funktio on integroitu. Mikäli
-     * funktiota ei ole integroitu, muuttujan arvo on false.
-     */
     private boolean integoitu;
 
     /**
@@ -82,12 +75,9 @@ public class SinCos implements Funktio {
     }
 
     /**
-     * Metodin avulla pyöristetään double-tyyppinen luku sisältämään sopivan
-     * määrän desimaaleja. Kyseessä ei ole kuitenkaan pyöristys sisältämään
-     * saman määrän desimaaleja kuin merkitsevissä numeroissa on.
+     * Metodin avulla pyöristetään double-tyyppinen luku.
      *
-     * @param mitta double-muodossa. Mitta toimii mittana kertoimen
-     * pyöristyksessä.
+     * @param mitta double-muodossa. Pyöristyksen mitta.
      * @param tuloste double-muodossa
      * @return desimaaliluku sopivasti pyöristettynä.
      */
@@ -106,23 +96,19 @@ public class SinCos implements Funktio {
             tulosteenDesimaalit = syotteenPituus;
         }
         return new BigDecimal(tuloste).setScale(tulosteenDesimaalit, RoundingMode.HALF_UP).doubleValue();
-
     }
 
     /**
      * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
-     * derivoituun sini- tai kosini-funktioon.
+     * derivoituun sini- tai kosinifunktioon.
      *
      * @param kerroin double
      * @param sisaFunktionKerroin double
      * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double pyoristetynKertoimenLaskeminenDerivaattaan(double kerroin, double sisaFunktionKerroin) {
-
-        int kertoimenPituus = Double.toString(kerroin).length();
-        int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
         double pyoristettyKerroin = kerroin * sisaFunktionKerroin;
-        if (kertoimenPituus < sisakertoimenPituus) {
+        if (onkoLyhyempi(kerroin, sisaFunktionKerroin)) {
             pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
         } else {
             pyoristettyKerroin = kertoimenPyoristys(sisaFunktionKerroin, pyoristettyKerroin);
@@ -130,14 +116,10 @@ public class SinCos implements Funktio {
         return pyoristettyKerroin;
     }
 
-    /**
-     * Metodin avulla funktio derivoidaan.
-     */
     @Override
     public void derivoi() {
 
         if (this.funktio.equals("sin")) {
-
             this.kerroin = pyoristetynKertoimenLaskeminenDerivaattaan(this.kerroin, this.sisaFunktionKerroin);
             this.funktio = "cos";
         } else if (this.funktio.equals("cos")) {
@@ -150,18 +132,15 @@ public class SinCos implements Funktio {
 
     /**
      * Metodin avulla lasketaan double-tyyppinen sopivasti pyöristetty kerroin
-     * derivoituun sini- tai kosini-funktioon.
+     * integroituun sini- tai kosinifunktioon.
      *
      * @param kerroin double
      * @param sisaFunktionKerroin double
      * @return desimaaliluku sopivasti pyöristettynä.
      */
     public double pyoristetynKertoimenLaskeminenIntegraaliin(double kerroin, double sisaFunktionKerroin) {
-
-        int kertoimenPituus = Double.toString(kerroin).length();
-        int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
         double pyoristettyKerroin = kerroin / sisaFunktionKerroin;
-        if (kertoimenPituus < sisakertoimenPituus) {
+        if (onkoLyhyempi(kerroin, sisaFunktionKerroin)) {
             pyoristettyKerroin = kertoimenPyoristys(kerroin, pyoristettyKerroin);
         } else {
             pyoristettyKerroin = kertoimenPyoristys(sisaFunktionKerroin, pyoristettyKerroin);
@@ -170,8 +149,22 @@ public class SinCos implements Funktio {
     }
 
     /**
-     * Metodin avulla funktio integroidaan.
+     * Metodin avulla verrataan kertoimen ja sisäfunktion kertoimen pituuksia.
+     *
+     * @param kerroin double
+     * @param sisaFunktionKerroin double
+     * @return boolean-arvo true, jos kerroin on lyhyempi. Muuten false.
      */
+    public boolean onkoLyhyempi(double kerroin, double sisaFunktionKerroin) {
+        int kertoimenPituus = Double.toString(kerroin).length();
+        int sisakertoimenPituus = Double.toString(sisaFunktionKerroin).length();
+        if (kertoimenPituus <= sisakertoimenPituus) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public void integroi() {
         if (this.funktio.equals("sin")) {
@@ -184,11 +177,6 @@ public class SinCos implements Funktio {
         this.integoitu = true;
     }
 
-    /**
-     * Metodin avulla tulostetaan funktio merkkijonona.
-     *
-     * @return funktio merkkijonomuodossa.
-     */
     @Override
     public String toString() {
         String tulostus = Double.toString(this.kerroin) + " * " + this.funktio + "(" + Double.toString(this.sisaFunktionKerroin) + "x)";
@@ -206,7 +194,6 @@ public class SinCos implements Funktio {
         } else if (this.funktio.equals("cos")) {
             vastaus = vastaus * this.kerroin * Math.cos(this.sisaFunktionKerroin * x);
         }
-//        int vastaus2 = (int) Math.round(vastaus);
         return vastaus;
     }
 }

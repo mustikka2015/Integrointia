@@ -16,9 +16,5 @@ public class Main {
 
         AloitusGUI testi = new AloitusGUI();
         testi.showCardLayout();
-
-//        Polynomi uusi = new Polynomi(2,4);
-//        System.out.println("" + uusi.getY(3));
-
     }
 }

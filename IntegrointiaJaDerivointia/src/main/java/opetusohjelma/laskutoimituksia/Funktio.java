@@ -36,7 +36,13 @@ public interface Funktio {
      * @return String funktio
      */
     String getFunktio();
-    
+
+    /**
+     * Metodi palauttaa x-koordinaattia vastaavan y-koordinaatin.
+     *
+     * @param x double
+     * @return double x
+     */
     double getY(double x);
 
 }
