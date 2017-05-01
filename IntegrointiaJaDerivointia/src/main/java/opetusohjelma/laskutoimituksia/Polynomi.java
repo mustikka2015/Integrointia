@@ -177,4 +177,15 @@ public class Polynomi implements Funktio {
         return tulostus;
     }
 
+    @Override
+    public int getY(int x) {
+        double vastaus = 1;
+        for (int i = 0; i < this.eksponentti; i++) {
+            vastaus = vastaus * x;
+        }
+        vastaus = vastaus * this.kerroin;
+        int vastaus2 = (int) Math.round(vastaus);
+        return vastaus2;
+    }
+
 }

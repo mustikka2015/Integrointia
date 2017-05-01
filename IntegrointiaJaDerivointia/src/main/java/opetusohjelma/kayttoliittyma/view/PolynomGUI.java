@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaPolynomille;
+import opetusohjelma.kayttoliittyma.controller.DrawKuuntelijaPolynomille;
 import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaPolynomille;
 import opetusohjelma.kayttoliittyma.controller.PolynomShowTheFunctionKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
@@ -21,7 +22,7 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  * @author Iisa
  */
 public class PolynomGUI implements Runnable {
-
+    
     private JFrame mainFrame;
     private JTextField funktio;
     private JTextField vastaus1;
@@ -43,16 +44,16 @@ public class PolynomGUI implements Runnable {
         mainFrame = new JFrame("Integration and differentiation");
         mainFrame.setSize(500, 500);
         mainFrame.setLayout(new GridLayout(8, 1));
-
+        
         mainFrame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent windowEvent) {
                 System.exit(0);
             }
         });
-
+        
         mainFrame.setVisible(true);
     }
-
+    
     @Override
     public void run() {
         this.polynomi = new Polynomi(1, 1);
@@ -68,7 +69,7 @@ public class PolynomGUI implements Runnable {
         vastausrivinAsetus(vastaus);
         integrateDerivateButtons();
         piirtoYmsNapinAsetus();
-
+        
         mainFrame.setVisible(true);
     }
 
@@ -84,7 +85,7 @@ public class PolynomGUI implements Runnable {
         this.vastaus1 = new JTextField("", JLabel.CENTER);
         expPanel.add(teksti);
         expPanel.add(vastaus1);
-
+        
         mainFrame.add(expPanel);
     }
 
@@ -95,17 +96,17 @@ public class PolynomGUI implements Runnable {
         JPanel coeffPanel = new JPanel();
         JPanel textPanel = new JPanel();
         BoxLayout layout = new BoxLayout(textPanel, BoxLayout.Y_AXIS);
-
+        
         textPanel.add(new JLabel("Choose the coefficient"));
         textPanel.add(new JLabel("(decimal number):"));
-
+        
         coeffPanel.setLayout(new GridLayout(1, 2));
-
+        
         this.vastaus2 = new JTextField();
-
+        
         coeffPanel.add(textPanel);
         coeffPanel.add(vastaus2);
-
+        
         mainFrame.add(coeffPanel);
     }
 
@@ -123,7 +124,7 @@ public class PolynomGUI implements Runnable {
 
     /**
      * Metodi luo tekstikentän, jossa funktio näytetään.
-     * 
+     *
      * @param funktio JTextField
      */
     public void funktiorivinAsetus(JTextField funktio) {
@@ -163,7 +164,7 @@ public class PolynomGUI implements Runnable {
 
     /**
      * Metodi luo tekstikentän, jossa funktio näytetään.
-     * 
+     *
      * @param vastaus JTextField
      */
     public void vastausrivinAsetus(JTextField vastaus) {
@@ -183,6 +184,9 @@ public class PolynomGUI implements Runnable {
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
         back.addActionListener(kuulija);
         drawPanel.add(back);
-        drawPanel.add(new JButton("Draw the solution"));
+        JButton draw = new JButton("Draw the solution");
+        DrawKuuntelijaPolynomille dkuulija = new DrawKuuntelijaPolynomille(this.polynomi, this.vastaus1, this.vastaus2, this.vastaus);
+        draw.addActionListener(dkuulija);
+        drawPanel.add(draw);
     }
 }

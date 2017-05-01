@@ -7,6 +7,7 @@ package opetusohjelma.kayttoliittyma.controller;
 
 import javax.swing.SwingUtilities;
 import opetusohjelma.kayttoliittyma.view.AloitusGUI;
+import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 public class Main {
@@ -16,10 +17,8 @@ public class Main {
         AloitusGUI testi = new AloitusGUI();
         testi.showCardLayout();
 
-//        SinCos sin = new SinCos(7.896, 1.234567, "sin");
-//        double ker = sin.pyoristetynKertoimenLaskeminenIntegraaliin(7.896,1.234567);
-//        String kerroin = Double.toString(ker);
-//        System.out.println(kerroin);
+//        Polynomi uusi = new Polynomi(2,4);
+//        System.out.println("" + uusi.getY(3));
 
     }
 }

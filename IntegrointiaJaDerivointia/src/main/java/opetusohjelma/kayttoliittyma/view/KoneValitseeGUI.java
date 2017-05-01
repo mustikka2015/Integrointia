@@ -140,25 +140,26 @@ public class KoneValitseeGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Back", "Draw the solution" ja "New assignment"-napit.
+     * Metodi luo "Back" ja "New assignment"-napit.
      */
     public void piirtoYmsNapinAsetus() {
-        JPanel drawPanel = new JPanel(new GridLayout(1, 3));
+        JPanel drawPanel = new JPanel();
         mainFrame.add(drawPanel);
         JButton back = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
         back.addActionListener(kuulija);
         drawPanel.add(back);
 
-        JButton drawbutton = new JButton();
-        GridLayout layout = new GridLayout(2, 1);
-        drawbutton.setLayout(layout);
-        drawbutton.add(new JLabel("Draw", JLabel.CENTER));
-        drawbutton.add(new JLabel("the solution", JLabel.CENTER));
-        drawPanel.add(drawbutton);
-
+//        JButton drawbutton = new JButton();
+//        GridLayout layout = new GridLayout(2, 1);
+//        drawbutton.setLayout(layout);
+//        drawbutton.add(new JLabel("Draw", JLabel.CENTER));
+//        drawbutton.add(new JLabel("the solution", JLabel.CENTER));
+//        drawPanel.add(drawbutton);
         JButton newbutton = new JButton();
+        GridLayout layout = new GridLayout(2, 1);
         newbutton.setLayout(layout);
+        newbutton.setBackground(Color.CYAN);
         newbutton.add(new JLabel("New", JLabel.CENTER));
         newbutton.add(new JLabel("assignment", JLabel.CENTER));
         NewAssignmentKuuntelija kuuntelija = new NewAssignmentKuuntelija(this.headerLabel, this.funktioJaVastaus, this.vastauskuulija);

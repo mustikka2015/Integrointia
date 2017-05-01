@@ -197,4 +197,16 @@ public class SinCos implements Funktio {
         }
         return tulostus;
     }
+
+    @Override
+    public int getY(int x) {
+        double vastaus = 1;
+        if (this.funktio.equals("sin")) {
+            vastaus = vastaus * this.kerroin * Math.sin(this.sisaFunktionKerroin * x);
+        } else if (this.funktio.equals("cos")) {
+            vastaus = vastaus * this.kerroin * Math.cos(this.sisaFunktionKerroin * x);
+        }
+        int vastaus2 = (int) Math.round(vastaus);
+        return vastaus2;
+    }
 }

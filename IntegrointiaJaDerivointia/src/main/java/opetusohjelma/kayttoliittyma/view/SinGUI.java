@@ -10,6 +10,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.DrawKuuntelijaSinCos;
 import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaSinCos;
 import opetusohjelma.kayttoliittyma.controller.SinCosShowTheFunctionKuuntelija;
 import opetusohjelma.laskutoimituksia.SinCos;
@@ -177,6 +178,9 @@ public class SinGUI implements Runnable {
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
         back.addActionListener(kuulija);
         drawPanel.add(back);
-        drawPanel.add(new JButton("Draw the solution"));
+        JButton draw = new JButton("Draw the solution");
+        DrawKuuntelijaSinCos piirto = new DrawKuuntelijaSinCos(this.sin, this.vastaus, this.vastaus1, this.vastaus2);
+        draw.addActionListener(piirto);
+        drawPanel.add(draw);
     }
 }
