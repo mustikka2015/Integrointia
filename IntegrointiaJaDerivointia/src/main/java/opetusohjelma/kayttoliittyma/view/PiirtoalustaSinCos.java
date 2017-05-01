@@ -30,7 +30,7 @@ public class PiirtoalustaSinCos extends JPanel {
 
         SinCos sincos = (SinCos) this.funktio;
         SinCos alkuperainen = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-        piirtaminen(graphics, sincos, alkuperainen, Color.BLACK);
+        piirtaminen(graphics, sincos, alkuperainen, Color.GREEN);
 
         SinCos sincos2 = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
         sincos2.derivoi();
@@ -39,6 +39,9 @@ public class PiirtoalustaSinCos extends JPanel {
         SinCos sincos3 = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
         sincos3.integroi();
         piirtaminen(graphics, sincos3, alkuperainen, Color.RED);
+        
+        graphics.setColor(Color.BLACK);
+        graphics.drawLine(0, 350, 800, 350);
 
     }
 

@@ -33,7 +33,7 @@ public class Piirtokayttoliittyma implements Runnable {
     @Override
     public void run() {
        
-        frame = new JFrame("Black is original, blue differentiated and red integrated if constant C = 0.");
+        frame = new JFrame("Green is original, blue differentiated and red integrated if constant C = 0.");
         frame.setPreferredSize(new Dimension(700, 800));
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
  

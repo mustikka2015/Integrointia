@@ -31,7 +31,7 @@ public class PiirtoalustaPolynomille extends JPanel {
         Polynomi polynomi = (Polynomi) this.funktio;
 
         Polynomi alkuperainen = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-        piirtaminen(graphics, polynomi, alkuperainen, Color.BLACK);
+        piirtaminen(graphics, polynomi, alkuperainen, Color.GREEN);
 
         Polynomi polynomi2 = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
         polynomi2.derivoi();
@@ -40,6 +40,10 @@ public class PiirtoalustaPolynomille extends JPanel {
         Polynomi polynomi3 = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
         polynomi3.integroi();
         piirtaminen(graphics, polynomi3, alkuperainen, Color.RED);
+        
+        graphics.setColor(Color.BLACK);
+        graphics.drawLine(0, 400, 800, 400);
+        graphics.drawLine(400, 0, 400, 800);
     }
 
     public void piirtaminen(Graphics graphics, Polynomi polynomi, Polynomi alkuperainen, Color color) {
