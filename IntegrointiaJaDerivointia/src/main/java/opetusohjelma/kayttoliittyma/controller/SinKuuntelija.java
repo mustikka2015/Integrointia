@@ -8,7 +8,7 @@ package opetusohjelma.kayttoliittyma.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
-import opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeSinGUI;
+import opetusohjelma.kayttoliittyma.view.SinGUI;
 
 /**
  * Tämän luokan avulla kuunnellaan "Sine"-näppäintä.
@@ -25,7 +25,7 @@ public class SinKuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        OpiskelijaValitseeSinGUI sinGUI = new OpiskelijaValitseeSinGUI();
+        SinGUI sinGUI = new SinGUI();
         SwingUtilities.invokeLater((Runnable) sinGUI);
     }
 

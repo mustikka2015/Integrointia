@@ -13,7 +13,7 @@ import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
- * Tämän avulla kuunnellaan "Integrate"-nappia.
+ * Tämän avulla kuunnellaan "Integrate"-nappia PolynomGUI-näkymässä.
  *
  * @author Iisa
  */
@@ -23,14 +23,27 @@ public class IntegrateKuuntelijaPolynomille implements ActionListener {
     private JTextField kerroin;
     private JTextField vastaus;
     private Polynomi polynomi;
-
+    
+    /**
+     * Konstrunktori IntegrateKuuntelijaPolynomille.
+     *
+     * @param polynomi Polynomi
+     * @param vastaus JTextField
+     * @param eksponentti JTextField
+     * @param kerroin JTextField
+     */
     public IntegrateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
         this.polynomi = polynomi;
         this.vastaus = vastaus;
     }
-
+    
+     /**
+     * Polynomin kerroin ja eksponentti kuunnellaan tekstikentistä, joihin ne on
+     * syötetty, ja vastauskenttään syötetään integroitu polynomi
+     * String-muodossa.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
 

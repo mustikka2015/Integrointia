@@ -26,6 +26,9 @@ public class AloitusGUI {
     private JLabel statusLabel;
     private JPanel controlPanel;
 
+    /**
+     * Konstruktori AloitusGUI:lle.
+     */
     public AloitusGUI() {
         prepareGUI();
     }
@@ -83,7 +86,7 @@ public class AloitusGUI {
         lisaaNappi(buttonPanel, new JButton("Cosine"), new CosKuuntelija());
 
         JPanel selectPanel = new JPanel(new FlowLayout());
-        
+
         JButton start = new JButton("Start!");
         start.setBackground(Color.GREEN);
 
@@ -102,9 +105,8 @@ public class AloitusGUI {
         JScrollPane listComboScrollPane = new JScrollPane(listCombo);
 
         controlPanel.add(listComboScrollPane);
-        
+
         JButton change = new JButton("Change");
-//        change.setBackground(Color.CYAN);
 
         lisaaNappi(controlPanel, change, new ChangeKuuntelija(listCombo, panel, statusLabel));
 
@@ -114,7 +116,11 @@ public class AloitusGUI {
     }
 
     /**
-     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan..
+     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan.
+     *
+     * @param panel JPanel
+     * @param button JButton
+     * @param listener ActionListener
      */
     public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
 

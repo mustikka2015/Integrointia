@@ -8,7 +8,7 @@ package opetusohjelma.kayttoliittyma.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
-import opetusohjelma.kayttoliittyma.view.OpiskelijaValitseePolynomGUI;
+import opetusohjelma.kayttoliittyma.view.PolynomGUI;
 
 /**
  * Tämän luokan avulla kuunnellaan "Polynom"-näppäintä.
@@ -25,7 +25,7 @@ public class PolynomKuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        OpiskelijaValitseePolynomGUI polynomGUI = new OpiskelijaValitseePolynomGUI();
+        PolynomGUI polynomGUI = new PolynomGUI();
         SwingUtilities.invokeLater((Runnable) polynomGUI);
     }
 

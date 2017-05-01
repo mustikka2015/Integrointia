@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
+ * Tämän avulla kuunnellaan "Intregrate"-näppäintä SinGUI- ja CosGUI-näkymissä.
  *
  * @author Iisa
  */
@@ -21,6 +22,14 @@ public class IntegrateKuuntelijaSinCos implements ActionListener {
     private JTextField vastaus;
     private SinCos sincos;
 
+    /**
+     * Konstrunktori IntegrateKuuntelijaSinCos.
+     *
+     * @param sincos SinCos
+     * @param vastaus JTextField
+     * @param kerroin JTextField
+     * @param sisafunktionKerroin JTextField
+     */
     public IntegrateKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
         this.kerroin = kerroin;
         this.sisafunktionKerroin = sisafunktionKerroin;
@@ -28,6 +37,11 @@ public class IntegrateKuuntelijaSinCos implements ActionListener {
         this.vastaus = vastaus;
     }
 
+    /**
+     * Funktion kerroin ja sisäfunktion kerroin kuunnellaan tekstikentistä,
+     * joihin ne on syötetty, ja vastauskenttään syötetään integroitu funktio
+     * String-muodossa.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         String ker = "";

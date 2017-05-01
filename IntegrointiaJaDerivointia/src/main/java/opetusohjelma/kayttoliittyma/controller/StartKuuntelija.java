@@ -12,10 +12,13 @@ import javax.swing.SwingUtilities;
 import opetusohjelma.kayttoliittyma.view.KoneValitseeGUI;
 
 /**
- * Tämän luokan avulla kuunnellaan "Select"-näppäintä.
+ * Tämän luokan avulla kuunnellaan "Start"-näppäintä.
  */
 public class StartKuuntelija implements ActionListener {
 
+    /**
+     * Konstruktori StartKuuntelijalle.
+     */
     public StartKuuntelija() {
 
     }

@@ -8,7 +8,7 @@ package opetusohjelma.kayttoliittyma.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
-import opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeCosGUI;
+import opetusohjelma.kayttoliittyma.view.CosGUI;
 
 /**
  * Tämän luokan avulla kuunnellaan "Cosine"-näppäintä.
@@ -25,7 +25,7 @@ public class CosKuuntelija implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        OpiskelijaValitseeCosGUI cosGUI = new OpiskelijaValitseeCosGUI();
+        CosGUI cosGUI = new CosGUI();
         SwingUtilities.invokeLater((Runnable) cosGUI);
     }
 }

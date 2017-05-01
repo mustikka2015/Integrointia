@@ -28,14 +28,12 @@ public class KoneValitseeGUI implements Runnable {
 
     private JFrame mainFrame;
     private JLabel headerLabel;
-    private JLabel answerIsLabel;
-    private JPanel checkPanel;
-    private JPanel controlPanel;
-    private JPanel drawPanel;
-
     private ArrayList<String> funktioJaVastaus;
     private ShowSolutionKuuntelija vastauskuulija;
 
+    /**
+     * Konstruktori KoneValitseeGUI:lle.
+     */
     public KoneValitseeGUI() {
         prepareGUI();
     }
@@ -91,6 +89,9 @@ public class KoneValitseeGUI implements Runnable {
 
     /**
      * Metodi luo tehtävänantorivin näkymään.
+     *
+     * @param toiminto String
+     * @param arpoja Arpoja
      */
     public void tehtavanantorivinAsetus(String toiminto, Arpoja arpoja) {
         headerLabel = new JLabel("", JLabel.CENTER);
@@ -102,9 +103,12 @@ public class KoneValitseeGUI implements Runnable {
 
     /**
      * Metodi luo "Show the solution" -napin.
+     *
+     * @param vastaus JTextField
+     * @param komento String
      */
     public void showSolutionNapinAsetus(JTextField vastaus, String komento) {
-        controlPanel = new JPanel();
+        JPanel controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
         mainFrame.add(controlPanel);
         JButton vastausnappi = new JButton("Show the solution");
@@ -117,16 +121,18 @@ public class KoneValitseeGUI implements Runnable {
      * Metodi luo vastausrivin.
      */
     public void answerIsRivinAsetus() {
-        answerIsLabel = new JLabel("", JLabel.CENTER);
+        JLabel answerIsLabel = new JLabel("", JLabel.CENTER);
         mainFrame.add(answerIsLabel);
         answerIsLabel.setText("Answer is:");
     }
 
     /**
      * Metodi luo vastausrivin.
+     *
+     * @param vastaus JTextField
      */
     public void vastausrivinAsetus(JTextField vastaus) {
-        checkPanel = new JPanel();
+        JPanel checkPanel = new JPanel();
         GridLayout layout1 = new GridLayout();
         checkPanel.setLayout(layout1);
         checkPanel.add(vastaus);
@@ -137,7 +143,7 @@ public class KoneValitseeGUI implements Runnable {
      * Metodi luo "Back", "Draw the solution" ja "New assignment"-napit.
      */
     public void piirtoYmsNapinAsetus() {
-        drawPanel = new JPanel(new GridLayout(1, 3));
+        JPanel drawPanel = new JPanel(new GridLayout(1, 3));
         mainFrame.add(drawPanel);
         JButton back = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);

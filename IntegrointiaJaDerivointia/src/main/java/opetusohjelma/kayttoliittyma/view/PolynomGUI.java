@@ -5,49 +5,34 @@
  */
 package opetusohjelma.kayttoliittyma.view;
 
-import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.SinCosShowTheFunctionKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaPolynomille;
+import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaPolynomille;
+import opetusohjelma.kayttoliittyma.controller.PolynomShowTheFunctionKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
-import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
- * Tämä luokka toteuttaa näkymän, kun opiskelija valitsee "Cosine".
+ * Tämä luokka toteuttaa näkymän, kun opiskelija valitsee "Polynom".
  *
  * @author Iisa
  */
-public class OpiskelijaValitseeCosGUI implements Runnable {
+public class PolynomGUI implements Runnable {
 
     private JFrame mainFrame;
-    private JPanel coeffPanel;
-    private JPanel incePanel;
-    private JPanel textPanel;
-    private JPanel showPanel;
-    private JPanel functionPanel;
-    private JPanel intderPanel;
-    private JLabel answerIsLabel;
-    private JPanel answerPanel;
-    private JPanel drawPanel;
     private JTextField funktio;
-    private JTextField vastaus;
     private JTextField vastaus1;
     private JTextField vastaus2;
-    private SinCos cos;
+    private JTextField vastaus;
+    private Polynomi polynomi;
 
-
-    public OpiskelijaValitseeCosGUI() {
+    /**
+     * Konstruktori PolynomGUI:lle.
+     */
+    public PolynomGUI() {
         prepareGUI();
     }
 
@@ -70,9 +55,9 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
 
     @Override
     public void run() {
-        this.cos = new SinCos(1.0, 1.0, "cos");
+        this.polynomi = new Polynomi(1, 1);
+        valitseEksponentti();
         valitseKerroin();
-        valitseSisafunktionKerroin();
         this.funktio = new JTextField();
         funktio.setHorizontalAlignment(JTextField.CENTER);
         funktiorivinAsetus(funktio);
@@ -88,85 +73,81 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Valitse kerroin" -rivin
+     * Metodi luo "Valitse eksponentti" -rivin.
+     */
+    public void valitseEksponentti() {
+        JPanel expPanel = new JPanel();
+        GridLayout layout1 = new GridLayout(1, 2);
+        expPanel.setLayout(layout1);
+        JLabel teksti = new JLabel("", JLabel.CENTER);
+        teksti.setText("Choose the exponent (integer):");
+        this.vastaus1 = new JTextField("", JLabel.CENTER);
+        expPanel.add(teksti);
+        expPanel.add(vastaus1);
+
+        mainFrame.add(expPanel);
+    }
+
+    /**
+     * Metodi luo "Valitse kerroin" -rivin.
      */
     public void valitseKerroin() {
-        coeffPanel = new JPanel();
-        textPanel = new JPanel();
+        JPanel coeffPanel = new JPanel();
+        JPanel textPanel = new JPanel();
         BoxLayout layout = new BoxLayout(textPanel, BoxLayout.Y_AXIS);
 
-        textPanel.add(new JLabel("Choose the coefficient of Cos"));
+        textPanel.add(new JLabel("Choose the coefficient"));
         textPanel.add(new JLabel("(decimal number):"));
 
         coeffPanel.setLayout(new GridLayout(1, 2));
 
-        vastaus1 = new JTextField();
+        this.vastaus2 = new JTextField();
 
         coeffPanel.add(textPanel);
-        coeffPanel.add(vastaus1);
+        coeffPanel.add(vastaus2);
 
         mainFrame.add(coeffPanel);
     }
 
     /**
-     * Metodi luo "Valitse sisäfunktion kerroin" -rivin
-     */
-    public void valitseSisafunktionKerroin() {
-        incePanel = new JPanel();
-        textPanel = new JPanel();
-        BoxLayout layout = new BoxLayout(textPanel, BoxLayout.Y_AXIS);
-
-        textPanel.add(new JLabel("Choose the coefficient of x"));
-        textPanel.add(new JLabel("(decimal number):"));
-
-        incePanel.setLayout(new GridLayout(1, 2));
-
-        vastaus2 = new JTextField();
-
-        incePanel.add(textPanel);
-        incePanel.add(vastaus2);
-
-        mainFrame.add(incePanel);
-    }
-
-    /**
-     * Metodi luo "Show the function" -napin
+     * Metodi luo "Show the function" -napin.
      */
     public void lisaaNaytaFunktioNappi() {
-        showPanel = new JPanel();
-//        showPanel.setLayout(new GridLayout());
+        JPanel showPanel = new JPanel();
         mainFrame.add(showPanel);
         JButton nappi1 = new JButton("Show the function");
-        SinCosShowTheFunctionKuuntelija kuulija = new SinCosShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, cos);
+        PolynomShowTheFunctionKuuntelija kuulija = new PolynomShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, polynomi);
         nappi1.addActionListener(kuulija);
         showPanel.add(nappi1);
     }
 
     /**
      * Metodi luo tekstikentän, jossa funktio näytetään.
+     * 
+     * @param funktio JTextField
      */
     public void funktiorivinAsetus(JTextField funktio) {
-        functionPanel = new JPanel();
+        JPanel functionPanel = new JPanel();
         functionPanel.setLayout(new GridLayout());
         functionPanel.add(funktio);
         mainFrame.add(functionPanel);
     }
 
     /**
-     * Metodi luo "Integrate"- ja "Differentiate"-näppäinrivin.
+     * Metodi luo "Integrate"- ja "Differenriate"-näppäinrivin.
      */
     public void integrateDerivateButtons() {
-        intderPanel = new JPanel();
-//        intderPanel.setLayout(new GridLayout(1, 2));
+        JPanel intderPanel = new JPanel();
         JButton integButton = new JButton("Integrate");
         integButton.setBackground(Color.cyan);
-        IntegrateKuuntelijaSinCos intKuulija = new IntegrateKuuntelijaSinCos(cos, vastaus, vastaus1, vastaus2);
+        IntegrateKuuntelijaPolynomille intKuulija = new IntegrateKuuntelijaPolynomille(polynomi, vastaus, vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
         intderPanel.add(integButton);
         JButton diffButton = new JButton("Differentiate");
         diffButton.setBackground(Color.cyan);
-        DifferentiateKuuntelijaSinCos diffKuulija = new DifferentiateKuuntelijaSinCos(cos, vastaus, vastaus1, vastaus2);
+        DifferentiateKuuntelijaPolynomille diffKuulija = new DifferentiateKuuntelijaPolynomille(polynomi, vastaus, vastaus1, vastaus2);
         diffButton.addActionListener(diffKuulija);
+        intderPanel.add(integButton);
         intderPanel.add(diffButton);
         mainFrame.add(intderPanel);
     }
@@ -175,16 +156,18 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
      * Metodi luo vastausrivin.
      */
     public void answerIsRivinAsetus() {
-        answerIsLabel = new JLabel("", JLabel.CENTER);
+        JLabel answerIsLabel = new JLabel("", JLabel.CENTER);
         mainFrame.add(answerIsLabel);
         answerIsLabel.setText("Answer is:");
     }
 
     /**
      * Metodi luo tekstikentän, jossa funktio näytetään.
+     * 
+     * @param vastaus JTextField
      */
     public void vastausrivinAsetus(JTextField vastaus) {
-        answerPanel = new JPanel();
+        JPanel answerPanel = new JPanel();
         answerPanel.setLayout(new GridLayout());
         answerPanel.add(vastaus);
         mainFrame.add(answerPanel);
@@ -194,8 +177,7 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
      * Metodi luo "Back"- ja "Draw the solution" -napit.
      */
     public void piirtoYmsNapinAsetus() {
-        drawPanel = new JPanel();
-//        drawPanel.setLayout(new GridLayout(1, 2));
+        JPanel drawPanel = new JPanel();
         mainFrame.add(drawPanel);
         JButton back = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
@@ -203,5 +185,4 @@ public class OpiskelijaValitseeCosGUI implements Runnable {
         drawPanel.add(back);
         drawPanel.add(new JButton("Draw the solution"));
     }
-
 }

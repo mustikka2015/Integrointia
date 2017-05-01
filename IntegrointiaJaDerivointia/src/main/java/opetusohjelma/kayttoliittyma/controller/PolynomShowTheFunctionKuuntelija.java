@@ -15,7 +15,8 @@ import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
- * Tämän luokan avulla kuunnellaan "Show the function"-näppäintä.
+ * Tämän luokan avulla kuunnellaan "Show the function"-näppäintä
+ * PolynomGUI-näkymässä.
  *
  * @author Iisa
  */
@@ -26,6 +27,14 @@ public class PolynomShowTheFunctionKuuntelija implements ActionListener {
     private JTextField kerroin;
     private Polynomi polynomi;
 
+    /**
+     * Konstrunktori PolynomShowTheFunctionKuuntelijalle.
+     *
+     * @param funktiokentta JTextField
+     * @param eksponentti JTextField
+     * @param kerroin JTextField
+     * @param polynomi Polynomi
+     */
     public PolynomShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField eksponentti, JTextField kerroin, Polynomi polynomi) {
         this.funktiokentta = funktiokentta;
         this.eksponentti = eksponentti;
@@ -33,6 +42,10 @@ public class PolynomShowTheFunctionKuuntelija implements ActionListener {
         this.polynomi = polynomi;
     }
 
+    /**
+     * Polynomin kerroin ja eksponentti kuunnellaan tekstikentistä, joihin ne on
+     * syötetty, ja funktiokenttään syötetään polynomi String-muodossa.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
 

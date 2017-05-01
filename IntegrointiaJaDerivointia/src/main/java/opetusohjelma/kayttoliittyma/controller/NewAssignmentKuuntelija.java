@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- * Tämän luokan avulla kuunnellaan "New assignment-näppäintä"
+ * Tämän luokan avulla kuunnellaan "New assignment-näppäintä".
  *
  * @author Iisa
  */
@@ -27,6 +27,10 @@ public class NewAssignmentKuuntelija implements ActionListener {
      * Tämä on konstruktori, jossa asetetaan private-muuttujat headerLabel,
      * funktiojaVastaus ja skuuntelija ympäristöstä, josta
      * ValinnanNewAssignmentKuuntelijaa kutsutaan.
+     *
+     * @param headerLabel JLabel
+     * @param funktioJaVastaus ArrayList<String>
+     * @param skuuntelija ShowSolutionKuuntelija
      */
     public NewAssignmentKuuntelija(JLabel headerLabel, ArrayList<String> funktioJaVastaus, ShowSolutionKuuntelija skuuntelija) {
         this.headerLabel = headerLabel;

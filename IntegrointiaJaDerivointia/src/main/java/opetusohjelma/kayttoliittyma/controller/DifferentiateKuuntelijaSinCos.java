@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
+ * Tämän avulla kuunnellaan "Differentiate"-näppäintä SinGUI- ja
+ * CosGUI-näkymissä.
  *
  * @author Iisa
  */
@@ -21,6 +23,14 @@ public class DifferentiateKuuntelijaSinCos implements ActionListener {
     private JTextField vastaus;
     private SinCos sincos;
 
+    /**
+     * Konstrunktori DifferentiateKuuntelijaSinCos.
+     *
+     * @param sincos SinCos
+     * @param vastaus JTextField
+     * @param kerroin JTextField
+     * @param sisafunktionKerroin JTextField
+     */
     public DifferentiateKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
         this.sincos = sincos;
         this.vastaus = vastaus;
@@ -28,6 +38,11 @@ public class DifferentiateKuuntelijaSinCos implements ActionListener {
         this.sisafunktionKerroin = sisafunktionKerroin;
     }
 
+    /**
+     * Funktion kerroin ja sisäfunktion kerroin kuunnellaan tekstikentistä,
+     * joihin ne on syötetty, ja vastauskenttään syötetään derivoitu funktio
+     * String-muodossa.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         String ker = "";

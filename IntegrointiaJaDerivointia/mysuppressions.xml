@@ -5,24 +5,5 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="BackNapinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ChangeKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="CosKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="DifferentiateKuuntelijaPolynomille.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="DifferentiateKuuntelijaSinCos.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="IntegrateKuuntelijaPolynomille.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="IntegrateKuuntelijaSinCos.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="NewAssignmentKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="PolynomKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="PolynomShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="StartKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="ShowSolutionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="SinCosShowTheFunctionKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="SinKuuntelija.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="AloitusGUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="KoneValitseeGUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="OpiskelijaValitseeCosGUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="OpiskelijaValitseePolynomGUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="OpiskelijaValitseeSinGUI.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

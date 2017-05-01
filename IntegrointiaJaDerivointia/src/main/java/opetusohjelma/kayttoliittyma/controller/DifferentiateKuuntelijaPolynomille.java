@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
+ * Tämän avulla kuunnellaan "Differentiate"-näppäintä PolynomGUI-näkymässä.
  *
  * @author Iisa
  */
@@ -23,6 +24,7 @@ public class DifferentiateKuuntelijaPolynomille implements ActionListener {
 
     /**
      * Konstrunktori DifferentiateKuuntelijaPolynomille.
+     *
      * @param polynomi Polynomi
      * @param vastaus JTextField
      * @param eksponentti JTextField
@@ -35,6 +37,11 @@ public class DifferentiateKuuntelijaPolynomille implements ActionListener {
         this.vastaus = vastaus;
     }
 
+    /**
+     * Polynomin kerroin ja eksponentti kuunnellaan tekstikentistä, joihin ne on
+     * syötetty, ja vastauskenttään syötetään derivoitu polynomi
+     * String-muodossa.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         String eksp = "";

@@ -21,6 +21,15 @@ public class ShowSolutionKuuntelija implements ActionListener {
     private ArrayList<String> funktioJaVastaus;
     private String komento;
 
+    /**
+     * Tämä on konstruktori, jossa asetetaan private-muuttujat headerLabel,
+     * funktiojaVastaus ja skuuntelija ympäristöstä, josta
+     * ValinnanNewAssignmentKuuntelijaa kutsutaan.
+     *
+     * @param vastaus JTextField
+     * @param funktioJaVastaus ArrayList<String>
+     * @param komento String
+     */
     public ShowSolutionKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
         this.vastaus = vastaus;
         this.funktioJaVastaus = funktioJaVastaus;
@@ -29,10 +38,9 @@ public class ShowSolutionKuuntelija implements ActionListener {
 
     /**
      * Metodi asettaa vastauksen tekstikenttään "vastaus". Mikäli kone on
-     * arponut komennon "Derivate", poimitaan ArrayList:stä funktioJaVastaus
-     * arvotun funktion derivoitu muoto. Mikäli kone on arponut komennon
-     * "Integrate", poimitaan integroitu muoto.
-     *
+     * arponut komennon "Differentiate", poimitaan ArrayList:stä
+     * funktioJaVastaus arvotun funktion derivoitu muoto. Mikäli kone on arponut
+     * komennon "Integrate", poimitaan integroitu muoto.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -48,7 +56,7 @@ public class ShowSolutionKuuntelija implements ActionListener {
     public void setFunktioJaVastaus(ArrayList<String> funktioJaVastaus) {
         this.funktioJaVastaus = funktioJaVastaus;
     }
-    
+
     public void setToiminto(String toiminto) {
         this.komento = toiminto;
     }
