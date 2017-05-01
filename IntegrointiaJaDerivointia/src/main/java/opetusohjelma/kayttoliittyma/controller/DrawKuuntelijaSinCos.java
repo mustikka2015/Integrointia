@@ -13,7 +13,8 @@ import opetusohjelma.kayttoliittyma.view.Piirtokayttoliittyma;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
- *
+ * Luokka kuuntelee "Draw the Solutions"-painiketta.
+ * 
  * @author Iisa
  */
 public class DrawKuuntelijaSinCos implements ActionListener {

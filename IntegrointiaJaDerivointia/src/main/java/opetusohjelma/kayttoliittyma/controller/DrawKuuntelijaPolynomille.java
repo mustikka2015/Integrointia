@@ -16,7 +16,7 @@ import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
- * Tämän avulla kuunnellaan "Draw"-näppäintä.
+ * Luokka kuuntelee "Draw the Solutions"-painiketta.
  *
  * @author Iisa
  */

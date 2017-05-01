@@ -169,7 +169,7 @@ public class SinGUI implements Runnable {
     }
 
     /**
-     * Metodi luo "Back"- ja "Draw the solution" -napit.
+     * Metodi luo "Back"- ja "Draw the solutions" -napit.
      */
     public void piirtoYmsNapinAsetus() {
         JPanel drawPanel = new JPanel();
@@ -178,7 +178,7 @@ public class SinGUI implements Runnable {
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
         back.addActionListener(kuulija);
         drawPanel.add(back);
-        JButton draw = new JButton("Draw the solution");
+        JButton draw = new JButton("Draw the solutions");
         DrawKuuntelijaSinCos piirto = new DrawKuuntelijaSinCos(this.sin, this.vastaus, this.vastaus1, this.vastaus2);
         draw.addActionListener(piirto);
         drawPanel.add(draw);
