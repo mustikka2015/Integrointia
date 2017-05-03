@@ -29,7 +29,7 @@ public class NewAssignmentKuuntelija implements ActionListener {
      * ValinnanNewAssignmentKuuntelijaa kutsutaan.
      *
      * @param headerLabel JLabel
-     * @param funktioJaVastaus ArrayList<String>
+     * @param funktioJaVastaus ArrayList
      * @param skuuntelija ShowSolutionKuuntelija
      */
     public NewAssignmentKuuntelija(JLabel headerLabel, ArrayList<String> funktioJaVastaus, ShowSolutionKuuntelija skuuntelija) {
@@ -48,7 +48,7 @@ public class NewAssignmentKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Arpoja arpoja = new Arpoja();
         String toiminto = arpoja.arvoToiminto();
-        this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset();
+        this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset(arpoja.arvoFunktio());
         String funktio = funktioJaVastaus.get(0);
         String tehtava = arpoja.arvoTehtava(toiminto, funktio);
         headerLabel.setText(tehtava);

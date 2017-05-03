@@ -27,7 +27,7 @@ public class ShowSolutionKuuntelija implements ActionListener {
      * ValinnanNewAssignmentKuuntelijaa kutsutaan.
      *
      * @param vastaus JTextField
-     * @param funktioJaVastaus ArrayList<String>
+     * @param funktioJaVastaus ArrayList
      * @param komento String
      */
     public ShowSolutionKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {

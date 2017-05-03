@@ -65,7 +65,7 @@ public class KoneValitseeGUI implements Runnable {
 
         String toiminto = arpoja.arvoToiminto();
 
-        this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset();
+        this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset(arpoja.arvoFunktio());
 
         tehtavanantorivinAsetus(toiminto, arpoja);
 

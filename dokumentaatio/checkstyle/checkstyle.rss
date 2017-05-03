@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 25,
+      <title>File: 29,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -60,35 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanSelectKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanSelectKuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaSinCos.java">opetusohjelma/kayttoliittyma/controller/ValinnanDifferentiateKuuntelijaSinCos.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeCosGUI.java">opetusohjelma/kayttoliittyma/view/OpiskelijaValitseeCosGUI.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.PiirtoalustaSinCos.java">opetusohjelma/kayttoliittyma/view/PiirtoalustaSinCos.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanNewAssignmentKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanNewAssignmentKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.PolynomKuuntelija.java">opetusohjelma/kayttoliittyma/controller/PolynomKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.OpiskelijaValitseePolynomGUI.java">opetusohjelma/kayttoliittyma/view/OpiskelijaValitseePolynomGUI.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.StartKuuntelija.java">opetusohjelma/kayttoliittyma/controller/StartKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanCosKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanCosKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.SinGUI.java">opetusohjelma/kayttoliittyma/view/SinGUI.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanShowSolutionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanShowSolutionKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaSinCos.java">opetusohjelma/kayttoliittyma/controller/DifferentiateKuuntelijaSinCos.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.TehtavanArpoja.java">opetusohjelma/kayttoliittyma/controller/TehtavanArpoja.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaPolynomille.java">opetusohjelma/kayttoliittyma/controller/IntegrateKuuntelijaPolynomille.java</a>
                 </td>
                 <td>
                   0
@@ -214,7 +186,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanDifferentiateKuuntelijaPolynomille.java">opetusohjelma/kayttoliittyma/controller/ValinnanDifferentiateKuuntelijaPolynomille.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaPolynomille.java">opetusohjelma/kayttoliittyma/controller/DifferentiateKuuntelijaPolynomille.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ShowSolutionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ShowSolutionKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -242,7 +228,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaSinCos.java">opetusohjelma/kayttoliittyma/controller/ValinnanIntegrateKuuntelijaSinCos.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.NewAssignmentKuuntelija.java">opetusohjelma/kayttoliittyma/controller/NewAssignmentKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -256,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.OpiskelijaValitseeSinGUI.java">opetusohjelma/kayttoliittyma/view/OpiskelijaValitseeSinGUI.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.CosKuuntelija.java">opetusohjelma/kayttoliittyma/controller/CosKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -270,7 +256,49 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanPolynomShowTheFunctionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanPolynomShowTheFunctionKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaSinCos.java">opetusohjelma/kayttoliittyma/controller/IntegrateKuuntelijaSinCos.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.CosGUI.java">opetusohjelma/kayttoliittyma/view/CosGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.Piirtokayttoliittyma.java">opetusohjelma/kayttoliittyma/view/Piirtokayttoliittyma.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.PolynomShowTheFunctionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/PolynomShowTheFunctionKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -312,7 +340,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanSinCosShowTheFunctionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanSinCosShowTheFunctionKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.PiirtoalustaPolynomille.java">opetusohjelma/kayttoliittyma/view/PiirtoalustaPolynomille.java</a>
                 </td>
                 <td>
                   0
@@ -326,7 +354,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanChangeKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanChangeKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ChangeKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ChangeKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -340,7 +368,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanPolynomKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanPolynomKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.view.PolynomGUI.java">opetusohjelma/kayttoliittyma/view/PolynomGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.SinKuuntelija.java">opetusohjelma/kayttoliittyma/controller/SinKuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -368,7 +410,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanSinKuuntelija.java">opetusohjelma/kayttoliittyma/controller/ValinnanSinKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.DrawKuuntelijaSinCos.java">opetusohjelma/kayttoliittyma/controller/DrawKuuntelijaSinCos.java</a>
                 </td>
                 <td>
                   0
@@ -382,7 +424,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.ValinnanIntegrateKuuntelijaPolynomille.java">opetusohjelma/kayttoliittyma/controller/ValinnanIntegrateKuuntelijaPolynomille.java</a>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.DrawKuuntelijaPolynomille.java">opetusohjelma/kayttoliittyma/controller/DrawKuuntelijaPolynomille.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#opetusohjelma.kayttoliittyma.controller.SinCosShowTheFunctionKuuntelija.java">opetusohjelma/kayttoliittyma/controller/SinCosShowTheFunctionKuuntelija.java</a>
                 </td>
                 <td>
                   0

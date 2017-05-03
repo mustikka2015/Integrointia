@@ -31,7 +31,7 @@ public class Arpoja {
      * Metodi arpoo funktion, jonka opiskelijan tulee integroida tai derivoida.
      * Funktiovaihtoehdot ovat polynomi-, sini- ja kosinifunktio.
      *
-     * @return String: "polynom", "sin" tai "cos".
+     * @return String "polynom", "sin" tai "cos".
      */
     public String arvoFunktio() {
         ArrayList<String> funktiot = new ArrayList<String>();
@@ -75,9 +75,6 @@ public class Arpoja {
         }
 
         double arvottu = (double) (this.arpoja.nextInt(201) - 100) / 10;
-        
-        
-
 
         return arvottu;
     }
@@ -122,21 +119,19 @@ public class Arpoja {
      * Metodi arpoo funktion. Se palauttaa ArrayList-olion, joka sisältää itse
      * funktion String-muodossa, funktion derivoituna String-muodossa sekä
      * funktion integroituna String-muodossa.
-     *
-     * @return ArrayList<String>, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin.
+     * 
+     * @param funktio String -muodossa
+     * 
+     * @return ArrayList:n, joka sisältää sekä funktion että sen
+     * derivaatan ja integraalin String-muodossa.
      */
-    public ArrayList<String> arvoFunktioJaVastaukset() {
-//        Arpoja arpoja = new Arpoja();
+    public ArrayList<String> arvoFunktioJaVastaukset(String funktio) {
         ArrayList<String> funktioJaVast = new ArrayList<String>();
-        String funktio = arvoFunktio();
         if (funktio.equals("sin") || funktio.equals("cos")) {
             funktioJaVast = sinCosFunktionArpominen(funktioJaVast, funktio);
-
         } else {
             funktioJaVast = polynomifunktionArpominen(funktioJaVast);
         }
-
         return funktioJaVast;
     }
     
@@ -145,9 +140,9 @@ public class Arpoja {
      * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
      * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
      *
-     * @param funktioJaVast ArrayList<String>-muodossa
+     * @param funktioJaVast ArrayList -muodossa
      *
-     * @return ArrayList<String>, joka sisältää sekä funktion että sen
+     * @return ArrayList, joka sisältää sekä funktion että sen
      * derivaatan ja integraalin.
      */
     public ArrayList<String> polynomifunktionArpominen(ArrayList<String> funktioJaVast) {
@@ -170,11 +165,11 @@ public class Arpoja {
      * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
      * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
      *
-     * @param funktioJaVast ArrayList<String>-muodossa
+     * @param funktioJaVast ArrayList-muodossa
      * @param funktio String-muodossa
      *
-     * @return ArrayList<String>, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin.
+     * @return ArrayList, joka sisältää sekä funktion että sen
+     * derivaatan ja integraalin String-muodossa.
      */
     public ArrayList<String> sinCosFunktionArpominen(ArrayList<String> funktioJaVast, String funktio) {
         double kerroin1 = arvoKerroin();
