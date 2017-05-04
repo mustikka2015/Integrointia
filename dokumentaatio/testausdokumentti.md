@@ -20,5 +20,4 @@ Ohjelmiston jatkokehityksess‰ t‰m‰n seikan tulisi ottaa huomioon.
 **Jatkokehitysehdotuksia**
 
 Ohjelma on ensimm‰inen askel kohti oppimispeli‰.
-Seuraava askel on yhdist‰‰ teht‰v‰- tai treenausn‰kym‰t johonkin peliin. 
-N‰kym‰t voisivat esimerkiksi ponnahtaa Minesweeperin tiettyjen ruutujen klikkauksista.
+Seuraava askel on yhdist‰‰ teht‰v‰- tai treenausn‰kym‰t johonkin peliin.
