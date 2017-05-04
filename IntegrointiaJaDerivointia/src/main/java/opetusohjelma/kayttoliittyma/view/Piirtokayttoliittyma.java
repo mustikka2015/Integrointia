@@ -10,7 +10,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import opetusohjelma.laskutoimituksia.Funktio;
-import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
  * Käyttöliittymä toimii käyttöliittymänä piirretyille funktioille.
@@ -39,9 +38,7 @@ public class Piirtokayttoliittyma implements Runnable {
         frame = new JFrame("Green is original, blue differentiated and red integrated if constant C = 0.");
         frame.setPreferredSize(new Dimension(700, 800));
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-
         luoKomponentit(frame.getContentPane());
-
         frame.pack();
         frame.setVisible(true);
     }

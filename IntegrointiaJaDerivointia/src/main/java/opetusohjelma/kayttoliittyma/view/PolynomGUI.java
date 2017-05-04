@@ -25,8 +25,8 @@ public class PolynomGUI implements Runnable {
     
     private JFrame mainFrame;
     private JTextField funktio;
-    private JTextField vastaus1;
-    private JTextField vastaus2;
+    private JTextField eksponentti;
+    private JTextField kerroin;
     private JTextField vastaus;
     private Polynomi polynomi;
 
@@ -72,54 +72,59 @@ public class PolynomGUI implements Runnable {
         
         mainFrame.setVisible(true);
     }
+    
+    /**
+     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan.
+     *
+     * @param panel JPanel
+     * @param button JButton
+     * @param listener ActionListener
+     */
+    public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
+
+        button.addActionListener(listener);
+        panel.add(button);
+    }
 
     /**
      * Metodi luo "Valitse eksponentti" -rivin.
      */
     public void valitseEksponentti() {
-        JPanel expPanel = new JPanel();
-        GridLayout layout1 = new GridLayout(1, 2);
-        expPanel.setLayout(layout1);
+        JPanel eksponenttirivi = new JPanel();
+        eksponenttirivi.setLayout(new GridLayout(1, 2));
         JLabel teksti = new JLabel("", JLabel.CENTER);
         teksti.setText("Choose the exponent (integer):");
-        this.vastaus1 = new JTextField("", JLabel.CENTER);
-        expPanel.add(teksti);
-        expPanel.add(vastaus1);
-        
-        mainFrame.add(expPanel);
+        this.eksponentti = new JTextField("", JLabel.CENTER);
+        eksponenttirivi.add(teksti);
+        eksponenttirivi.add(eksponentti);
+        mainFrame.add(eksponenttirivi);
     }
 
     /**
      * Metodi luo "Valitse kerroin" -rivin.
      */
     public void valitseKerroin() {
-        JPanel coeffPanel = new JPanel();
-        JPanel textPanel = new JPanel();
-        BoxLayout layout = new BoxLayout(textPanel, BoxLayout.Y_AXIS);
-        
-        textPanel.add(new JLabel("Choose the coefficient"));
-        textPanel.add(new JLabel("(decimal number):"));
-        
-        coeffPanel.setLayout(new GridLayout(1, 2));
-        
-        this.vastaus2 = new JTextField();
-        
-        coeffPanel.add(textPanel);
-        coeffPanel.add(vastaus2);
-        
-        mainFrame.add(coeffPanel);
+        JPanel kerroinrivi = new JPanel();
+        JPanel tekstit = new JPanel();
+        BoxLayout layout = new BoxLayout(tekstit, BoxLayout.Y_AXIS);
+        tekstit.add(new JLabel("Choose the coefficient"));
+        tekstit.add(new JLabel("(decimal number):"));
+        kerroinrivi.setLayout(new GridLayout(1, 2));
+        this.kerroin = new JTextField();
+        kerroinrivi.add(tekstit);
+        kerroinrivi.add(kerroin);
+        mainFrame.add(kerroinrivi);
     }
 
     /**
      * Metodi luo "Show the function" -napin.
      */
     public void lisaaNaytaFunktioNappi() {
-        JPanel showPanel = new JPanel();
-        mainFrame.add(showPanel);
-        JButton nappi1 = new JButton("Show the function");
-        ShowTheFunctionNapinKuuntelijaPolynomilla kuulija = new ShowTheFunctionNapinKuuntelijaPolynomilla(funktio, vastaus1, vastaus2, polynomi);
-        nappi1.addActionListener(kuulija);
-        showPanel.add(nappi1);
+        JPanel naytaFunktioRivi = new JPanel();
+        mainFrame.add(naytaFunktioRivi);
+        JButton nappi = new JButton("Show the function");
+        ShowTheFunctionNapinKuuntelijaPolynomilla kuulija = new ShowTheFunctionNapinKuuntelijaPolynomilla(funktio, eksponentti, kerroin, polynomi);
+        lisaaNappi(naytaFunktioRivi, nappi, kuulija);
     }
 
     /**
@@ -128,38 +133,36 @@ public class PolynomGUI implements Runnable {
      * @param funktio JTextField
      */
     public void funktiorivinAsetus(JTextField funktio) {
-        JPanel functionPanel = new JPanel();
-        functionPanel.setLayout(new GridLayout());
-        functionPanel.add(funktio);
-        mainFrame.add(functionPanel);
+        JPanel funktiorivi = new JPanel();
+        funktiorivi.setLayout(new GridLayout());
+        funktiorivi.add(funktio);
+        mainFrame.add(funktiorivi);
     }
 
     /**
      * Metodi luo "Integrate"- ja "Differenriate"-näppäinrivin.
      */
     public void integrateDerivateButtons() {
-        JPanel intderPanel = new JPanel();
-        JButton integButton = new JButton("Integrate");
-        integButton.setBackground(Color.cyan);
-        IntegrateNapinKuuntelijaPolynomilla intKuulija = new IntegrateNapinKuuntelijaPolynomilla(polynomi, vastaus, vastaus1, vastaus2);
-        integButton.addActionListener(intKuulija);
-        intderPanel.add(integButton);
-        JButton diffButton = new JButton("Differentiate");
-        diffButton.setBackground(Color.cyan);
-        DifferentiateNapinKuuntelijaPolynomilla diffKuulija = new DifferentiateNapinKuuntelijaPolynomilla(polynomi, vastaus, vastaus1, vastaus2);
-        diffButton.addActionListener(diffKuulija);
-        intderPanel.add(integButton);
-        intderPanel.add(diffButton);
-        mainFrame.add(intderPanel);
+        JPanel intDerRivi = new JPanel();
+        JButton integroi = new JButton("Integrate");
+        integroi.setBackground(Color.cyan);
+        IntegrateNapinKuuntelijaPolynomilla intKuulija = new IntegrateNapinKuuntelijaPolynomilla(polynomi, vastaus, eksponentti, kerroin);
+        lisaaNappi(intDerRivi, integroi, intKuulija);
+        JButton derivoi = new JButton("Differentiate");
+        derivoi.setBackground(Color.cyan);
+        DifferentiateNapinKuuntelijaPolynomilla derivKuulija = new DifferentiateNapinKuuntelijaPolynomilla(polynomi, vastaus, eksponentti, kerroin);
+        lisaaNappi(intDerRivi, derivoi, derivKuulija);
+        derivoi.addActionListener(derivKuulija);
+        mainFrame.add(intDerRivi);
     }
 
     /**
-     * Metodi luo vastausrivin.
+     * Metodi luo "Answer is:" rivin.
      */
     public void answerIsRivinAsetus() {
-        JLabel answerIsLabel = new JLabel("", JLabel.CENTER);
-        mainFrame.add(answerIsLabel);
-        answerIsLabel.setText("Answer is:");
+        JLabel vastausOnRivi = new JLabel("", JLabel.CENTER);
+        mainFrame.add(vastausOnRivi);
+        vastausOnRivi.setText("Answer is:");
     }
 
     /**
@@ -168,25 +171,23 @@ public class PolynomGUI implements Runnable {
      * @param vastaus JTextField
      */
     public void vastausrivinAsetus(JTextField vastaus) {
-        JPanel answerPanel = new JPanel();
-        answerPanel.setLayout(new GridLayout());
-        answerPanel.add(vastaus);
-        mainFrame.add(answerPanel);
+        JPanel vastausrivi = new JPanel();
+        vastausrivi.setLayout(new GridLayout());
+        vastausrivi.add(vastaus);
+        mainFrame.add(vastausrivi);
     }
 
     /**
      * Metodi luo "Back"- ja "Draw the solutions" -napit.
      */
     public void piirtoYmsNapinAsetus() {
-        JPanel drawPanel = new JPanel();
-        mainFrame.add(drawPanel);
-        JButton back = new JButton("Back");
+        JPanel piirtorivi = new JPanel();
+        mainFrame.add(piirtorivi);
+        JButton takaisin = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
-        back.addActionListener(kuulija);
-        drawPanel.add(back);
-        JButton draw = new JButton("Draw the solutions");
-        DrawNapinKuuntelijaPolynomilla dkuulija = new DrawNapinKuuntelijaPolynomilla(this.polynomi, this.vastaus1, this.vastaus2, this.vastaus);
-        draw.addActionListener(dkuulija);
-        drawPanel.add(draw);
+        lisaaNappi(piirtorivi, takaisin, kuulija);
+        JButton piirra = new JButton("Draw the solutions");
+        DrawNapinKuuntelijaPolynomilla dkuulija = new DrawNapinKuuntelijaPolynomilla(this.polynomi, this.eksponentti, this.kerroin, this.vastaus);
+        lisaaNappi(piirtorivi, piirra, dkuulija);
     }
 }

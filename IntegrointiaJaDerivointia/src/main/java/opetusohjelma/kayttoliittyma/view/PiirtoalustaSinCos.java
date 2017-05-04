@@ -38,13 +38,13 @@ public class PiirtoalustaSinCos extends JPanel {
         SinCos alkuperainen = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
         piirtaminen(graphics, sincos, alkuperainen, Color.GREEN);
 
-        SinCos sincos2 = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-        sincos2.derivoi();
-        piirtaminen(graphics, sincos2, alkuperainen, Color.BLUE);
+        SinCos derivaatta = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
+        derivaatta.derivoi();
+        piirtaminen(graphics, derivaatta, alkuperainen, Color.BLUE);
 
-        SinCos sincos3 = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
-        sincos3.integroi();
-        piirtaminen(graphics, sincos3, alkuperainen, Color.RED);
+        SinCos integraali = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());
+        integraali.integroi();
+        piirtaminen(graphics, integraali, alkuperainen, Color.RED);
 
         graphics.setColor(Color.BLACK);
         graphics.drawLine(0, 350, 800, 350);

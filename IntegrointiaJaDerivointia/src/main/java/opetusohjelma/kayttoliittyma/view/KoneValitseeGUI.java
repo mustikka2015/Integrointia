@@ -8,15 +8,12 @@ package opetusohjelma.kayttoliittyma.view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
-import java.awt.CardLayout;
 import java.util.ArrayList;
 import opetusohjelma.kayttoliittyma.controller.Arpoja;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.NewAssignmentNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ShowSolutionNapinKuuntelija;
-import opetusohjelma.laskutoimituksia.Polynomi;
-import opetusohjelma.laskutoimituksia.SinCos;
+
 
 /**
  * Tämä luokka toteuttaa toiminnallisuuden, kun käyttäjä valitsee, että kone
@@ -27,7 +24,7 @@ import opetusohjelma.laskutoimituksia.SinCos;
 public class KoneValitseeGUI implements Runnable {
 
     private JFrame mainFrame;
-    private JLabel headerLabel;
+    private JLabel tehtavarivi;
     private ArrayList<String> funktioJaVastaus;
     private ShowSolutionNapinKuuntelija vastauskuulija;
 
@@ -79,12 +76,18 @@ public class KoneValitseeGUI implements Runnable {
 
         vastausrivinAsetus(vastaus);
 
-        piirtoYmsNapinAsetus();
+        newAssignmentRivinAsetus();
 
     }
 
     public ArrayList<String> getFunktioJaVastaus() {
         return this.funktioJaVastaus;
+    }
+    
+    public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
+
+        button.addActionListener(listener);
+        panel.add(button);
     }
 
     /**
@@ -94,11 +97,11 @@ public class KoneValitseeGUI implements Runnable {
      * @param arpoja Arpoja
      */
     public void tehtavanantorivinAsetus(String toiminto, Arpoja arpoja) {
-        headerLabel = new JLabel("", JLabel.CENTER);
-        mainFrame.add(headerLabel);
+        tehtavarivi = new JLabel("", JLabel.CENTER);
+        mainFrame.add(tehtavarivi);
         String funktio = funktioJaVastaus.get(0);
         String tehtava = arpoja.tulostaTehtava(toiminto, funktio);
-        headerLabel.setText(tehtava);
+        tehtavarivi.setText(tehtava);
     }
 
     /**
@@ -108,22 +111,21 @@ public class KoneValitseeGUI implements Runnable {
      * @param komento String
      */
     public void showSolutionNapinAsetus(JTextField vastaus, String komento) {
-        JPanel controlPanel = new JPanel();
-        controlPanel.setLayout(new FlowLayout());
-        mainFrame.add(controlPanel);
+        JPanel naytaRatkaisuRivi = new JPanel();
+        naytaRatkaisuRivi.setLayout(new FlowLayout());
+        mainFrame.add(naytaRatkaisuRivi);
         JButton vastausnappi = new JButton("Show the solution");
         this.vastauskuulija = new ShowSolutionNapinKuuntelija(vastaus, funktioJaVastaus, komento);
-        vastausnappi.addActionListener(vastauskuulija);
-        controlPanel.add(vastausnappi);
+        lisaaNappi(naytaRatkaisuRivi, vastausnappi, vastauskuulija);
     }
 
     /**
-     * Metodi luo vastausrivin.
+     * Metodi luo "Answer is:" -rivin.
      */
     public void answerIsRivinAsetus() {
-        JLabel answerIsLabel = new JLabel("", JLabel.CENTER);
-        mainFrame.add(answerIsLabel);
-        answerIsLabel.setText("Answer is:");
+        JLabel vastausOnRivi = new JLabel("", JLabel.CENTER);
+        mainFrame.add(vastausOnRivi);
+        vastausOnRivi.setText("Answer is:");
     }
 
     /**
@@ -132,39 +134,30 @@ public class KoneValitseeGUI implements Runnable {
      * @param vastaus JTextField
      */
     public void vastausrivinAsetus(JTextField vastaus) {
-        JPanel checkPanel = new JPanel();
-        GridLayout layout1 = new GridLayout();
-        checkPanel.setLayout(layout1);
-        checkPanel.add(vastaus);
-        mainFrame.add(checkPanel);
+        JPanel vastausrivi = new JPanel();
+        vastausrivi.setLayout(new GridLayout());
+        vastausrivi.add(vastaus);
+        mainFrame.add(vastausrivi);
     }
 
     /**
      * Metodi luo "Back" ja "New assignment"-napit.
      */
-    public void piirtoYmsNapinAsetus() {
-        JPanel drawPanel = new JPanel();
-        mainFrame.add(drawPanel);
-        JButton back = new JButton("Back");
+    public void newAssignmentRivinAsetus() {
+        JPanel uusiTehtavaRivi = new JPanel();
+        mainFrame.add(uusiTehtavaRivi);
+        JButton takaisin = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
-        back.addActionListener(kuulija);
-        drawPanel.add(back);
-
-//        JButton drawbutton = new JButton();
-//        GridLayout layout = new GridLayout(2, 1);
-//        drawbutton.setLayout(layout);
-//        drawbutton.add(new JLabel("Draw", JLabel.CENTER));
-//        drawbutton.add(new JLabel("the solution", JLabel.CENTER));
-//        drawPanel.add(drawbutton);
-        JButton newbutton = new JButton();
+        lisaaNappi(uusiTehtavaRivi, takaisin, kuulija);
+        
+        JButton uusiTehtavaNappi = new JButton();
         GridLayout layout = new GridLayout(2, 1);
-        newbutton.setLayout(layout);
-        newbutton.setBackground(Color.CYAN);
-        newbutton.add(new JLabel("New", JLabel.CENTER));
-        newbutton.add(new JLabel("assignment", JLabel.CENTER));
-        NewAssignmentNapinKuuntelija kuuntelija = new NewAssignmentNapinKuuntelija(this.headerLabel, this.funktioJaVastaus, this.vastauskuulija);
-        newbutton.addActionListener(kuuntelija);
-        drawPanel.add(newbutton);
+        uusiTehtavaNappi.setLayout(layout);
+        uusiTehtavaNappi.setBackground(Color.CYAN);
+        uusiTehtavaNappi.add(new JLabel("New", JLabel.CENTER));
+        uusiTehtavaNappi.add(new JLabel("assignment", JLabel.CENTER));
+        NewAssignmentNapinKuuntelija kuuntelija = new NewAssignmentNapinKuuntelija(this.tehtavarivi, this.funktioJaVastaus, this.vastauskuulija);
+        lisaaNappi(uusiTehtavaRivi, uusiTehtavaNappi, kuuntelija );
     }
 
 }

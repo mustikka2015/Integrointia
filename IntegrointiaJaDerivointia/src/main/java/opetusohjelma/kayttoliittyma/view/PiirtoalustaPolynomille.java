@@ -38,13 +38,13 @@ public class PiirtoalustaPolynomille extends JPanel {
         Polynomi alkuperainen = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
         piirtaminen(graphics, polynomi, alkuperainen, Color.GREEN);
 
-        Polynomi polynomi2 = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-        polynomi2.derivoi();
-        piirtaminen(graphics, polynomi2, alkuperainen, Color.BLUE);
+        Polynomi derivaatta = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
+        derivaatta.derivoi();
+        piirtaminen(graphics, derivaatta, alkuperainen, Color.BLUE);
 
-        Polynomi polynomi3 = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
-        polynomi3.integroi();
-        piirtaminen(graphics, polynomi3, alkuperainen, Color.RED);
+        Polynomi integraali = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
+        integraali.integroi();
+        piirtaminen(graphics, integraali, alkuperainen, Color.RED);
 
         graphics.setColor(Color.BLACK);
         graphics.drawLine(0, 400, 800, 400);
@@ -52,7 +52,7 @@ public class PiirtoalustaPolynomille extends JPanel {
     }
 
     /**
-     * Funktio piirtää annetun sini- tai kosinifunktion.
+     * Funktio piirtää annetun polynomifunktion.
      *
      * @param graphics Graphics
      * @param polynomi Polynomi
