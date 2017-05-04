@@ -23,11 +23,11 @@ import opetusohjelma.laskutoimituksia.SinCos;
 public class SinGUI implements Runnable {
 
     private JFrame mainFrame;
-    private JPanel textPanel;
+    private JPanel tekstialusta;
     private JTextField funktio;
     private JTextField vastaus;
-    private JTextField vastaus1;
-    private JTextField vastaus2;
+    private JTextField kerroinvalinta;
+    private JTextField sisafunktionKerroinvalinta;
     private SinCos sin;
 
     /**
@@ -72,49 +72,62 @@ public class SinGUI implements Runnable {
         piirtoYmsNapinAsetus();
         mainFrame.setVisible(true);
     }
+    
+    /**
+     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan.
+     *
+     * @param panel JPanel
+     * @param button JButton
+     * @param listener ActionListener
+     */
+    public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
+
+        button.addActionListener(listener);
+        panel.add(button);
+
+    }
 
     /**
      * Metodi luo "Valitse funktion kerroin" -rivin.
      */
     public void valitseKerroin() {
-        JPanel coeffPanel = new JPanel();
-        textPanel = new JPanel();
-        BoxLayout layout = new BoxLayout(textPanel, BoxLayout.Y_AXIS);
-        textPanel.add(new JLabel("Choose the coefficient of Sin"));
-        textPanel.add(new JLabel("(decimal number):"));
-        coeffPanel.setLayout(new GridLayout(1, 2));
-        vastaus1 = new JTextField();
-        coeffPanel.add(textPanel);
-        coeffPanel.add(vastaus1);
-        mainFrame.add(coeffPanel);
+        JPanel kerroinrivi = new JPanel();
+        tekstialusta = new JPanel();
+        BoxLayout layout = new BoxLayout(tekstialusta, BoxLayout.Y_AXIS);
+        tekstialusta.add(new JLabel("Choose the coefficient of Sin"));
+        tekstialusta.add(new JLabel("(decimal number):"));
+        kerroinrivi.setLayout(new GridLayout(1, 2));
+        kerroinvalinta = new JTextField();
+        kerroinrivi.add(tekstialusta);
+        kerroinrivi.add(kerroinvalinta);
+        mainFrame.add(kerroinrivi);
     }
 
     /**
      * Metodi luo "Valitse sisäfunktion kerroin" -rivin.
      */
     public void valitseSisafunktionKerroin() {
-        JPanel incePanel = new JPanel();
-        textPanel = new JPanel();
-        BoxLayout layout = new BoxLayout(textPanel, BoxLayout.Y_AXIS);
-        textPanel.add(new JLabel("Choose the coefficient of x"));
-        textPanel.add(new JLabel("(decimal number):"));
-        incePanel.setLayout(new GridLayout(1, 2));
-        vastaus2 = new JTextField();
-        incePanel.add(textPanel);
-        incePanel.add(vastaus2);
-        mainFrame.add(incePanel);
+        JPanel sisafunktionKerroinRivi = new JPanel();
+        tekstialusta = new JPanel();
+        BoxLayout layout = new BoxLayout(tekstialusta, BoxLayout.Y_AXIS);
+        tekstialusta.add(new JLabel("Choose the coefficient of x"));
+        tekstialusta.add(new JLabel("(decimal number):"));
+        sisafunktionKerroinRivi.setLayout(new GridLayout(1, 2));
+        sisafunktionKerroinvalinta = new JTextField();
+        sisafunktionKerroinRivi.add(tekstialusta);
+        sisafunktionKerroinRivi.add(sisafunktionKerroinvalinta);
+        mainFrame.add(sisafunktionKerroinRivi);
     }
 
     /**
      * Metodi luo "Show the function" -napin.
      */
     public void lisaaNaytaFunktioNappi() {
-        JPanel showPanel = new JPanel();
-        mainFrame.add(showPanel);
-        JButton nappi1 = new JButton("Show the function");
-        ShowTheFunctionNapinKuuntelijaSinCosilla kuulija = new ShowTheFunctionNapinKuuntelijaSinCosilla(funktio, vastaus1, vastaus2, sin);
-        nappi1.addActionListener(kuulija);
-        showPanel.add(nappi1);
+        JPanel naytaFunktioRivi = new JPanel();
+        mainFrame.add(naytaFunktioRivi);
+        JButton nappi = new JButton("Show the function");
+        ShowTheFunctionNapinKuuntelijaSinCosilla kuulija = new ShowTheFunctionNapinKuuntelijaSinCosilla(funktio, kerroinvalinta, sisafunktionKerroinvalinta, sin);
+        lisaaNappi(naytaFunktioRivi, nappi, kuulija);
     }
 
     /**
@@ -123,64 +136,61 @@ public class SinGUI implements Runnable {
      * @param funktio JTextField
      */
     public void funktiorivinAsetus(JTextField funktio) {
-        JPanel functionPanel = new JPanel();
-        functionPanel.setLayout(new GridLayout());
-        functionPanel.add(funktio);
-        mainFrame.add(functionPanel);
+        JPanel funktiokentta = new JPanel();
+        funktiokentta.setLayout(new GridLayout());
+        funktiokentta.add(funktio);
+        mainFrame.add(funktiokentta);
     }
 
     /**
      * Metodi luo "Integrate"- ja "Differentiate"-näppäinrivin.
      */
     public void integrateDerivateButtons() {
-        JPanel intderPanel = new JPanel();
-        JButton integButton = new JButton("Integrate");
-        integButton.setBackground(Color.cyan);
-        IntegrateNapinKuuntelijaSinCos intKuulija = new IntegrateNapinKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
-        integButton.addActionListener(intKuulija);
-        intderPanel.add(integButton);
-        JButton diffButton = new JButton("Differentiate");
-        diffButton.setBackground(Color.cyan);
-        DifferentiateNapinKuuntelijaSinCos diffKuulija = new DifferentiateNapinKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
-        diffButton.addActionListener(diffKuulija);
-        intderPanel.add(diffButton);
-        mainFrame.add(intderPanel);
+        JPanel intDerRivi = new JPanel();
+        JButton integroi = new JButton("Integrate");
+        integroi.setBackground(Color.cyan);
+        IntegrateNapinKuuntelijaSinCos intKuulija = new IntegrateNapinKuuntelijaSinCos(sin, vastaus, kerroinvalinta, sisafunktionKerroinvalinta);
+        lisaaNappi(intDerRivi, integroi, intKuulija);
+        JButton derivoi = new JButton("Differentiate");
+        derivoi.setBackground(Color.cyan);
+        DifferentiateNapinKuuntelijaSinCos diffKuulija = new DifferentiateNapinKuuntelijaSinCos(sin, vastaus, kerroinvalinta, sisafunktionKerroinvalinta);
+        lisaaNappi(intDerRivi, derivoi, diffKuulija);
+        mainFrame.add(intDerRivi);
     }
 
     /**
-     * Metodi luo vastausrivin.
+     * Metodi luo "Answer is:" -rivin.
      */
     public void answerIsRivinAsetus() {
-        JLabel answerIsLabel = new JLabel("", JLabel.CENTER);
-        mainFrame.add(answerIsLabel);
-        answerIsLabel.setText("Answer is:");
+        JLabel vastausOnRivi = new JLabel("", JLabel.CENTER);
+        mainFrame.add(vastausOnRivi);
+        vastausOnRivi.setText("Answer is:");
     }
 
     /**
-     * Metodi luo tekstikentän, jossa funktio näytetään.
+     * Metodi luo tekstikentän, jossa vastaus näytetään.
      *
      * @param vastaus JTextField
      */
     public void vastausrivinAsetus(JTextField vastaus) {
-        JPanel answerPanel = new JPanel();
-        answerPanel.setLayout(new GridLayout());
-        answerPanel.add(vastaus);
-        mainFrame.add(answerPanel);
+        JPanel vastausrivi = new JPanel();
+        vastausrivi.setLayout(new GridLayout());
+        vastausrivi.add(vastaus);
+        mainFrame.add(vastausrivi);
     }
 
     /**
      * Metodi luo "Back"- ja "Draw the solutions" -napit.
      */
     public void piirtoYmsNapinAsetus() {
-        JPanel drawPanel = new JPanel();
-        mainFrame.add(drawPanel);
-        JButton back = new JButton("Back");
+        JPanel piirtorivi = new JPanel();
+        mainFrame.add(piirtorivi);
+        JButton sulje = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
-        back.addActionListener(kuulija);
-        drawPanel.add(back);
-        JButton draw = new JButton("Draw the solutions");
-        DrawNapinKuuntelijaSinCos piirto = new DrawNapinKuuntelijaSinCos(this.sin, this.vastaus, this.vastaus1, this.vastaus2);
-        draw.addActionListener(piirto);
-        drawPanel.add(draw);
+        lisaaNappi(piirtorivi, sulje, kuulija);
+        JButton piirra = new JButton("Draw the solutions");
+        DrawNapinKuuntelijaSinCos piirto = new DrawNapinKuuntelijaSinCos(this.sin, this.vastaus, this.kerroinvalinta, this.sisafunktionKerroinvalinta);
+        lisaaNappi(piirtorivi,piirra, piirto);
+
     }
 }
