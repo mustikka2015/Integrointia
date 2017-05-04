@@ -2,10 +2,10 @@ package opetusohjelma.laskutoimituksia;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 /**
- * Luokka tarjoaa polynomien integrointiin ja derivointiin tarvittavia metodeja.
+ * Luokka tarjoaa polynomioilioiden luontiin ja niiden integrointiin ja
+ * derivointiin liittyviä metodeja.
  */
 public class Polynomi implements Funktio {
 
@@ -54,9 +54,9 @@ public class Polynomi implements Funktio {
     }
 
     /**
-     * Metodi palauttaa, onko funktio luonnollinen logaritmi x:stä. Mikäli x:n
-     * eksponentti on aluksi -1, funktiota integroitaessa saadaan luonnollinen
-     * logaritmi.
+     * Metodi palauttaa, onko funktio luonnollinen logaritmi x:stä. Tätä
+     * tarvitaan sen tähden, että mikäli x:n eksponentti on aluksi -1, funktiota
+     * integroitaessa saadaan luonnollinen logaritmi.
      *
      * @return true, jos funktio on luonnollinen logaritmi.
      */
@@ -65,7 +65,7 @@ public class Polynomi implements Funktio {
     }
 
     /**
-     * Metodi palauttaa funktion.
+     * Metodi palauttaa kyseisen olion funktion tyypin.
      *
      * @return String funktio
      */
@@ -110,7 +110,7 @@ public class Polynomi implements Funktio {
      * muuttamalla kertoimen ja eksponentin arvoja. Integroitu-muuttujan arvo
      * muutetaan integroidessa 1:ksi. Mikäli eksponentin arvo ennen integrointia
      * on -1, integroidessa asetetaan todeksi se, että funktio on luonnollinen
-     * logaritmi.
+     * logaritmi. Kerroin pyöristetään.
      */
     @Override
     public void integroi() {
@@ -129,7 +129,10 @@ public class Polynomi implements Funktio {
     /**
      * Metodin avulla pyöristetään double-tyyppinen luku sisältämään sopivan
      * määrän desimaaleja. Kyseessä ei ole kuitenkaan pyöristys sisältämään
-     * täysin saman määrän desimaaleja kuin merkitsevissä numeroissa on.
+     * täysin saman määrän desimaaleja kuin merkitsevissä numeroissa on. Mikäli
+     * ensimmäinen poisjäävä numero on 5 tai suurempi, viimeinen mukaan tuleva
+     * pyöristyy ylöspäin. Mukaan tulevien numeroiden määrä ei ole joka
+     * tapauksessa merkitsevien numeroiden määrä, mutta useissa tapauksissa on.
      *
      * @param mitta double-muodossa. Mitta toimii mittana kertoimen
      * pyöristyksessä.
@@ -139,7 +142,6 @@ public class Polynomi implements Funktio {
     public double kertoimenPyoristys(double mitta, double tuloste) {
         Double mitta1 = (Double) mitta;
         String[] jakaja1 = mitta1.toString().split("\\.");
-
         int syotteenPituus = jakaja1[0].length() + jakaja1[1].length();
         if (jakaja1[0].equals("0")) {
             syotteenPituus = jakaja1[1].length();
@@ -165,15 +167,11 @@ public class Polynomi implements Funktio {
         String tulostus = "";
         if (this.luonnollinenLogaritmi == false && this.integroitu == 0) {
             tulostus = this.kerroin + " * x^(" + this.eksponentti + ")";
-
-        } else if (this.luonnollinenLogaritmi == false && this.integroitu == 1) {  //En ole vielä päätänyt, voiko integroida monta kertaa peräkkäin.
-            // Mikäli voi, täytyy tulostukset muokata sen mukaiseksi.
+        } else if (this.luonnollinenLogaritmi == false && this.integroitu == 1) {
             tulostus = this.kerroin + " * x^(" + this.eksponentti + ") + C";
-
         } else {
             tulostus = this.kerroin + " * ln|x| + C";
         }
-
         return tulostus;
     }
 
@@ -184,7 +182,6 @@ public class Polynomi implements Funktio {
             vastaus = vastaus * x;
         }
         vastaus = vastaus * this.kerroin;
-//        int vastaus2 = (int) Math.round(vastaus);
         return vastaus;
     }
 

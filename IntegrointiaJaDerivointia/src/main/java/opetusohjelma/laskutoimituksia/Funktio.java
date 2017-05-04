@@ -18,20 +18,21 @@ public interface Funktio {
      *
      * @return String
      */
+    @Override
     String toString();
 
     /**
-     * Metodi tulostaa integroi funktion.
+     * Metodi integroi funktion.
      */
     void integroi();
 
     /**
-     * Metodi tulostaa derivoi funktion.
+     * Metodi derivoi funktion.
      */
     void derivoi();
 
     /**
-     * Metodi tulostaa palauttaa funktion.
+     * Metodi palauttaa funktion.
      *
      * @return String funktio
      */
@@ -41,7 +42,7 @@ public interface Funktio {
      * Metodi palauttaa x-koordinaattia vastaavan y-koordinaatin.
      *
      * @param x double
-     * @return double x
+     * @return double y
      */
     double getY(double x);
 

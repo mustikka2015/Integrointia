@@ -2,7 +2,6 @@ package opetusohjelma.laskutoimituksia;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 /**
  * Luokka tarjoaa sini- ja cosinifunktioiden integrointiin ja derivointiin
@@ -59,19 +58,19 @@ public class SinCos implements Funktio {
     /**
      * Metodin avulla asetetaan funktion kerroin.
      *
-     * @param luku double-muodossa
+     * @param kerroin double-muodossa
      */
-    public void setKerroin(double luku) {
-        this.kerroin = luku;
+    public void setKerroin(double kerroin) {
+        this.kerroin = kerroin;
     }
 
     /**
      * Metodin avulla asetetaan sisäfunktion kerroin.
      *
-     * @param luku double-muodossa
+     * @param sisafunktionKerroin double-muodossa
      */
-    public void setSisafunktionKerroin(double luku) {
-        this.sisaFunktionKerroin = luku;
+    public void setSisafunktionKerroin(double sisafunktionKerroin) {
+        this.sisaFunktionKerroin = sisafunktionKerroin;
     }
 
     /**
@@ -84,7 +83,6 @@ public class SinCos implements Funktio {
     public double kertoimenPyoristys(double mitta, double tuloste) {
         Double mitta1 = (Double) mitta;
         String[] jakaja1 = mitta1.toString().split("\\.");
-
         int syotteenPituus = jakaja1[0].length() + jakaja1[1].length();
         if (jakaja1[0].equals("0")) {
             syotteenPituus = jakaja1[1].length();
