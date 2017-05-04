@@ -1,6 +1,6 @@
 ﻿# Integrointia ja derivointia
 
-Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. Ohjelma integroi että derivoi polynomifunktioita ja trigonometrisiä funktioita. Lisäksi se arpoo opiskelijalle tehtäviä integroitavaksi tai derivoitavaksi. Ohjelman avulla voidaan myös piirtää vastausfunktion.
+Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. Ohjelma integroi että derivoi polynomifunktioita ja trigonometrisiä funktioita. Lisäksi se arpoo opiskelijalle tehtäviä integroitavaksi tai derivoitavaksi. Ohjelman avulla voidaan myös piirtää funktion, sen integraalin ja derivaatan.
 
 ## Dokumentaatio
 
@@ -9,6 +9,8 @@ Aiheenani on integroimisen ja derivoimisen harjoitteluun sopiva opetusohjelma. O
 [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
 [käyttöohjeet](dokumentaatio/kayttoohjeet.md)
+
+[testausdokumentti](dokumentaatio/testausdokumentti.md)
 
 ## Raportit
 
