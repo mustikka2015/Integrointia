@@ -72,7 +72,7 @@ public class SinGUI implements Runnable {
         piirtoYmsNapinAsetus();
         mainFrame.setVisible(true);
     }
-    
+
     /**
      * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan.
      *
@@ -190,7 +190,7 @@ public class SinGUI implements Runnable {
         lisaaNappi(piirtorivi, sulje, kuulija);
         JButton piirra = new JButton("Draw the solutions");
         DrawNapinKuuntelijaSinCos piirto = new DrawNapinKuuntelijaSinCos(this.sin, this.vastaus, this.kerroinvalinta, this.sisafunktionKerroinvalinta);
-        lisaaNappi(piirtorivi,piirra, piirto);
+        lisaaNappi(piirtorivi, piirra, piirto);
 
     }
 }

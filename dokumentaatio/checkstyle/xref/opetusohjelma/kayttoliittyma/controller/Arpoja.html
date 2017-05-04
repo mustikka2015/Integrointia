@@ -19,8 +19,8 @@
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> opetusohjelma.laskutoimituksia.SinCos;
 <a class="jxr_linenumber" name="L12" href="#L12">12</a>  
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * Luokka tarjoaa funktion, eksponentin ja kertoimen arpomiseen tarvittavia</em>
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> * metodeja.</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * Luokka tarjoaa funktion, eksponentin, kertoimen ja koko tehtävänannon</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> * arpomiseen tarvittavia metodeja.</em>
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * @author Iisa</em>
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> */</em>
@@ -29,7 +29,7 @@
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> Random arpoja;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * Metodi alustaa Random-tyyppisen Arpoja-olion. </em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * Metodi alustaa Random-tyyppisen Arpoja-olion.</em>
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">public</strong> <a href="../../../opetusohjelma/kayttoliittyma/controller/Arpoja.html">Arpoja</a>() {
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">this</strong>.arpoja = <strong class="jxr_keyword">new</strong> Random();
@@ -62,10 +62,10 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> arvoPolynominEksponentti() {
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <strong class="jxr_keyword">int</strong> arvottu = <strong class="jxr_keyword">this</strong>.arpoja.nextInt(21);
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          arvottu = arvottu - 10;
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          <strong class="jxr_keyword">int</strong> eksponentti = <strong class="jxr_keyword">this</strong>.arpoja.nextInt(21);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          eksponentti = eksponentti - 10;
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">return</strong> arvottu;
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          <strong class="jxr_keyword">return</strong> eksponentti;
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>      }
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>      <em class="jxr_javadoccomment">/**</em>
@@ -75,16 +75,16 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     * @return arvottu kerroin double-muodossa.</em>
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">double</strong> arvoKerroin() {
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <strong class="jxr_keyword">int</strong> arvottu1 = <strong class="jxr_keyword">this</strong>.arpoja.nextInt(201);
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>          
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <strong class="jxr_keyword">while</strong> (arvottu1 == 100) {
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>              arvottu1 = <strong class="jxr_keyword">this</strong>.arpoja.nextInt(201);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <strong class="jxr_keyword">int</strong> arvottu = <strong class="jxr_keyword">this</strong>.arpoja.nextInt(201);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          <strong class="jxr_keyword">while</strong> (arvottu == 100) {
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              arvottu = <strong class="jxr_keyword">this</strong>.arpoja.nextInt(201);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>          }
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <strong class="jxr_keyword">double</strong> arvottu = (<strong class="jxr_keyword">double</strong>) (<strong class="jxr_keyword">this</strong>.arpoja.nextInt(201) - 100) / 10;
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          <strong class="jxr_keyword">double</strong> kerroin = (<strong class="jxr_keyword">double</strong>) (<strong class="jxr_keyword">this</strong>.arpoja.nextInt(201) - 100) / 10;
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">return</strong> arvottu;
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">return</strong> kerroin;
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>      }
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>      <em class="jxr_javadoccomment">/**</em>
@@ -92,9 +92,9 @@
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  <em class="jxr_javadoccomment">     * @return String: "Integrate" tai "Differentiate".</em>
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">public</strong> String arvoToiminto() {
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">public</strong> String arvoToiminta() {
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>          ArrayList&lt;String&gt; vaihtoehdot = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          ArrayList&lt;String&gt; vaihtoehdot = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>  
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>          vaihtoehdot.add(<span class="jxr_string">"Integrate"</span>);
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>          vaihtoehdot.add(<span class="jxr_string">"Differentiate"</span>);
@@ -105,36 +105,36 @@
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>          <strong class="jxr_keyword">return</strong> toiminta;
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>      }
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>     
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * Metodi kertoo tehtävänannon String-muodossa, kun sille on syötetty jo</em>
-<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * aikaisemmin arvotut toiminto ja funktio.</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * aikaisemmin arvotut toiminta ja funktio.</em>
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     * @param toiminto String-muodossa</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     * @param toiminta String-muodossa</em>
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">     * @param funktio String-muodossa</em>
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">     * @return String: tehtävänanto</em>
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">public</strong> String arvoTehtava(String toiminto, String funktio) {
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     <strong class="jxr_keyword">public</strong> String tulostaTehtava(String toiminta, String funktio) {
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 
-<a class="jxr_linenumber" name="L112" href="#L112">112</a>         String tehtava = toiminto;
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         String tehtava = toiminta;
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>         tehtava = tehtava + <span class="jxr_string">" function y = "</span> + funktio;
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>         tehtava = tehtava + <span class="jxr_string">". Click to check."</span>;
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>         <strong class="jxr_keyword">return</strong> tehtava;
 <a class="jxr_linenumber" name="L116" href="#L116">116</a>     }
-<a class="jxr_linenumber" name="L117" href="#L117">117</a>     
-<a class="jxr_linenumber" name="L118" href="#L118">118</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment">     * Metodi arpoo funktion. Se palauttaa ArrayList-olion, joka sisältää itse</em>
-<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">     * funktion String-muodossa, funktion derivoituna String-muodossa sekä</em>
-<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">     * funktion integroituna String-muodossa.</em>
-<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment">     * Metodi palauttaa ArrayList-olion, joka sisältää itse funktion</em>
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">     * String-muodossa, funktion derivoituna String-muodossa sekä funktion</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">     * integroituna String-muodossa.</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">     * @param funktio String -muodossa</em>
-<a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment">     * </em>
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_javadoccomment">     * @return ArrayList:n, joka sisältää sekä funktion että sen</em>
-<a class="jxr_linenumber" name="L126" href="#L126">126</a> <em class="jxr_javadoccomment">     * derivaatan ja integraalin String-muodossa.</em>
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_javadoccomment">     * @return ArrayList:n, joka sisältää sekä funktion että sen derivaatan ja</em>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> <em class="jxr_javadoccomment">     * integraalin String-muodossa.</em>
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>     <strong class="jxr_keyword">public</strong> ArrayList&lt;String&gt; arvoFunktioJaVastaukset(String funktio) {
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>         ArrayList&lt;String&gt; funktioJaVast = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         ArrayList&lt;String&gt; funktioJaVast = <strong class="jxr_keyword">new</strong> ArrayList&lt;&gt;();
 <a class="jxr_linenumber" name="L130" href="#L130">130</a>         <strong class="jxr_keyword">if</strong> (funktio.equals(<span class="jxr_string">"sin"</span>) || funktio.equals(<span class="jxr_string">"cos"</span>)) {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>             funktioJaVast = sinCosFunktionArpominen(funktioJaVast, funktio);
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>         } <strong class="jxr_keyword">else</strong> {
@@ -142,21 +142,21 @@
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>         }
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>         <strong class="jxr_keyword">return</strong> funktioJaVast;
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>     }
-<a class="jxr_linenumber" name="L137" href="#L137">137</a>     
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> 
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> <em class="jxr_javadoccomment">     * Metodi arpoo polynomifunktion kertoimen ja eksponentin. Se palauttaa</em>
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment">     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion</em>
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.</em>
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> <em class="jxr_javadoccomment">     * ArrayList-olion, joka sisältää itse funktion, funktion derivoituna, sekä</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">     * funktion integroituna String-muodossa.</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_javadoccomment">     * @param funktioJaVast ArrayList -muodossa</em>
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">     * @return ArrayList, joka sisältää sekä funktion että sen</em>
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">     * derivaatan ja integraalin.</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">     * @return ArrayList, joka sisältää sekä funktion että sen derivaatan ja</em>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">     * integraalin.</em>
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>     <strong class="jxr_keyword">public</strong> ArrayList&lt;String&gt; polynomifunktionArpominen(ArrayList&lt;String&gt; funktioJaVast) {
 <a class="jxr_linenumber" name="L149" href="#L149">149</a>         <strong class="jxr_keyword">double</strong> kerroin = arvoKerroin();
-<a class="jxr_linenumber" name="L150" href="#L150">150</a>         <strong class="jxr_keyword">int</strong> eks = arvoPolynominEksponentti();
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <a href="../../../opetusohjelma/laskutoimituksia/Polynomi.html">Polynomi</a> polynomi = <strong class="jxr_keyword">new</strong> <a href="../../../opetusohjelma/laskutoimituksia/Polynomi.html">Polynomi</a>(eks, kerroin);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>         <strong class="jxr_keyword">int</strong> eksponentti = arvoPolynominEksponentti();
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>         <a href="../../../opetusohjelma/laskutoimituksia/Polynomi.html">Polynomi</a> polynomi = <strong class="jxr_keyword">new</strong> <a href="../../../opetusohjelma/laskutoimituksia/Polynomi.html">Polynomi</a>(eksponentti, kerroin);
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>         String funktio = polynomi.toString();
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>         funktioJaVast.add(funktio);
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         <a href="../../../opetusohjelma/laskutoimituksia/Polynomi.html">Polynomi</a> derivoitu = <strong class="jxr_keyword">new</strong> <a href="../../../opetusohjelma/laskutoimituksia/Polynomi.html">Polynomi</a>(polynomi.getEksponentti(), polynomi.getKerroin());
@@ -167,22 +167,22 @@
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>         funktioJaVast.add(integroitu.toString());
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>         <strong class="jxr_keyword">return</strong> funktioJaVast;
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>     }
-<a class="jxr_linenumber" name="L162" href="#L162">162</a>     
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> <em class="jxr_javadoccomment">     * Metodi arpoo sini- tai kosinifunktion kertoimet. Se palauttaa</em>
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> <em class="jxr_javadoccomment">     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion</em>
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> <em class="jxr_javadoccomment">     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.</em>
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> <em class="jxr_javadoccomment">     * ArrayList-olion, joka sisältää itse funktion, funktion derivoituna, sekä</em>
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> <em class="jxr_javadoccomment">     * funktion integroituna String-muodossa.</em>
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> <em class="jxr_javadoccomment">     * @param funktioJaVast ArrayList-muodossa</em>
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> <em class="jxr_javadoccomment">     * @param funktio String-muodossa</em>
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> <em class="jxr_javadoccomment">     * @return ArrayList, joka sisältää sekä funktion että sen</em>
-<a class="jxr_linenumber" name="L172" href="#L172">172</a> <em class="jxr_javadoccomment">     * derivaatan ja integraalin String-muodossa.</em>
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> <em class="jxr_javadoccomment">     * @return ArrayList, joka sisältää sekä funktion että sen derivaatan ja</em>
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> <em class="jxr_javadoccomment">     * integraalin String-muodossa.</em>
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L174" href="#L174">174</a>     <strong class="jxr_keyword">public</strong> ArrayList&lt;String&gt; sinCosFunktionArpominen(ArrayList&lt;String&gt; funktioJaVast, String funktio) {
-<a class="jxr_linenumber" name="L175" href="#L175">175</a>         <strong class="jxr_keyword">double</strong> kerroin1 = arvoKerroin();
-<a class="jxr_linenumber" name="L176" href="#L176">176</a>         <strong class="jxr_keyword">double</strong> kerroin2 = arvoKerroin();
-<a class="jxr_linenumber" name="L177" href="#L177">177</a>         <a href="../../../opetusohjelma/laskutoimituksia/SinCos.html">SinCos</a> sincos = <strong class="jxr_keyword">new</strong> <a href="../../../opetusohjelma/laskutoimituksia/SinCos.html">SinCos</a>(kerroin1, kerroin2, funktio);
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>         <strong class="jxr_keyword">double</strong> kerroin = arvoKerroin();
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>         <strong class="jxr_keyword">double</strong> sisafunktionKerroin = arvoKerroin();
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>         <a href="../../../opetusohjelma/laskutoimituksia/SinCos.html">SinCos</a> sincos = <strong class="jxr_keyword">new</strong> <a href="../../../opetusohjelma/laskutoimituksia/SinCos.html">SinCos</a>(kerroin, sisafunktionKerroin, funktio);
 <a class="jxr_linenumber" name="L178" href="#L178">178</a>         funktio = sincos.toString();
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>         funktioJaVast.add(funktio);
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>         <a href="../../../opetusohjelma/laskutoimituksia/SinCos.html">SinCos</a> derivoitu = <strong class="jxr_keyword">new</strong> <a href="../../../opetusohjelma/laskutoimituksia/SinCos.html">SinCos</a>(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());

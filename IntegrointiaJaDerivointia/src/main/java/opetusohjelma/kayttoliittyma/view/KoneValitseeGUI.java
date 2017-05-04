@@ -14,7 +14,6 @@ import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.NewAssignmentNapinKuuntelija;
 import opetusohjelma.kayttoliittyma.controller.ShowSolutionNapinKuuntelija;
 
-
 /**
  * Tämä luokka toteuttaa toiminnallisuuden, kun käyttäjä valitsee, että kone
  * arpoo hänelle tehtävänannon.
@@ -83,7 +82,14 @@ public class KoneValitseeGUI implements Runnable {
     public ArrayList<String> getFunktioJaVastaus() {
         return this.funktioJaVastaus;
     }
-    
+
+    /**
+     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan.
+     *
+     * @param panel JPanel
+     * @param button JButton
+     * @param listener ActionListener
+     */
     public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
 
         button.addActionListener(listener);
@@ -149,7 +155,7 @@ public class KoneValitseeGUI implements Runnable {
         JButton takaisin = new JButton("Back");
         BackNapinKuuntelija kuulija = new BackNapinKuuntelija(mainFrame);
         lisaaNappi(uusiTehtavaRivi, takaisin, kuulija);
-        
+
         JButton uusiTehtavaNappi = new JButton();
         GridLayout layout = new GridLayout(2, 1);
         uusiTehtavaNappi.setLayout(layout);
@@ -157,7 +163,6 @@ public class KoneValitseeGUI implements Runnable {
         uusiTehtavaNappi.add(new JLabel("New", JLabel.CENTER));
         uusiTehtavaNappi.add(new JLabel("assignment", JLabel.CENTER));
         NewAssignmentNapinKuuntelija kuuntelija = new NewAssignmentNapinKuuntelija(this.tehtavarivi, this.funktioJaVastaus, this.vastauskuulija);
-        lisaaNappi(uusiTehtavaRivi, uusiTehtavaNappi, kuuntelija );
+        lisaaNappi(uusiTehtavaRivi, uusiTehtavaNappi, kuuntelija);
     }
-
 }

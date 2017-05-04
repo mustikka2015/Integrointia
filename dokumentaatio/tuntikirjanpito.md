@@ -20,3 +20,5 @@ Päivä | Tunnit | Kuvaus
 29.4.2017  | 4,0 h | Virheilmoitusten yksilöllistäminen ja parantaminen. Layoutin muuttamista. Lukujen pyöristyksen alustava miettiminen. Koodin refaktorointi.
 30.4.2017  | 6,0 h | Lukujen pyöristyksen toteuttaminen. Testauskattavuuden lisääminen. Koodin refaktorointia.
 1.5.2017   | 9,0 h | Piirtämistoiminnon lisääminen, testikattavuuden nostamista ja koodin siistimistä.
+3.5.2017   | 3,0 h | Testikattavuuden lisääminen.
+4.5.2017   | 5,0 h | Koodin siistiminen ja palautuksen loppuunsaattaminen.

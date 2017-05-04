@@ -77,12 +77,18 @@ public class CosGUI implements Runnable {
         piirtoYmsNapinAsetus();
         mainFrame.setVisible(true);
     }
-    
+
+    /**
+     * Metodi lisää painikkeen lisäten siihen tapahtumankuuntelijan.
+     *
+     * @param panel JPanel
+     * @param button JButton
+     * @param listener ActionListener
+     */
     public void lisaaNappi(JPanel panel, JButton button, ActionListener listener) {
 
         button.addActionListener(listener);
         panel.add(button);
-
     }
 
     /**
