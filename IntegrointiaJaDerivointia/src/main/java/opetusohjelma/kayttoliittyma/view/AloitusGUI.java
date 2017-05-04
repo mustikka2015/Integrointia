@@ -22,9 +22,9 @@ import opetusohjelma.kayttoliittyma.controller.SinNapinKuuntelija;
 public class AloitusGUI {
 
     private JFrame mainFrame;
-    private JLabel headerLabel;
+    private JLabel ohjerivi;
     private JLabel statusLabel;
-    private JPanel controlPanel;
+    private JPanel valintarivi;
 
     /**
      * Konstruktori AloitusGUI:lle.
@@ -41,7 +41,7 @@ public class AloitusGUI {
         mainFrame.setSize(400, 500);
         mainFrame.setLayout(new GridLayout(3, 1));
 
-        headerLabel = new JLabel("", JLabel.CENTER);
+        ohjerivi = new JLabel("", JLabel.CENTER);
         statusLabel = new JLabel("", JLabel.CENTER);
         statusLabel.setSize(350, 100);
 
@@ -50,65 +50,64 @@ public class AloitusGUI {
                 System.exit(0);
             }
         });
-        controlPanel = new JPanel();
-        controlPanel.setLayout(new FlowLayout());
+        valintarivi = new JPanel();
+        valintarivi.setLayout(new FlowLayout());
 
-        mainFrame.add(headerLabel);
-        mainFrame.add(controlPanel);
+        mainFrame.add(ohjerivi);
+        mainFrame.add(valintarivi);
         mainFrame.add(statusLabel);
         mainFrame.setVisible(true);
     }
 
     /**
-     * Metodi luo CardLayout-näkymän ja sen paneelit painikkeineen. Tämän
-     * refaktorointi on vielä kesken.
+     * Metodi kaksi vaihdeltavaa näkymää painikkeineen. 
      */
     public void showCardLayout() {
-        headerLabel.setText("Choose a function or draw lots to decide it");
+        ohjerivi.setText("Choose a function or draw lots to decide it");
 
-        JPanel panel = new JPanel();
+        JPanel pohja = new JPanel();
 
-        panel.setSize(300, 300);
+        pohja.setSize(300, 300);
 
         CardLayout layout = new CardLayout();
         layout.setHgap(10);
         layout.setVgap(10);
-        panel.setLayout(layout);
+        pohja.setLayout(layout);
 
-        JPanel buttonPanel = new JPanel(new FlowLayout());
+        JPanel omaValinta = new JPanel(new FlowLayout());
 
-        lisaaNappi(buttonPanel, new JButton("Polynom"), new PolynomNapinKuuntelija());
+        lisaaNappi(omaValinta, new JButton("Polynom"), new PolynomNapinKuuntelija());
 
-        lisaaNappi(buttonPanel, new JButton("Sine"), new SinNapinKuuntelija());
+        lisaaNappi(omaValinta, new JButton("Sine"), new SinNapinKuuntelija());
 
-        lisaaNappi(buttonPanel, new JButton("Cosine"), new CosNapinKuuntelija());
+        lisaaNappi(omaValinta, new JButton("Cosine"), new CosNapinKuuntelija());
 
-        JPanel selectPanel = new JPanel(new FlowLayout());
+        JPanel koneenArvonta = new JPanel(new FlowLayout());
 
-        JButton start = new JButton("Start!");
-        start.setBackground(Color.GREEN);
+        JButton aloita = new JButton("Start!");
+        aloita.setBackground(Color.GREEN);
 
-        lisaaNappi(selectPanel, start, new StartNapinKuuntelija());
+        lisaaNappi(koneenArvonta, aloita, new StartNapinKuuntelija());
 
-        panel.add("You choose", buttonPanel);
-        panel.add("Computer chooses", selectPanel);
+        pohja.add("You choose", omaValinta);
+        pohja.add("Computer chooses", koneenArvonta);
         DefaultComboBoxModel panelName = new DefaultComboBoxModel();
 
         panelName.addElement("You choose");
         panelName.addElement("Computer chooses");
-        JComboBox listCombo = new JComboBox(panelName);
+        JComboBox lista = new JComboBox(panelName);
 
-        listCombo.setSelectedIndex(0);
+        lista.setSelectedIndex(0);
 
-        JScrollPane listComboScrollPane = new JScrollPane(listCombo);
+        JScrollPane listComboScrollPane = new JScrollPane(lista);
 
-        controlPanel.add(listComboScrollPane);
+        valintarivi.add(listComboScrollPane);
 
-        JButton change = new JButton("Change");
+        JButton vaihda = new JButton("Change");
 
-        lisaaNappi(controlPanel, change, new ChangeNapinKuuntelija(listCombo, panel, statusLabel));
+        lisaaNappi(valintarivi, vaihda, new ChangeNapinKuuntelija(lista, pohja, statusLabel));
 
-        controlPanel.add(panel);
+        valintarivi.add(pohja);
 
         mainFrame.setVisible(true);
     }
