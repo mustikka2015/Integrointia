@@ -11,26 +11,24 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 /**
- * Tämä luokka toteuttaa "Show solution"-näppäimen kuuntelun.
+ * Luokka toteuttaa "Show solution"-näppäimen kuuntelun.
  *
  * @author Iisa
  */
-public class ShowSolutionKuuntelija implements ActionListener {
+public class ShowSolutionNapinKuuntelija implements ActionListener {
 
     private JTextField vastaus;
     private ArrayList<String> funktioJaVastaus;
     private String komento;
 
     /**
-     * Tämä on konstruktori, jossa asetetaan private-muuttujat headerLabel,
-     * funktiojaVastaus ja skuuntelija ympäristöstä, josta
-     * ValinnanNewAssignmentKuuntelijaa kutsutaan.
+     * Konstruktori ShowSolutionNapinKuuntelijalle.
      *
      * @param vastaus JTextField
      * @param funktioJaVastaus ArrayList
      * @param komento String
      */
-    public ShowSolutionKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
+    public ShowSolutionNapinKuuntelija(JTextField vastaus, ArrayList<String> funktioJaVastaus, String komento) {
         this.vastaus = vastaus;
         this.funktioJaVastaus = funktioJaVastaus;
         this.komento = komento;
@@ -41,6 +39,8 @@ public class ShowSolutionKuuntelija implements ActionListener {
      * arponut komennon "Differentiate", poimitaan ArrayList:stä
      * funktioJaVastaus arvotun funktion derivoitu muoto. Mikäli kone on arponut
      * komennon "Integrate", poimitaan integroitu muoto.
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e) {

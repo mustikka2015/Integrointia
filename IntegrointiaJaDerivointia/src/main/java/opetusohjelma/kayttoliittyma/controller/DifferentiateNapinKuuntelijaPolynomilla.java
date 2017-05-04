@@ -15,7 +15,7 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  *
  * @author Iisa
  */
-public class DifferentiateKuuntelijaPolynomille implements ActionListener {
+public class DifferentiateNapinKuuntelijaPolynomilla implements ActionListener {
 
     private JTextField eksponentti;
     private JTextField kerroin;
@@ -23,14 +23,14 @@ public class DifferentiateKuuntelijaPolynomille implements ActionListener {
     private Polynomi polynomi;
 
     /**
-     * Konstrunktori DifferentiateKuuntelijaPolynomille.
+     * Konstrunktori DifferentiateNapiKuuntelijaPolynomilla-luokalle.
      *
      * @param polynomi Polynomi
      * @param vastaus JTextField
      * @param eksponentti JTextField
      * @param kerroin JTextField
      */
-    public DifferentiateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
+    public DifferentiateNapinKuuntelijaPolynomilla(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
         this.polynomi = polynomi;
@@ -41,25 +41,23 @@ public class DifferentiateKuuntelijaPolynomille implements ActionListener {
      * Polynomin kerroin ja eksponentti kuunnellaan tekstikentistä, joihin ne on
      * syötetty, ja vastauskenttään syötetään derivoitu polynomi
      * String-muodossa.
+     *
+     * @param ae
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-        String eksp = "";
-        eksp = eksponentti.getText();
-        String ker = "";
-        ker = kerroin.getText();
-        int ekspInt = 1;
-        double kerDouble = 1.0;
+        String eksp = eksponentti.getText();
+        String ker = kerroin.getText();
         try {
-            ekspInt = Integer.parseInt(eksp);
-            polynomi.setEksponentti(ekspInt);
+            int eksponentti1 = Integer.parseInt(eksp);
+            polynomi.setEksponentti(eksponentti1);
             try {
-                kerDouble = Double.parseDouble(ker);
-                polynomi.setKerroin(kerDouble);
+                double kerroin1 = Double.parseDouble(ker);
+                polynomi.setKerroin(kerroin1);
                 Polynomi derivoitava = new Polynomi(this.polynomi.getEksponentti(), this.polynomi.getKerroin());
                 derivoitava.derivoi();
-                String eka = derivoitava.toString();
-                this.vastaus.setText(eka);
+                String tuloste = derivoitava.toString();
+                this.vastaus.setText(tuloste);
 
             } catch (Exception e) {
                 this.vastaus.setText("Coefficient is a decimal number. (For example 3.5)");

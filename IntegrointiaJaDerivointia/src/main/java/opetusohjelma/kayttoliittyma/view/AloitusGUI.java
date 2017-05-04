@@ -10,11 +10,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import java.awt.CardLayout;
-import opetusohjelma.kayttoliittyma.controller.ChangeKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.CosKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.PolynomKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.StartKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.SinKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.ChangeNapinKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.CosNapinKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.PolynomNapinKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.StartNapinKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.SinNapinKuuntelija;
 
 /**
  * Käyttöliittymän aloitussivusto.
@@ -40,8 +40,6 @@ public class AloitusGUI {
         mainFrame = new JFrame("Integration and differentiation");
         mainFrame.setSize(400, 500);
         mainFrame.setLayout(new GridLayout(3, 1));
-//        Container c = mainFrame.getContentPane();
-//        c.setBackground(Color.blue);
 
         headerLabel = new JLabel("", JLabel.CENTER);
         statusLabel = new JLabel("", JLabel.CENTER);
@@ -79,18 +77,18 @@ public class AloitusGUI {
 
         JPanel buttonPanel = new JPanel(new FlowLayout());
 
-        lisaaNappi(buttonPanel, new JButton("Polynom"), new PolynomKuuntelija());
+        lisaaNappi(buttonPanel, new JButton("Polynom"), new PolynomNapinKuuntelija());
 
-        lisaaNappi(buttonPanel, new JButton("Sine"), new SinKuuntelija());
+        lisaaNappi(buttonPanel, new JButton("Sine"), new SinNapinKuuntelija());
 
-        lisaaNappi(buttonPanel, new JButton("Cosine"), new CosKuuntelija());
+        lisaaNappi(buttonPanel, new JButton("Cosine"), new CosNapinKuuntelija());
 
         JPanel selectPanel = new JPanel(new FlowLayout());
 
         JButton start = new JButton("Start!");
         start.setBackground(Color.GREEN);
 
-        lisaaNappi(selectPanel, start, new StartKuuntelija());
+        lisaaNappi(selectPanel, start, new StartNapinKuuntelija());
 
         panel.add("You choose", buttonPanel);
         panel.add("Computer chooses", selectPanel);
@@ -108,7 +106,7 @@ public class AloitusGUI {
 
         JButton change = new JButton("Change");
 
-        lisaaNappi(controlPanel, change, new ChangeKuuntelija(listCombo, panel, statusLabel));
+        lisaaNappi(controlPanel, change, new ChangeNapinKuuntelija(listCombo, panel, statusLabel));
 
         controlPanel.add(panel);
 

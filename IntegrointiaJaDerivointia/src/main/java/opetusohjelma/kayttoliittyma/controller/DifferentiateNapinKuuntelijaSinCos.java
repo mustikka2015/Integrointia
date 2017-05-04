@@ -11,12 +11,12 @@ import javax.swing.JTextField;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
- * Tämän avulla kuunnellaan "Differentiate"-näppäintä SinGUI- ja
+ * Luokan avulla kuunnellaan "Differentiate"-näppäintä SinGUI- ja
  * CosGUI-näkymissä.
  *
  * @author Iisa
  */
-public class DifferentiateKuuntelijaSinCos implements ActionListener {
+public class DifferentiateNapinKuuntelijaSinCos implements ActionListener {
 
     private JTextField kerroin;
     private JTextField sisafunktionKerroin;
@@ -24,14 +24,14 @@ public class DifferentiateKuuntelijaSinCos implements ActionListener {
     private SinCos sincos;
 
     /**
-     * Konstrunktori DifferentiateKuuntelijaSinCos.
+     * Konstrunktori DifferentiateNapinKuuntelijaSinCos-luokalle.
      *
      * @param sincos SinCos
      * @param vastaus JTextField
      * @param kerroin JTextField
      * @param sisafunktionKerroin JTextField
      */
-    public DifferentiateKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
+    public DifferentiateNapinKuuntelijaSinCos(SinCos sincos, JTextField vastaus, JTextField kerroin, JTextField sisafunktionKerroin) {
         this.sincos = sincos;
         this.vastaus = vastaus;
         this.kerroin = kerroin;
@@ -42,22 +42,19 @@ public class DifferentiateKuuntelijaSinCos implements ActionListener {
      * Funktion kerroin ja sisäfunktion kerroin kuunnellaan tekstikentistä,
      * joihin ne on syötetty, ja vastauskenttään syötetään derivoitu funktio
      * String-muodossa.
+     *
+     * @param ae
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-        String ker = "";
-        ker = kerroin.getText();
-        String sisker = "";
-        sisker = sisafunktionKerroin.getText();
-
-        double kerDouble = 1.0;
-        double kerDoubleSisa = 1.0;
+        String ker = kerroin.getText();
+        String sisker = sisafunktionKerroin.getText();
 
         try {
-            kerDouble = Double.parseDouble(ker);
-            this.sincos.setKerroin(kerDouble);
-            kerDoubleSisa = Double.parseDouble(sisker);
-            this.sincos.setSisafunktionKerroin(kerDoubleSisa);
+            double kerroin1 = Double.parseDouble(ker);
+            this.sincos.setKerroin(kerroin1);
+            double sisafunktionKerroin1 = Double.parseDouble(sisker);
+            this.sincos.setSisafunktionKerroin(sisafunktionKerroin1);
             SinCos derivoitava = new SinCos(this.sincos.getKerroin(), this.sincos.getSisafunktionKerroin(), this.sincos.getFunktio());
             derivoitava.derivoi();
             this.vastaus.setText(derivoitava.toString());

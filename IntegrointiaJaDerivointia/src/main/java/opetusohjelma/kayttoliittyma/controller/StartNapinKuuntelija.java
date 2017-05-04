@@ -5,28 +5,30 @@
  */
 package opetusohjelma.kayttoliittyma.controller;
 
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
 import opetusohjelma.kayttoliittyma.view.KoneValitseeGUI;
 
 /**
- * Tämän luokan avulla kuunnellaan "Start"-näppäintä.
+ * Tämän luokan avulla kuunnellaan "Start!"-näppäintä.
  */
-public class StartKuuntelija implements ActionListener {
+public class StartNapinKuuntelija implements ActionListener {
 
     /**
-     * Konstruktori StartKuuntelijalle.
+     * Konstruktori StartNapinKuuntelijalle.
      */
-    public StartKuuntelija() {
+    public StartNapinKuuntelija() {
 
     }
 
     /**
-     * Tämän metodin avulla kuunnellaan select-näppäintä. Kuuntelun tuloksena
+     * Tämän metodin avulla kuunnellaan Start!-näppäintä. Kuuntelun tuloksena
      * tietokone näyttää uuden käyttöliittymänäkymän, johon tietokone on arponut
-     * funktion ja pyytää integroimaan tai derivoimaan funktion.
+     * funktion ja pyytää integroimaan tai derivoimaan funktion. Näkymässä voi
+     * arpoa uusia tehtävänantoja.
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e) {

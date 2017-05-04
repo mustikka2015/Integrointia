@@ -11,8 +11,8 @@ import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
- * Luokka tarjoaa funktion, eksponentin ja kertoimen arpomiseen tarvittavia
- * metodeja.
+ * Luokka tarjoaa funktion, eksponentin, kertoimen ja koko tehtävänannon
+ * arpomiseen tarvittavia metodeja.
  *
  * @author Iisa
  */
@@ -21,7 +21,7 @@ public class Arpoja {
     private Random arpoja;
 
     /**
-     * Metodi alustaa Random-tyyppisen Arpoja-olion. 
+     * Metodi alustaa Random-tyyppisen Arpoja-olion.
      */
     public Arpoja() {
         this.arpoja = new Random();
@@ -54,10 +54,10 @@ public class Arpoja {
      */
     public int arvoPolynominEksponentti() {
 
-        int arvottu = this.arpoja.nextInt(21);
-        arvottu = arvottu - 10;
+        int eksponentti = this.arpoja.nextInt(21);
+        eksponentti = eksponentti - 10;
 
-        return arvottu;
+        return eksponentti;
     }
 
     /**
@@ -67,16 +67,16 @@ public class Arpoja {
      * @return arvottu kerroin double-muodossa.
      */
     public double arvoKerroin() {
-        
-        int arvottu1 = this.arpoja.nextInt(201);
-        
-        while (arvottu1 == 100) {
-            arvottu1 = this.arpoja.nextInt(201);
+
+        int arvottu = this.arpoja.nextInt(201);
+
+        while (arvottu == 100) {
+            arvottu = this.arpoja.nextInt(201);
         }
 
-        double arvottu = (double) (this.arpoja.nextInt(201) - 100) / 10;
+        double kerroin = (double) (this.arpoja.nextInt(201) - 100) / 10;
 
-        return arvottu;
+        return kerroin;
     }
 
     /**
@@ -84,9 +84,9 @@ public class Arpoja {
      *
      * @return String: "Integrate" tai "Differentiate".
      */
-    public String arvoToiminto() {
+    public String arvoToiminta() {
 
-        ArrayList<String> vaihtoehdot = new ArrayList<String>();
+        ArrayList<String> vaihtoehdot = new ArrayList<>();
 
         vaihtoehdot.add("Integrate");
         vaihtoehdot.add("Differentiate");
@@ -97,36 +97,36 @@ public class Arpoja {
 
         return toiminta;
     }
-    
+
     /**
      * Metodi kertoo tehtävänannon String-muodossa, kun sille on syötetty jo
-     * aikaisemmin arvotut toiminto ja funktio.
+     * aikaisemmin arvotut toiminta ja funktio.
      *
-     * @param toiminto String-muodossa
+     * @param toiminta String-muodossa
      * @param funktio String-muodossa
      *
      * @return String: tehtävänanto
      */
-    public String arvoTehtava(String toiminto, String funktio) {
+    public String tulostaTehtava(String toiminta, String funktio) {
 
-        String tehtava = toiminto;
+        String tehtava = toiminta;
         tehtava = tehtava + " function y = " + funktio;
         tehtava = tehtava + ". Click to check.";
         return tehtava;
     }
-    
-     /**
-     * Metodi arpoo funktion. Se palauttaa ArrayList-olion, joka sisältää itse
-     * funktion String-muodossa, funktion derivoituna String-muodossa sekä
-     * funktion integroituna String-muodossa.
-     * 
+
+    /**
+     * Metodi palauttaa ArrayList-olion, joka sisältää itse funktion
+     * String-muodossa, funktion derivoituna String-muodossa sekä funktion
+     * integroituna String-muodossa.
+     *
      * @param funktio String -muodossa
-     * 
-     * @return ArrayList:n, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin String-muodossa.
+     *
+     * @return ArrayList:n, joka sisältää sekä funktion että sen derivaatan ja
+     * integraalin String-muodossa.
      */
     public ArrayList<String> arvoFunktioJaVastaukset(String funktio) {
-        ArrayList<String> funktioJaVast = new ArrayList<String>();
+        ArrayList<String> funktioJaVast = new ArrayList<>();
         if (funktio.equals("sin") || funktio.equals("cos")) {
             funktioJaVast = sinCosFunktionArpominen(funktioJaVast, funktio);
         } else {
@@ -134,21 +134,21 @@ public class Arpoja {
         }
         return funktioJaVast;
     }
-    
+
     /**
      * Metodi arpoo polynomifunktion kertoimen ja eksponentin. Se palauttaa
-     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
-     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
+     * ArrayList-olion, joka sisältää itse funktion, funktion derivoituna, sekä
+     * funktion integroituna String-muodossa.
      *
      * @param funktioJaVast ArrayList -muodossa
      *
-     * @return ArrayList, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin.
+     * @return ArrayList, joka sisältää sekä funktion että sen derivaatan ja
+     * integraalin.
      */
     public ArrayList<String> polynomifunktionArpominen(ArrayList<String> funktioJaVast) {
         double kerroin = arvoKerroin();
-        int eks = arvoPolynominEksponentti();
-        Polynomi polynomi = new Polynomi(eks, kerroin);
+        int eksponentti = arvoPolynominEksponentti();
+        Polynomi polynomi = new Polynomi(eksponentti, kerroin);
         String funktio = polynomi.toString();
         funktioJaVast.add(funktio);
         Polynomi derivoitu = new Polynomi(polynomi.getEksponentti(), polynomi.getKerroin());
@@ -159,22 +159,22 @@ public class Arpoja {
         funktioJaVast.add(integroitu.toString());
         return funktioJaVast;
     }
-    
+
     /**
      * Metodi arpoo sini- tai kosinifunktion kertoimet. Se palauttaa
-     * ArrayList-olion, joka sisältää itse funktion String-muodossa, funktion
-     * derivoituna String-muodossa sekä funktion integroituna String-muodossa.
+     * ArrayList-olion, joka sisältää itse funktion, funktion derivoituna, sekä
+     * funktion integroituna String-muodossa.
      *
      * @param funktioJaVast ArrayList-muodossa
      * @param funktio String-muodossa
      *
-     * @return ArrayList, joka sisältää sekä funktion että sen
-     * derivaatan ja integraalin String-muodossa.
+     * @return ArrayList, joka sisältää sekä funktion että sen derivaatan ja
+     * integraalin String-muodossa.
      */
     public ArrayList<String> sinCosFunktionArpominen(ArrayList<String> funktioJaVast, String funktio) {
-        double kerroin1 = arvoKerroin();
-        double kerroin2 = arvoKerroin();
-        SinCos sincos = new SinCos(kerroin1, kerroin2, funktio);
+        double kerroin = arvoKerroin();
+        double sisafunktionKerroin = arvoKerroin();
+        SinCos sincos = new SinCos(kerroin, sisafunktionKerroin, funktio);
         funktio = sincos.toString();
         funktioJaVast.add(funktio);
         SinCos derivoitu = new SinCos(sincos.getKerroin(), sincos.getSisafunktionKerroin(), sincos.getFunktio());

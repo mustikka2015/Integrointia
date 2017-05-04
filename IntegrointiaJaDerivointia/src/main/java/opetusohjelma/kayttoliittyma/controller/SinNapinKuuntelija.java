@@ -15,13 +15,16 @@ import opetusohjelma.kayttoliittyma.view.SinGUI;
  *
  * @author Iisa
  */
-public class SinKuuntelija implements ActionListener {
-    
-     /**
+public class SinNapinKuuntelija implements ActionListener {
+
+    /**
      * Tämän metodin avulla kuunnellaan Sine-näppäintä. Kuuntelun tuloksena
-     * tietokone näyttää uuden käyttöliittymänäkymän, johon opiskelija syöttää 
-     * funktion kertoimen ja sen sisäfunktion kertoimen ja valitsee, integroidaanko vai 
-     * derivoidaanko funktio.
+     * tietokone näyttää uuden käyttöliittymänäkymän, johon opiskelija syöttää
+     * funktion kertoimen ja sen sisäfunktion kertoimen ja valitsee,
+     * integroidaanko vai derivoidaanko funktio. Hän voi myös piirtää funktion
+     * ratkaisuineen.
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e) {

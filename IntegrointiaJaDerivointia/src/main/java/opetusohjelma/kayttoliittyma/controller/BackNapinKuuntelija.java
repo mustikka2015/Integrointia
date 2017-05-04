@@ -7,11 +7,10 @@ package opetusohjelma.kayttoliittyma.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static java.awt.event.WindowEvent.WINDOW_CLOSING;
 import javax.swing.JFrame;
 
 /**
- * Tämän avulla kuunnellaan Back-näppäintä.
+ * Luokan avulla kuunnellaan Back-näppäintä.
  *
  * @author Iisa
  */
@@ -30,6 +29,8 @@ public class BackNapinKuuntelija implements ActionListener {
 
     /**
      * Painamalla Back-näppäintä kyseessä oleva ikkuna suljetaan.
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e) {

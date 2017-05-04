@@ -9,10 +9,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.DrawKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaSinCos;
-import opetusohjelma.kayttoliittyma.controller.SinCosShowTheFunctionKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.DifferentiateNapinKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.DrawNapinKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.IntegrateNapinKuuntelijaSinCos;
+import opetusohjelma.kayttoliittyma.controller.ShowTheFunctionNapinKuuntelijaSinCosilla;
 import opetusohjelma.laskutoimituksia.SinCos;
 
 /**
@@ -112,7 +112,7 @@ public class SinGUI implements Runnable {
         JPanel showPanel = new JPanel();
         mainFrame.add(showPanel);
         JButton nappi1 = new JButton("Show the function");
-        SinCosShowTheFunctionKuuntelija kuulija = new SinCosShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, sin);
+        ShowTheFunctionNapinKuuntelijaSinCosilla kuulija = new ShowTheFunctionNapinKuuntelijaSinCosilla(funktio, vastaus1, vastaus2, sin);
         nappi1.addActionListener(kuulija);
         showPanel.add(nappi1);
     }
@@ -136,12 +136,12 @@ public class SinGUI implements Runnable {
         JPanel intderPanel = new JPanel();
         JButton integButton = new JButton("Integrate");
         integButton.setBackground(Color.cyan);
-        IntegrateKuuntelijaSinCos intKuulija = new IntegrateKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
+        IntegrateNapinKuuntelijaSinCos intKuulija = new IntegrateNapinKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
         intderPanel.add(integButton);
         JButton diffButton = new JButton("Differentiate");
         diffButton.setBackground(Color.cyan);
-        DifferentiateKuuntelijaSinCos diffKuulija = new DifferentiateKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
+        DifferentiateNapinKuuntelijaSinCos diffKuulija = new DifferentiateNapinKuuntelijaSinCos(sin, vastaus, vastaus1, vastaus2);
         diffButton.addActionListener(diffKuulija);
         intderPanel.add(diffButton);
         mainFrame.add(intderPanel);
@@ -179,7 +179,7 @@ public class SinGUI implements Runnable {
         back.addActionListener(kuulija);
         drawPanel.add(back);
         JButton draw = new JButton("Draw the solutions");
-        DrawKuuntelijaSinCos piirto = new DrawKuuntelijaSinCos(this.sin, this.vastaus, this.vastaus1, this.vastaus2);
+        DrawNapinKuuntelijaSinCos piirto = new DrawNapinKuuntelijaSinCos(this.sin, this.vastaus, this.vastaus1, this.vastaus2);
         draw.addActionListener(piirto);
         drawPanel.add(draw);
     }

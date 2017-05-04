@@ -16,7 +16,7 @@ import opetusohjelma.laskutoimituksia.SinCos;
  *
  * @author Iisa
  */
-public class SinCosShowTheFunctionKuuntelija implements ActionListener {
+public class ShowTheFunctionNapinKuuntelijaSinCosilla implements ActionListener {
 
     private JTextField funktiokentta;
     private JTextField kerroin;
@@ -31,7 +31,7 @@ public class SinCosShowTheFunctionKuuntelija implements ActionListener {
      * @param sisafunktionKerroin JTextField
      * @param sincos SinCos
      */
-    public SinCosShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField kerroin, JTextField sisafunktionKerroin, SinCos sincos) {
+    public ShowTheFunctionNapinKuuntelijaSinCosilla(JTextField funktiokentta, JTextField kerroin, JTextField sisafunktionKerroin, SinCos sincos) {
         this.funktiokentta = funktiokentta;
         this.kerroin = kerroin;
         this.sisafunktionKerroin = sisafunktionKerroin;
@@ -42,23 +42,20 @@ public class SinCosShowTheFunctionKuuntelija implements ActionListener {
      * Funktion kerroin ja sisäfunktion kerroin kuunnellaan tekstikentistä,
      * joihin ne on syötetty, ja funktiokenttään syötetään funktio
      * String-muodossa.
+     *
+     * @param ae
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        String ker = "";
-        ker = kerroin.getText();
-        String sisker = "";
-        sisker = sisafunktionKerroin.getText();
-
-        double kerDouble = 1.0;
-        double kerDoubleSisa = 1.0;
+        String ker = kerroin.getText();
+        String sisker = sisafunktionKerroin.getText();
 
         try {
-            kerDouble = Double.parseDouble(ker);
-            this.sincos.setKerroin(kerDouble);
-            kerDoubleSisa = Double.parseDouble(sisker);
-            this.sincos.setSisafunktionKerroin(kerDoubleSisa);
+            double kerroin1 = Double.parseDouble(ker);
+            this.sincos.setKerroin(kerroin1);
+            double sisafunktionKerroin1 = Double.parseDouble(sisker);
+            this.sincos.setSisafunktionKerroin(sisafunktionKerroin1);
             String eka = sincos.toString();
             this.funktiokentta.setText(eka);
 

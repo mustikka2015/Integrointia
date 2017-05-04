@@ -10,10 +10,10 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.DifferentiateKuuntelijaPolynomille;
-import opetusohjelma.kayttoliittyma.controller.DrawKuuntelijaPolynomille;
-import opetusohjelma.kayttoliittyma.controller.IntegrateKuuntelijaPolynomille;
-import opetusohjelma.kayttoliittyma.controller.PolynomShowTheFunctionKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.DifferentiateNapinKuuntelijaPolynomilla;
+import opetusohjelma.kayttoliittyma.controller.DrawNapinKuuntelijaPolynomilla;
+import opetusohjelma.kayttoliittyma.controller.IntegrateNapinKuuntelijaPolynomilla;
+import opetusohjelma.kayttoliittyma.controller.ShowTheFunctionNapinKuuntelijaPolynomilla;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
@@ -117,7 +117,7 @@ public class PolynomGUI implements Runnable {
         JPanel showPanel = new JPanel();
         mainFrame.add(showPanel);
         JButton nappi1 = new JButton("Show the function");
-        PolynomShowTheFunctionKuuntelija kuulija = new PolynomShowTheFunctionKuuntelija(funktio, vastaus1, vastaus2, polynomi);
+        ShowTheFunctionNapinKuuntelijaPolynomilla kuulija = new ShowTheFunctionNapinKuuntelijaPolynomilla(funktio, vastaus1, vastaus2, polynomi);
         nappi1.addActionListener(kuulija);
         showPanel.add(nappi1);
     }
@@ -141,12 +141,12 @@ public class PolynomGUI implements Runnable {
         JPanel intderPanel = new JPanel();
         JButton integButton = new JButton("Integrate");
         integButton.setBackground(Color.cyan);
-        IntegrateKuuntelijaPolynomille intKuulija = new IntegrateKuuntelijaPolynomille(polynomi, vastaus, vastaus1, vastaus2);
+        IntegrateNapinKuuntelijaPolynomilla intKuulija = new IntegrateNapinKuuntelijaPolynomilla(polynomi, vastaus, vastaus1, vastaus2);
         integButton.addActionListener(intKuulija);
         intderPanel.add(integButton);
         JButton diffButton = new JButton("Differentiate");
         diffButton.setBackground(Color.cyan);
-        DifferentiateKuuntelijaPolynomille diffKuulija = new DifferentiateKuuntelijaPolynomille(polynomi, vastaus, vastaus1, vastaus2);
+        DifferentiateNapinKuuntelijaPolynomilla diffKuulija = new DifferentiateNapinKuuntelijaPolynomilla(polynomi, vastaus, vastaus1, vastaus2);
         diffButton.addActionListener(diffKuulija);
         intderPanel.add(integButton);
         intderPanel.add(diffButton);
@@ -185,7 +185,7 @@ public class PolynomGUI implements Runnable {
         back.addActionListener(kuulija);
         drawPanel.add(back);
         JButton draw = new JButton("Draw the solutions");
-        DrawKuuntelijaPolynomille dkuulija = new DrawKuuntelijaPolynomille(this.polynomi, this.vastaus1, this.vastaus2, this.vastaus);
+        DrawNapinKuuntelijaPolynomilla dkuulija = new DrawNapinKuuntelijaPolynomilla(this.polynomi, this.vastaus1, this.vastaus2, this.vastaus);
         draw.addActionListener(dkuulija);
         drawPanel.add(draw);
     }

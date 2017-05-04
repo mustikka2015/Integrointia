@@ -48,7 +48,7 @@ public class ArpojaTest {
     @Test
     public void toimintoArvottuOikeinTest() {
         Arpoja arpoja = new Arpoja();
-        String toiminto = arpoja.arvoToiminto();
+        String toiminto = arpoja.arvoToiminta();
         assertTrue(toiminto.equals("Integrate") || toiminto.equals("Differentiate"));
     }
 
@@ -69,7 +69,7 @@ public class ArpojaTest {
     @Test
     public void tehtavaArvottuOikeinTest() {
         Arpoja arpoja = new Arpoja();
-        String tuloste = arpoja.arvoTehtava("Integrate", "2.4 * sin(5.7x)");
+        String tuloste = arpoja.tulostaTehtava("Integrate", "2.4 * sin(5.7x)");
         assertEquals("Integrate function y = 2.4 * sin(5.7x). Click to check.", tuloste);
     }
 

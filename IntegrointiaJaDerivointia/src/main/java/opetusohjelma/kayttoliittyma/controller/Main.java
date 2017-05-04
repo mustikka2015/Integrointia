@@ -5,10 +5,7 @@
  */
 package opetusohjelma.kayttoliittyma.controller;
 
-import javax.swing.SwingUtilities;
 import opetusohjelma.kayttoliittyma.view.AloitusGUI;
-import opetusohjelma.laskutoimituksia.Polynomi;
-import opetusohjelma.laskutoimituksia.SinCos;
 
 public class Main {
 

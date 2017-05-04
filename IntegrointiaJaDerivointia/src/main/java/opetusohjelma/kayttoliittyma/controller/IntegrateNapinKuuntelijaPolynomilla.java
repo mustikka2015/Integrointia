@@ -7,58 +7,53 @@ package opetusohjelma.kayttoliittyma.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JTextField;
-import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
- * Tämän avulla kuunnellaan "Integrate"-nappia PolynomGUI-näkymässä.
+ * Luokan avulla kuunnellaan "Integrate"-nappia PolynomGUI-näkymässä.
  *
  * @author Iisa
  */
-public class IntegrateKuuntelijaPolynomille implements ActionListener {
+public class IntegrateNapinKuuntelijaPolynomilla implements ActionListener {
 
     private JTextField eksponentti;
     private JTextField kerroin;
     private JTextField vastaus;
     private Polynomi polynomi;
-    
+
     /**
-     * Konstrunktori IntegrateKuuntelijaPolynomille.
+     * Konstrunktori IntegrateNapinKuuntelijaPolynomille.
      *
      * @param polynomi Polynomi
      * @param vastaus JTextField
      * @param eksponentti JTextField
      * @param kerroin JTextField
      */
-    public IntegrateKuuntelijaPolynomille(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
+    public IntegrateNapinKuuntelijaPolynomilla(Polynomi polynomi, JTextField vastaus, JTextField eksponentti, JTextField kerroin) {
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
         this.polynomi = polynomi;
         this.vastaus = vastaus;
     }
-    
-     /**
+
+    /**
      * Polynomin kerroin ja eksponentti kuunnellaan tekstikentistä, joihin ne on
      * syötetty, ja vastauskenttään syötetään integroitu polynomi
      * String-muodossa.
+     *
+     * @param ae
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
-
-        String eksp = "";
-        eksp = eksponentti.getText();
-        String ker = "";
-        ker = kerroin.getText();
-        int ekspInt = 1;
-        double kerDouble = 1.0;
+        String eksp = eksponentti.getText();
+        String ker = kerroin.getText();
         try {
-            ekspInt = Integer.parseInt(eksp);
-            polynomi.setEksponentti(ekspInt);
+            int eksponentti1 = Integer.parseInt(eksp);
+            polynomi.setEksponentti(eksponentti1);
             try {
-                kerDouble = Double.parseDouble(ker);
-                polynomi.setKerroin(kerDouble);
+                double kerroin1 = Double.parseDouble(ker);
+                polynomi.setKerroin(kerroin1);
                 Polynomi integroitava = new Polynomi(this.polynomi.getEksponentti(), this.polynomi.getKerroin());
                 integroitava.integroi();
                 String eka = integroitava.toString();

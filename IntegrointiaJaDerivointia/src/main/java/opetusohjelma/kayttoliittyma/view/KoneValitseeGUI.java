@@ -13,8 +13,8 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import opetusohjelma.kayttoliittyma.controller.Arpoja;
 import opetusohjelma.kayttoliittyma.controller.BackNapinKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.NewAssignmentKuuntelija;
-import opetusohjelma.kayttoliittyma.controller.ShowSolutionKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.NewAssignmentNapinKuuntelija;
+import opetusohjelma.kayttoliittyma.controller.ShowSolutionNapinKuuntelija;
 import opetusohjelma.laskutoimituksia.Polynomi;
 import opetusohjelma.laskutoimituksia.SinCos;
 
@@ -29,7 +29,7 @@ public class KoneValitseeGUI implements Runnable {
     private JFrame mainFrame;
     private JLabel headerLabel;
     private ArrayList<String> funktioJaVastaus;
-    private ShowSolutionKuuntelija vastauskuulija;
+    private ShowSolutionNapinKuuntelija vastauskuulija;
 
     /**
      * Konstruktori KoneValitseeGUI:lle.
@@ -63,7 +63,7 @@ public class KoneValitseeGUI implements Runnable {
 
         Arpoja arpoja = new Arpoja();
 
-        String toiminto = arpoja.arvoToiminto();
+        String toiminto = arpoja.arvoToiminta();
 
         this.funktioJaVastaus = arpoja.arvoFunktioJaVastaukset(arpoja.arvoFunktio());
 
@@ -97,7 +97,7 @@ public class KoneValitseeGUI implements Runnable {
         headerLabel = new JLabel("", JLabel.CENTER);
         mainFrame.add(headerLabel);
         String funktio = funktioJaVastaus.get(0);
-        String tehtava = arpoja.arvoTehtava(toiminto, funktio);
+        String tehtava = arpoja.tulostaTehtava(toiminto, funktio);
         headerLabel.setText(tehtava);
     }
 
@@ -112,7 +112,7 @@ public class KoneValitseeGUI implements Runnable {
         controlPanel.setLayout(new FlowLayout());
         mainFrame.add(controlPanel);
         JButton vastausnappi = new JButton("Show the solution");
-        this.vastauskuulija = new ShowSolutionKuuntelija(vastaus, funktioJaVastaus, komento);
+        this.vastauskuulija = new ShowSolutionNapinKuuntelija(vastaus, funktioJaVastaus, komento);
         vastausnappi.addActionListener(vastauskuulija);
         controlPanel.add(vastausnappi);
     }
@@ -162,7 +162,7 @@ public class KoneValitseeGUI implements Runnable {
         newbutton.setBackground(Color.CYAN);
         newbutton.add(new JLabel("New", JLabel.CENTER));
         newbutton.add(new JLabel("assignment", JLabel.CENTER));
-        NewAssignmentKuuntelija kuuntelija = new NewAssignmentKuuntelija(this.headerLabel, this.funktioJaVastaus, this.vastauskuulija);
+        NewAssignmentNapinKuuntelija kuuntelija = new NewAssignmentNapinKuuntelija(this.headerLabel, this.funktioJaVastaus, this.vastauskuulija);
         newbutton.addActionListener(kuuntelija);
         drawPanel.add(newbutton);
     }

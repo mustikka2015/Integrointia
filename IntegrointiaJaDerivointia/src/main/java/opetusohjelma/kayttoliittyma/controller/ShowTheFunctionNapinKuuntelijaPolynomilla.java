@@ -7,11 +7,7 @@ package opetusohjelma.kayttoliittyma.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
-import opetusohjelma.laskutoimituksia.Funktio;
 import opetusohjelma.laskutoimituksia.Polynomi;
 
 /**
@@ -20,7 +16,7 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  *
  * @author Iisa
  */
-public class PolynomShowTheFunctionKuuntelija implements ActionListener {
+public class ShowTheFunctionNapinKuuntelijaPolynomilla implements ActionListener {
 
     private JTextField funktiokentta;
     private JTextField eksponentti;
@@ -28,14 +24,14 @@ public class PolynomShowTheFunctionKuuntelija implements ActionListener {
     private Polynomi polynomi;
 
     /**
-     * Konstrunktori PolynomShowTheFunctionKuuntelijalle.
+     * Konstrunktori ShowTheFunctionNapinKuuntelijaPolynomilla-luokalle.
      *
      * @param funktiokentta JTextField
      * @param eksponentti JTextField
      * @param kerroin JTextField
      * @param polynomi Polynomi
      */
-    public PolynomShowTheFunctionKuuntelija(JTextField funktiokentta, JTextField eksponentti, JTextField kerroin, Polynomi polynomi) {
+    public ShowTheFunctionNapinKuuntelijaPolynomilla(JTextField funktiokentta, JTextField eksponentti, JTextField kerroin, Polynomi polynomi) {
         this.funktiokentta = funktiokentta;
         this.eksponentti = eksponentti;
         this.kerroin = kerroin;
@@ -45,24 +41,22 @@ public class PolynomShowTheFunctionKuuntelija implements ActionListener {
     /**
      * Polynomin kerroin ja eksponentti kuunnellaan tekstikentistä, joihin ne on
      * syötetty, ja funktiokenttään syötetään polynomi String-muodossa.
+     *
+     * @param ae
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        String eksp = "";
-        eksp = eksponentti.getText();
-        String ker = "";
-        ker = kerroin.getText();
-        int ekspInt = 1;
-        double kerDouble = 1.0;
+        String eksp = eksponentti.getText();
+        String ker = kerroin.getText();
 
         try {
-            ekspInt = Integer.parseInt(eksp);
-            polynomi.setEksponentti(ekspInt);
+            int eksponentti1 = Integer.parseInt(eksp);
+            polynomi.setEksponentti(eksponentti1);
 
             try {
-                kerDouble = Double.parseDouble(ker);
-                polynomi.setKerroin(kerDouble);
+                double kerroin1 = Double.parseDouble(ker);
+                polynomi.setKerroin(kerroin1);
                 String eka = polynomi.toString();
                 this.funktiokentta.setText(eka);
             } catch (Exception e) {
