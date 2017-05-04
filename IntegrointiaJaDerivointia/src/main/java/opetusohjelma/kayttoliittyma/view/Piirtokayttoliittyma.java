@@ -19,8 +19,8 @@ import opetusohjelma.laskutoimituksia.Funktio;
 public class Piirtokayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private PiirtoalustaPolynomille piirtoalusta1;
-    private PiirtoalustaSinCos piirtoalusta2;
+    private PolynominPiirtaja piirtoalusta1;
+    private SinCosFunktionPiirtaja piirtoalusta2;
     private Funktio funktio;
 
     /**
@@ -50,10 +50,10 @@ public class Piirtokayttoliittyma implements Runnable {
      */
     private void luoKomponentit(Container container) {
         if (this.funktio.getFunktio().equals("polynom")) {
-            piirtoalusta1 = new PiirtoalustaPolynomille(this.funktio);
+            piirtoalusta1 = new PolynominPiirtaja(this.funktio);
             container.add(piirtoalusta1);
         } else if (this.funktio.getFunktio().equals("sin") || this.funktio.getFunktio().equals("cos")) {
-            piirtoalusta2 = new PiirtoalustaSinCos(this.funktio);
+            piirtoalusta2 = new SinCosFunktionPiirtaja(this.funktio);
             container.add(piirtoalusta2);
         }
     }

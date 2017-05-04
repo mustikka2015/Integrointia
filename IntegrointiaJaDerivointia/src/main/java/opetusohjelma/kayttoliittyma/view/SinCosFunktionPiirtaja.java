@@ -16,16 +16,16 @@ import opetusohjelma.laskutoimituksia.SinCos;
  *
  * @author Iisa
  */
-public class PiirtoalustaSinCos extends JPanel {
+public class SinCosFunktionPiirtaja extends JPanel {
 
     private Funktio funktio;
 
     /**
-     * Konstruktori PiirtoalustaSinCos:lle.
+     * Konstruktori SinCosFunktionPiirtajalle.
      *
      * @param funktio Funktio
      */
-    public PiirtoalustaSinCos(Funktio funktio) {
+    public SinCosFunktionPiirtaja(Funktio funktio) {
         super.setBackground(Color.WHITE);
         this.funktio = funktio;
     }

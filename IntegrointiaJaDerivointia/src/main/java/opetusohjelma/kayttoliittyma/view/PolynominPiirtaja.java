@@ -16,16 +16,16 @@ import opetusohjelma.laskutoimituksia.Polynomi;
  *
  * @author Iisa
  */
-public class PiirtoalustaPolynomille extends JPanel {
+public class PolynominPiirtaja extends JPanel {
 
     private Funktio funktio;
 
     /**
-     * Konstruktori PiirtoalustaPolynomille.
+     * Konstruktori PolynominPiirtajalle.
      *
      * @param funktio Funktio
      */
-    public PiirtoalustaPolynomille(Funktio funktio) {
+    public PolynominPiirtaja(Funktio funktio) {
         super.setBackground(Color.WHITE);
         this.funktio = funktio;
     }
